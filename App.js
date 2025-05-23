@@ -15,14 +15,19 @@ import WelcomeScreen from './screens/WelcomeScreen';
 
 
 
+
+
+
 const Tab = createBottomTabNavigator();
 const Stack = createNativeStackNavigator();
 
 function MainTabs() {
   return (
     <Tab.Navigator
+    
       initialRouteName="Home"
       screenOptions={({ route }) => ({
+        headerShown: false,
         tabBarIcon: ({ focused, color, size }) => {
           let iconName;
           switch (route.name) {
@@ -67,6 +72,7 @@ export default function App() {
       <Stack.Navigator screenOptions={{ headerShown: false }}>
         {isAuthenticated ? (
           <Stack.Screen name="MainTabs" component={MainTabs} />
+         
         ) : (
           <>
             <Stack.Screen name="Login">
