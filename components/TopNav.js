@@ -52,6 +52,7 @@ export default function TopNavBar() {
           style={styles.cardImage}
         />
       </View>
+
     </View>
   );
 }
@@ -60,13 +61,13 @@ const styles = StyleSheet.create({
   container: {
     backgroundColor: '#E0F0FF',
     padding: 10,
-    
+
   },
   topRow: {
     flexDirection: 'row',
     alignItems: 'center',
     gap: 10,
-    marginTop:20
+    marginTop: 20
   },
   icon: {
     marginHorizontal: 4,

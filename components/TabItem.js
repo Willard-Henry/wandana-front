@@ -27,7 +27,7 @@ const styles = StyleSheet.create({
   },
   tabText: {
     fontWeight: '600',
-    color: 'violet',
+    color: '#7F55B1',
   },
   tabTextFocused: {
     color: '#7f00ff',

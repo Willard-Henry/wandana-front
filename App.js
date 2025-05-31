@@ -24,7 +24,7 @@ const Stack = createNativeStackNavigator();
 function MainTabs() {
   return (
     <Tab.Navigator
-    
+
       initialRouteName="Home"
       screenOptions={({ route }) => ({
         headerShown: false,
@@ -52,7 +52,7 @@ function MainTabs() {
           return <Ionicons name={iconName} size={size} color={color} />;
         },
         tabBarActiveTintColor: '#7f00ff',
-        tabBarInactiveTintColor: 'violet',
+        tabBarInactiveTintColor: '#7F55B1',
       })}
     >
       <Tab.Screen name="Home" component={HomeScreen} />
@@ -72,7 +72,7 @@ export default function App() {
       <Stack.Navigator screenOptions={{ headerShown: false }}>
         {isAuthenticated ? (
           <Stack.Screen name="MainTabs" component={MainTabs} />
-         
+
         ) : (
           <>
             <Stack.Screen name="Login">
@@ -80,13 +80,13 @@ export default function App() {
             </Stack.Screen>
             <Stack.Screen name="Signup" component={SignupScreen} />
             <Stack.Screen name="Welcome">
-  {props => <WelcomeScreen {...props} setIsAuthenticated={setIsAuthenticated} />}
-</Stack.Screen>
-            
+              {props => <WelcomeScreen {...props} setIsAuthenticated={setIsAuthenticated} />}
+            </Stack.Screen>
+
           </>
         )}
       </Stack.Navigator>
-      
+
     </NavigationContainer>
   );
 }
