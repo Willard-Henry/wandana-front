@@ -8,7 +8,7 @@ const PRODUCTS = [
         name: 'Floral Midi Dress',
         price: 29.99,
         rating: 4.5,
-        image: 'https://images.unsplash.com/photo-1600180758890-6d8491b47ce6',
+        image: 'https://s.alicdn.com/@sc04/kf/H86323f72edd0495d8ac47e1627b2a67en.jpg',
         tag: 'Bestseller',
     },
     {
@@ -16,7 +16,7 @@ const PRODUCTS = [
         name: 'Floral Midi Dress',
         price: 29.99,
         rating: 4.5,
-        image: 'https://images.unsplash.com/photo-1600180758890-6d8491b47ce6',
+        image: 'https://m.media-amazon.com/images/I/511TjqLpmnL._AC_UY1000_.jpg',
         tag: 'Bestseller',
     },
     {
@@ -24,7 +24,7 @@ const PRODUCTS = [
         name: 'Floral Midi Dress',
         price: 29.99,
         rating: 4.5,
-        image: 'https://images.unsplash.com/photo-1600180758890-6d8491b47ce6',
+        image: '',
         tag: 'Bestseller',
     },
     {
@@ -32,15 +32,15 @@ const PRODUCTS = [
         name: 'Floral Midi Dress',
         price: 29.99,
         rating: 4.5,
-        image: 'https://images.unsplash.com/photo-1600180758890-6d8491b47ce6',
+        image: 'https://www.alibaba.com/showroom/latest-ladies-official-dresses.jpeg',
         tag: 'Bestseller',
     },
     {
         id: '5',
-        name: 'Floral Midi Dress',
+        name: 'Official Midi Dress',
         price: 29.99,
         rating: 4.5,
-        image: 'https://images.unsplash.com/photo-1600180758890-6d8491b47ce6',
+        image: 'https://i.pinimg.com/videos/thumbnails/originals/f7/29/ca/f729ca0234eba77cccb8016ab22c47c6.0000000.jpg',
         tag: 'Bestseller',
     },
     {
@@ -237,12 +237,18 @@ const styles = StyleSheet.create({
     container: {
         flex: 1,
         paddingHorizontal: 10,
+        
+        width: '100%',
+        height:10,
+         
     },
     list: {
         paddingBottom: 100,
     },
     row: {
         justifyContent: 'space-between',
+        alignItems: 'right',
+            justifyContent: 'right',
     },
 });
 

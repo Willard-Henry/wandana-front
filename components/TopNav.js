@@ -10,7 +10,7 @@ import {
 import Icon from 'react-native-vector-icons/Ionicons';
 import TabItem from './TabItem'; // import the new component
 
-const tabs = ['All', 'Women', 'Lingerie & Sleep', 'Men', 'Shoes', 'Men', 'Bra', 'Jewelry & Acc', 'Curve', 'Home', 'Bags', 'Sports', 'Electronics'];
+const tabs = ['All', 'Women',  'Men', 'Curve', 'Home', 'Kids', 'Beauty'];
 
 export default function TopNavBar() {
   const [activeTab, setActiveTab] = useState(0);
@@ -23,7 +23,7 @@ export default function TopNavBar() {
         <Icon name="calendar-outline" size={24} style={styles.icon} />
         <View style={styles.searchBar}>
           <Icon name="search-outline" size={20} />
-          <TextInput placeholder="Shorts" style={styles.input} />
+          <TextInput placeholder="Categories" style={styles.input} />
           <Icon name="camera-outline" size={20} />
         </View>
         <Icon name="heart-outline" size={24} style={styles.icon} />
@@ -41,17 +41,7 @@ export default function TopNavBar() {
         ))}
       </ScrollView>
 
-      {/* Banner */}
-      <View style={styles.bannerWrapper}>
-        <Image
-          source={{ uri: 'https://example.com/banner.jpg' }}
-          style={styles.banner}
-        />
-        <Image
-          source={{ uri: 'https://example.com/card.jpg' }}
-          style={styles.cardImage}
-        />
-      </View>
+      
 
     </View>
   );
@@ -67,7 +57,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     gap: 10,
-    marginTop: 20
+    marginTop: 40
   },
   icon: {
     marginHorizontal: 4,
@@ -88,22 +78,7 @@ const styles = StyleSheet.create({
   tabContainer: {
     marginTop: 10,
   },
-  bannerWrapper: {
-    marginTop: 10,
-    position: 'relative',
-  },
-  banner: {
-    width: '100%',
-    height: 180,
-    borderRadius: 10,
-  },
-  cardImage: {
-    width: 100,
-    height: 130,
-    position: 'absolute',
-    top: 20,
-    right: 20,
-    transform: [{ rotate: '-5deg' }],
-    borderRadius: 8,
-  },
+  
+  
+  
 });
