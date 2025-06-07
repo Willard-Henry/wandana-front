@@ -12,8 +12,8 @@ import MeScreen from './screens/MeScreen';
 import LoginScreen from './screens/LoginScreen';
 import SignupScreen from './screens/SignupScreen';
 import WelcomeScreen from './screens/WelcomeScreen';
-
-
+import WishlistScreen from './screens/WishlistScreen';
+import NotificationScreen from './screens/NotificationScreen';
 
 
 
@@ -71,8 +71,11 @@ export default function App() {
     <NavigationContainer>
       <Stack.Navigator screenOptions={{ headerShown: false }}>
         {isAuthenticated ? (
-          <Stack.Screen name="MainTabs" component={MainTabs} />
-
+          <>
+          <Stack.Screen name="MainTabs" component={MainTabs} />  
+           <Stack.Screen name="Wishlist" component={WishlistScreen} />
+           <Stack.Screen name="Notification" component={NotificationScreen} />
+          </>
         ) : (
           <>
             <Stack.Screen name="Login">
@@ -82,7 +85,7 @@ export default function App() {
             <Stack.Screen name="Welcome">
               {props => <WelcomeScreen {...props} setIsAuthenticated={setIsAuthenticated} />}
             </Stack.Screen>
-
+ 
           </>
         )}
       </Stack.Navigator>

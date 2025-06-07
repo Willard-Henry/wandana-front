@@ -34,10 +34,10 @@ export default function CategoryScreen() {
               <TouchableOpacity
                 onPress={() => setSelected(item)}
                 style={{
-                  paddingVertical: 6,
-                  paddingHorizontal: 8,
+                  paddingVertical: 4,
+                  paddingHorizontal: 1,
                   backgroundColor: selected === item ? '#333' : 'transparent',
-                  borderRadius: 28,
+                  borderRadius: 8,
                   marginBottom: 8,
                   marginTop:20
                 }}
