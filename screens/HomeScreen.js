@@ -18,7 +18,7 @@ export default function HomeScreen() {
           </View>
           
             
-        <View style={{ flexDirection:' row', alignItems: 'center', justifyContent: 'center', marginright: 90 }}>
+        <View style={{ flexDirection:' row', alignItems: 'center', justifyContent: 'center', marginright: 90,borderRadius: 20, }}>
         <Text style={{fontSize:20, fontWeight:'bold'}}>Hot Picks 🔥</Text>
         </View>
         
