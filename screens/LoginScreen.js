@@ -73,7 +73,6 @@ export default function LoginScreen({ navigation, onLogin }) {
     <View style={styles.container}>
       <Text style={styles.title}>Welcome Back!</Text>
       <Text style={styles.subtitle}>Login to your Wandana account</Text>
-
       <Text style={styles.inputLabel}>Email</Text>
       <TextInput
         style={styles.input}
@@ -83,7 +82,6 @@ export default function LoginScreen({ navigation, onLogin }) {
         placeholder="Enter your email"
         keyboardType="email-address"
       />
-
       <Text style={styles.inputLabel}>Password</Text>
       <View style={styles.passwordInputContainer}>
         <TextInput
@@ -105,11 +103,9 @@ export default function LoginScreen({ navigation, onLogin }) {
           />
         </TouchableOpacity>
       </View>
-
       <View style={styles.buttonWrapper}>
         <Button title="Login" color="#7f00ff" onPress={handleLogin} />
       </View>
-
       <Text style={styles.signupPrompt}>Don't have an account?</Text>
       <View style={styles.signupButtonWrapper}>
         <Button
@@ -118,6 +114,7 @@ export default function LoginScreen({ navigation, onLogin }) {
           color="#7f00ff"
         />
       </View>
+      //write Google login code over here ~rycoe
     </View>
   );
 }
