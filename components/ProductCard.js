@@ -18,9 +18,12 @@ const styles = StyleSheet.create({
         backgroundColor: '#EFE4D2',
         borderRadius: 10,
         padding: 10,
-        margin: 8,
+        margin: 5,
         flex: 1,
         elevation: 3,
+        
+
+        
     },
     image: {
         width: '100%',

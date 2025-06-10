@@ -6,28 +6,51 @@ import {
   Image,
   ScrollView,
   StyleSheet,
+   TouchableOpacity,
 } from 'react-native';
 import Icon from 'react-native-vector-icons/Ionicons';
 import TabItem from './TabItem'; // import the new component
+import { useNavigation } from '@react-navigation/native';
 
-const tabs = ['All', 'Women', 'Lingerie & Sleep', 'Men', 'Shoes', 'Men', 'Bra', 'Jewelry & Acc', 'Curve', 'Home', 'Bags', 'Sports', 'Electronics'];
+const tabs = ['All', 'Women',  'Men', 'Curve', 'Home', 'Kids', 'Beauty'];
 
 export default function TopNavBar() {
   const [activeTab, setActiveTab] = useState(0);
+  const navigation = useNavigation(); 
+
+  const handleSearch = () => {
+    if (onSearch) {
+      onSearch(searchText);
+    } else {
+      // You can add your search logic here or navigate to a search results screen
+      alert(`Searching for: ${searchText}`);
+    }
+  };
 
   return (
     <View style={styles.container}>
       {/* Top icons + search */}
       <View style={styles.topRow}>
-        <Icon name="mail-outline" size={24} />
-        <Icon name="calendar-outline" size={24} style={styles.icon} />
+        <TouchableOpacity onPress={() => navigation.navigate('Notification')}>
+    <Icon name="mail-outline" size={24} />
+  </TouchableOpacity>
+       <TouchableOpacity onPress={() => navigation.navigate('Cart')}>
+    <Icon name="calendar-outline" size={24} style={styles.icon} />
+  </TouchableOpacity>
         <View style={styles.searchBar}>
-          <Icon name="search-outline" size={20} />
-          <TextInput placeholder="Shorts" style={styles.input} />
+           <TouchableOpacity onPress={handleSearch}>
+            <Icon name="search-outline" size={20} />
+          </TouchableOpacity>
+          <TextInput placeholder="Categories" style={styles.input} />
           <Icon name="camera-outline" size={20} />
         </View>
-        <Icon name="heart-outline" size={24} style={styles.icon} />
-      </View>
+        
+
+       <TouchableOpacity onPress={() => navigation.navigate('Wishlist')}>
+          <Icon name="heart-outline" size={24} style={styles.icon} />
+        </TouchableOpacity>
+         </View>
+      
 
       {/* Tabs */}
       <ScrollView horizontal showsHorizontalScrollIndicator={false} style={styles.tabContainer}>
@@ -41,17 +64,7 @@ export default function TopNavBar() {
         ))}
       </ScrollView>
 
-      {/* Banner */}
-      <View style={styles.bannerWrapper}>
-        <Image
-          source={{ uri: 'https://example.com/banner.jpg' }}
-          style={styles.banner}
-        />
-        <Image
-          source={{ uri: 'https://example.com/card.jpg' }}
-          style={styles.cardImage}
-        />
-      </View>
+      
 
     </View>
   );
@@ -67,7 +80,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     gap: 10,
-    marginTop: 20
+    marginTop: 40
   },
   icon: {
     marginHorizontal: 4,
@@ -88,22 +101,7 @@ const styles = StyleSheet.create({
   tabContainer: {
     marginTop: 10,
   },
-  bannerWrapper: {
-    marginTop: 10,
-    position: 'relative',
-  },
-  banner: {
-    width: '100%',
-    height: 180,
-    borderRadius: 10,
-  },
-  cardImage: {
-    width: 100,
-    height: 130,
-    position: 'absolute',
-    top: 20,
-    right: 20,
-    transform: [{ rotate: '-5deg' }],
-    borderRadius: 8,
-  },
+  
+  
+  
 });
