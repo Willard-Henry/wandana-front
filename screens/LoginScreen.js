@@ -114,7 +114,7 @@ export default function LoginScreen({ navigation, onLogin }) {
           color="#7f00ff"
         />
       </View>
-      //write Google login code over here ~rycoe
+      {/* write Google login code over here ~rycoe */}
     </View>
   );
 }
