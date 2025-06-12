@@ -204,7 +204,7 @@ const PRODUCTS = [
         image: 'https://i.pinimg.com/736x/b4/cd/97/b4cd973530edea6925da69c2f57ac6bc.jpg',
         tag: 'Super',
     },
- {
+    {
         id: '27',
         name: 'Handbag',
         price: 59.99,
@@ -213,8 +213,7 @@ const PRODUCTS = [
         tag: 'Super',
     },
 ];
-
-const ProductListComponent = () => {
+const ProductListComponent = ({ navigation }) => {
     const renderItem = ({ item }) => (
         <ProductCard
             image={item.image}
@@ -222,7 +221,7 @@ const ProductListComponent = () => {
             price={item.price}
             rating={item.rating}
             tag={item.tag}
-            onPress={() => console.log('Pressed:', item.name)}
+            onPress={() => navigation.navigate("ProductDetailsScreen", { item })}
         />
     );
 
@@ -231,24 +230,28 @@ const ProductListComponent = () => {
             <FlatList
                 data={PRODUCTS}
                 renderItem={renderItem}
-                keyExtractor={(item) => item.id}
+                keyExtractor={(item) => item.id.toString()}
                 numColumns={2}
                 contentContainerStyle={styles.list}
                 columnWrapperStyle={styles.row}
                 showsVerticalScrollIndicator={false}
+                initialNumToRender={10}
+                maxToRenderPerBatch={10}
+                windowSize={5}
             />
         </View>
     );
 };
 
+
 const styles = StyleSheet.create({
     container: {
         flex: 1,
         paddingHorizontal: 10,
-        
+
         width: '100%',
-        height:10,
-         
+        height: 10,
+
     },
     list: {
         paddingBottom: 100,
@@ -256,7 +259,7 @@ const styles = StyleSheet.create({
     row: {
         justifyContent: 'space-between',
         alignItems: 'right',
-            justifyContent: 'right',
+        justifyContent: 'right',
     },
 });
 
