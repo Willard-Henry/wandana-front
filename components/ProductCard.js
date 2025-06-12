@@ -21,9 +21,7 @@ const styles = StyleSheet.create({
         margin: 5,
         flex: 1,
         elevation: 3,
-        
 
-        
     },
     image: {
         width: '100%',
@@ -56,4 +54,5 @@ const styles = StyleSheet.create({
     },
 });
 
-export default ProductCard;
+export default
+    React.memo(ProductCard);

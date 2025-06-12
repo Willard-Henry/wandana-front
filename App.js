@@ -14,6 +14,7 @@ import SignupScreen from "./screens/SignupScreen";
 import WelcomeScreen from "./screens/WelcomeScreen";
 import WishlistScreen from "./screens/WishlistScreen";
 import NotificationScreen from "./screens/NotificationScreen";
+import ProductDetailsScreen from "./screens/ProductDetailsScreen";
 
 const Tab = createBottomTabNavigator();
 const Stack = createNativeStackNavigator();
@@ -66,33 +67,30 @@ export default function App() {
   return (
     <NavigationContainer>
       <Stack.Navigator screenOptions={{ headerShown: false }}>
-        {isAuthenticated ? (
-          <>
-            <Stack.Screen name="MainTabs" component={MainTabs} />
-            <Stack.Screen name="Wishlist" component={WishlistScreen} />
-            <Stack.Screen name="Notification" component={NotificationScreen} />
-          </>
-        ) : (
-          <>
-            <Stack.Screen name="Login">
-              {(props) => (
-                <LoginScreen
-                  {...props}
-                  onLogin={() => setIsAuthenticated(true)}
-                />
-              )}
-            </Stack.Screen>
-            <Stack.Screen name="Signup" component={SignupScreen} />
-            <Stack.Screen name="Welcome">
-              {(props) => (
-                <WelcomeScreen
-                  {...props}
-                  setIsAuthenticated={setIsAuthenticated}
-                />
-              )}
-            </Stack.Screen>
-          </>
-        )}
+
+        <Stack.Screen name="MainTabs" component={MainTabs} />
+        <Stack.Screen name="Wishlist" component={WishlistScreen} />
+        <Stack.Screen name="Notification" component={NotificationScreen} />
+        <Stack.Screen name="ProductDetailsScreen" component={ProductDetailsScreen} options={{ animation: 'slide_from_right' }} />
+
+        <Stack.Screen name="Login">
+          {(props) => (
+            <LoginScreen
+              {...props}
+              onLogin={() => setIsAuthenticated(true)}
+            />
+          )}
+        </Stack.Screen>
+        <Stack.Screen name="Signup" component={SignupScreen} />
+        <Stack.Screen name="Welcome">
+          {(props) => (
+            <WelcomeScreen
+              {...props}
+              setIsAuthenticated={setIsAuthenticated}
+            />
+          )}
+        </Stack.Screen>
+
       </Stack.Navigator>
     </NavigationContainer>
   );

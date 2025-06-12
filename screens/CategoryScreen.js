@@ -1,7 +1,7 @@
 
- import React, { useState } from 'react';
- import { View, Text, TouchableOpacity,FlatList } from 'react-native';
- import ProductListComponent from '../components/ProductListComponent';
+import React, { useState } from 'react';
+import { View, Text, TouchableOpacity, FlatList } from 'react-native';
+import ProductListComponent from '../components/ProductListComponent';
 import TabItem from '../components/TabItem';
 import TopNav from '../components/TopNav';
 
@@ -19,15 +19,15 @@ const subcategories = [
 
 ];
 
-export default function CategoryScreen() {
+export default function CategoryScreen({ navigation }) {
   const [selected, setSelected] = useState(subcategories[0]);
   return (
 
-     <View style={{ flex: 1 }}>
+    <View style={{ flex: 1 }}>
       <TopNav />
-      <View style={{ flex:1, flexDirection:'row' }}>
-       <View style={{ width: '26%', backgroundColor: '#f0f0f0', paddingVertical: 10 }}>
-        <FlatList
+      <View style={{ flex: 1, flexDirection: 'row' }}>
+        <View style={{ width: '26%', backgroundColor: '#f0f0f0', paddingVertical: 10 }}>
+          <FlatList
             data={subcategories}
             keyExtractor={(item) => item}
             renderItem={({ item }) => (
@@ -39,7 +39,7 @@ export default function CategoryScreen() {
                   backgroundColor: selected === item ? '#333' : 'transparent',
                   borderRadius: 8,
                   marginBottom: 8,
-                  marginTop:20
+                  marginTop: 20
                 }}
               >
                 <Text style={{ color: selected === item ? '#fff' : '#333', fontWeight: 'bold' }}>
@@ -49,18 +49,18 @@ export default function CategoryScreen() {
             )}
           />
 
+        </View>
+
+        <View style={{ flex: 1, padding: 0, backgroundColor: 'white' }}>
+          <ProductListComponent navigation={navigation} />
+
+        </View>
       </View>
-    
-      <View style={{ flex: 1, padding:0,backgroundColor:'white'}}>
-      <ProductListComponent />
-      
-       </View>
-     </View>
       <TabItem />
-      
+
     </View>
-    
-  
+
+
   );
 }
 
