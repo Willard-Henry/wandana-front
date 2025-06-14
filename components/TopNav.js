@@ -45,6 +45,9 @@ export default function TopNavBar() {
           <Icon name="camera-outline" size={20} />
         </View>
         
+        <TouchableOpacity onPress={() => navigation.navigate('Wishlist')}>
+          <Icon name="voice-outline" size={24} style={styles.icon} />
+        </TouchableOpacity>
 
        <TouchableOpacity onPress={() => navigation.navigate('Wishlist')}>
           <Icon name="heart-outline" size={24} style={styles.icon} />
