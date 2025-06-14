@@ -62,7 +62,7 @@ function MainTabs() {
 }
 
 export default function App() {
-  const [isAuthenticated, setIsAuthenticated] = React.useState(false);
+  // const [isAuthenticated, setIsAuthenticated] = React.useState(false);
 
   return (
     <NavigationContainer>
