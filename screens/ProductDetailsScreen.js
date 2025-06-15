@@ -1,29 +1,38 @@
-
-
-import React, { useState } from "react";
+// screens/ProductDetailsScreen.js
+import React, { useState, useContext } from "react";
 import {
   View,
   Text,
   Image,
   TouchableOpacity,
   StyleSheet,
-  Dimensions,
   SafeAreaView,
 } from "react-native";
 import { LinearGradient } from "expo-linear-gradient";
+import { CartContext } from "../context/CartContext";
 
-const { width, height } = Dimensions.get("window");
-
-const ProductDetailsScreen = ({ route }) => {
+const ProductDetailsScreen = ({ route, navigation }) => {
   const { item } = route.params;
-  const [quantity, setQuantity] = useState(1);
+  const { addToCart } = useContext(CartContext);
 
-  const handleIncrease = () => setQuantity((q) => q + 1);
-  const handleDecrease = () => setQuantity((q) => (q > 1 ? q - 1 : 1));
+  const [quantity, setQuantity] = useState(1);
+  const [selectedSize, setSelectedSize] = useState("Medium");
+
+  const handleAddToCart = () => {
+    addToCart({
+      id: item.id,
+      name: item.name,
+      image: item.image,
+      price: item.price,
+      quantity,
+      size: selectedSize,
+    });
+
+    navigation.navigate("MainTabs", { screen: 'Cart' });
+  };
 
   return (
     <SafeAreaView style={styles.safe}>
-
       <View style={styles.imageContainer}>
         <Image source={{ uri: item.image }} style={styles.image} />
         <LinearGradient
@@ -32,22 +41,42 @@ const ProductDetailsScreen = ({ route }) => {
         />
       </View>
 
-
       <View style={styles.overlayContent}>
         <Text style={styles.name}>{item.name}</Text>
         <Text style={styles.price}>${item.price}</Text>
 
+        <View style={styles.sizeContainer}>
+          {["Small", "Medium", "Large"].map((size) => (
+            <TouchableOpacity
+              key={size}
+              style={[
+                styles.sizeOption,
+                selectedSize === size && styles.selectedSize,
+              ]}
+              onPress={() => setSelectedSize(size)}
+            >
+              <Text>{size}</Text>
+            </TouchableOpacity>
+          ))}
+        </View>
+
         <View style={styles.quantityContainer}>
-          <TouchableOpacity onPress={handleDecrease} style={styles.qtyButton}>
+          <TouchableOpacity
+            onPress={() => setQuantity((q) => Math.max(1, q - 1))}
+            style={styles.qtyButton}
+          >
             <Text style={styles.qtySymbol}>-</Text>
           </TouchableOpacity>
           <Text style={styles.quantityText}>{quantity}</Text>
-          <TouchableOpacity onPress={handleIncrease} style={styles.qtyButton}>
+          <TouchableOpacity
+            onPress={() => setQuantity((q) => q + 1)}
+            style={styles.qtyButton}
+          >
             <Text style={styles.qtySymbol}>+</Text>
           </TouchableOpacity>
         </View>
 
-        <TouchableOpacity style={styles.addToCartButton}>
+        <TouchableOpacity style={styles.addToCartButton} onPress={handleAddToCart}>
           <Text style={styles.addToCartText}>Add to Cart</Text>
         </TouchableOpacity>
       </View>
@@ -58,48 +87,51 @@ const ProductDetailsScreen = ({ route }) => {
 const styles = StyleSheet.create({
   safe: {
     flex: 1,
-    backgroundColor: "#fff",
+    backgroundColor: "#fff"
   },
-  imageContainer: {
-    height: height * 0.85,
+  imageContainer:
+  {
+    height: 400,
     width: "100%",
-    position: "relative",
+    position: "relative"
   },
-  image: {
+  image:
+  {
     width: "100%",
     height: "100%",
-    resizeMode: "cover",
+    resizeMode: "cover"
   },
-  fadeOverlay: {
+  fadeOverlay:
+  {
     position: "absolute",
     bottom: 0,
     width: "100%",
-    height: 180,
+    height: 120
   },
   overlayContent: {
     position: "absolute",
     bottom: 0,
     width: "100%",
-    paddingHorizontal: 24,
-    paddingVertical: 30,
+    padding: 24,
     backgroundColor: "rgba(255, 255, 255, 0.95)",
     borderTopLeftRadius: 32,
     borderTopRightRadius: 32,
-    shadowColor: "#000",
-    shadowOpacity: 0.1,
-    shadowOffset: { width: 0, height: -4 },
-    shadowRadius: 10,
   },
-  name: {
-    fontSize: 22,
-    fontWeight: "bold",
-    color: "#111",
-    marginBottom: 4,
-  },
-  price: {
-    fontSize: 18,
-    color: "#7f00ff",
+  name: { fontSize: 22, fontWeight: "bold", marginBottom: 4 },
+  price: { fontSize: 18, color: "#7f00ff", marginBottom: 12 },
+  sizeContainer: {
+    flexDirection: "row",
+    justifyContent: "space-around",
     marginBottom: 12,
+  },
+  sizeOption: {
+    borderWidth: 1,
+    borderColor: "#ccc",
+    padding: 10,
+    borderRadius: 10,
+  },
+  selectedSize: {
+    backgroundColor: "#ddd",
   },
   quantityContainer: {
     flexDirection: "row",
@@ -113,23 +145,13 @@ const styles = StyleSheet.create({
     borderRadius: 12,
     marginHorizontal: 20,
   },
-  qtySymbol: {
-    fontSize: 20,
-    fontWeight: "bold",
-  },
-  quantityText: {
-    fontSize: 20,
-    fontWeight: "600",
-  },
+  qtySymbol: { fontSize: 20, fontWeight: "bold" },
+  quantityText: { fontSize: 20, fontWeight: "600" },
   addToCartButton: {
     backgroundColor: "#7f00ff",
     paddingVertical: 16,
     borderRadius: 30,
     alignItems: "center",
-    shadowColor: "#000",
-    shadowOpacity: 0.2,
-    shadowOffset: { width: 0, height: 4 },
-    shadowRadius: 6,
   },
   addToCartText: {
     color: "#fff",
