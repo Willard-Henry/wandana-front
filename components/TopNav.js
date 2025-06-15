@@ -11,6 +11,8 @@ import {
 import Icon from 'react-native-vector-icons/Ionicons';
 import TabItem from './TabItem'; // import the new component
 import { useNavigation } from '@react-navigation/native';
+import * as ImagePicker from 'expo-image-picker';
+import Voice from '@react-native-voice/voice';
 
 const tabs = ['All', 'Women', 'Men', 'Curve', 'Home', 'Kids', 'Beauty'];
 
@@ -22,7 +24,7 @@ export default function TopNavBar() {
     if (onSearch) {
       onSearch(searchText);
     } else {
-
+      // You can add your search logic here or navigate to a search results screen
       alert(`Searching for: ${searchText}`);
     }
   };
@@ -41,8 +43,13 @@ export default function TopNavBar() {
           <TouchableOpacity onPress={handleSearch}>
             <Icon name="search-outline" size={20} />
           </TouchableOpacity>
-          <TextInput placeholder="Categories" style={styles.input} />
-          <Icon name="camera-outline" size={20} />
+          <TextInput placeholder="Categories" style={styles.input} value={searchText} onChangeText={setSearchText} />
+          <TouchableOpacity onPress={handlePickImage}>
+            <Icon name="camera-outline" size={22} marginHorizontal={5} />
+          </TouchableOpacity>
+          <TouchableOpacity onPress={handleVoiceSearch}>
+            <Icon name="mic-outline" size={24} marginHorizontal={2} />
+          </TouchableOpacity>
         </View>
 
         <TouchableOpacity onPress={() => navigation.navigate('Wishlist')}>

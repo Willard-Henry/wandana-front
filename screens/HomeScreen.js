@@ -9,13 +9,13 @@ export default function HomeScreen({ navigation }) {
       <TopNavBar />
       <ImageBackground
         source={{
-          uri: 'https://img.freepik.com/free-psd/sale-banner-template-design_23-2149198210.jpg?t=st=1749150237~exp=1749153837~hmac=48e4d9899ce196662aa8539b3253aca91da97fd80f2b391fd4ab2ede094c5ccb&w=1380',
+          uri: 'https://i.pinimg.com/736x/69/80/42/698042753dc96ca3cb4f33296e05ea6b.jpg',
         }}
         style={{ flex: 1 }}
         resizeMode="cover"
       />
 
-      <SafeAreaView edges={['middle']} style={{ padding: 10 }}>
+      <SafeAreaView edges={['middle']} style={{ padding: 25}}>
         <View style={{ padding: 1 }}></View>
 
         <View
@@ -27,7 +27,7 @@ export default function HomeScreen({ navigation }) {
             borderRadius: 20,
           }}
         >
-          <Text style={{ fontSize: 20, fontWeight: 'bold' }}>Hot Picks 🔥</Text>
+          <Text style={{ fontSize: 20, fontWeight: 'bold' , textAlign: 'center'}}>Hot Picks 🔥</Text>
         </View>
       </SafeAreaView>
 
