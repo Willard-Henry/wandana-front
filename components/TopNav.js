@@ -17,7 +17,9 @@ import Voice from '@react-native-voice/voice';
 const tabs = ['All', 'Women', 'Men', 'Curve', 'Home', 'Kids', 'Beauty'];
 
 export default function TopNavBar() {
+
   const [activeTab, setActiveTab] = useState(0);
+  const [searchText, setSearchText] = useState('');
   const navigation = useNavigation();
 
   const handleSearch = () => {
@@ -26,6 +28,33 @@ export default function TopNavBar() {
     } else {
       // You can add your search logic here or navigate to a search results screen
       alert(`Searching for: ${searchText}`);
+    }
+  };
+  const handlePickImage = async () => {
+    let result = await ImagePicker.launchImageLibraryAsync({
+      mediaTypes: ImagePicker.MediaTypeOptions.Images,
+      allowsEditing: true,
+      aspect: [4, 3],
+      quality: 1,
+    });
+
+    if (!result.canceled) {
+      // Do something with the selected image
+      alert('Image selected!');
+      // You can also set it to state if you want to display it
+      // setImage(result.assets[0].uri);
+    }
+  };
+  const handleVoiceSearch = async () => {
+    try {
+      await Voice.start('en-US');
+      Voice.onSpeechResults = (event) => {
+        const text = event.value[0];
+        setSearchText(text);
+        handleSearch();
+      };
+    } catch (error) {
+      console.error(error);
     }
   };
 

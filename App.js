@@ -3,24 +3,10 @@ import { NavigationContainer } from "@react-navigation/native";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import { Ionicons } from "@expo/vector-icons";
-<<<<<<< HEAD
-import { GestureHandlerRootView } from "react-native-gesture-handler";
-=======
->>>>>>> d4dca5456a9fe63e538f37afc7fde35a5e2cfbf9
 
 import HomeScreen from "./screens/HomeScreen";
 import CategoryScreen from "./screens/CategoryScreen";
 import TrendsScreen from "./screens/TrendsScreen";
-<<<<<<< HEAD
-import MeScreen from "./screens/MeScreen";
-import WishlistScreen from "./screens/WishlistScreen";
-import NotificationScreen from "./screens/NotificationScreen";
-import ProductDetailsScreen from "./screens/ProductDetailsScreen";
-import CartScreen from "./screens/CartScreen";
-
-// ✅ Import the CartProvider
-import { CartProvider } from "./context/CartContext";
-=======
 import CartScreen from "./screens/CartScreen";
 import MeScreen from "./screens/MeScreen";
 import LoginScreen from "./screens/LoginScreen";
@@ -39,7 +25,8 @@ import PaymentMethodsScreen from './screens/PaymentMethodsScreen';
 import EditProfileScreen from './screens/EditProfileScreen';
 import ChangePasswordScreen from './screens/ChangePasswordScreen';
 import ManageAddressesScreen from './screens/ManageAddressesScreen';
->>>>>>> d4dca5456a9fe63e538f37afc7fde35a5e2cfbf9
+import ProductDetailsScreen from "./screens/ProductDetailsScreen";
+import CheckoutScreen from "./screens/CheckoutScreen";
 
 const Tab = createBottomTabNavigator();
 const Stack = createNativeStackNavigator();
@@ -86,27 +73,6 @@ function MainTabs() {
   );
 }
 
-<<<<<<< HEAD
-export default function App() {
-  const [isAuthenticated, setIsAuthenticated] = React.useState(false);
-
-  return (
-    <CartProvider> {/* ✅ Wrap the whole app here */}
-      <GestureHandlerRootView style={{ flex: 1 }}>
-        <NavigationContainer>
-          <Stack.Navigator screenOptions={{ headerShown: false }}>
-            <Stack.Screen name="MainTabs" component={MainTabs} />
-            <Stack.Screen name="Wishlist" component={WishlistScreen} />
-            <Stack.Screen name="Notification" component={NotificationScreen} />
-            <Stack.Screen name="ProductDetailsScreen" component={ProductDetailsScreen} />
-            <Stack.Screen name="Cart" component={CartScreen} />
-          </Stack.Navigator>
-        </NavigationContainer>
-      </GestureHandlerRootView>
-    </CartProvider>
-  );
-}
-=======
 //export default function App() {
 //   const [isAuthenticated, setIsAuthenticated] = React.useState(false);
 
@@ -146,31 +112,36 @@ export default function App() {
 // }
 
 import { ThemeProvider } from './ThemeContext';
+import { CartProvider } from "./context/CartContext";
 export default function App() {
   return (
-    <ThemeProvider>
-      <NavigationContainer>
-        <Stack.Navigator screenOptions={{ headerShown: false }}>
-          <Stack.Screen name="MainTabs" component={MainTabs} />
-        <Stack.Screen name="Wishlist" component={WishlistScreen} />
-        <Stack.Screen name="TermsAndConditions" component={TermsAndConditionsScreen} options={{ title: 'Terms & Conditions' }} />
-        <Stack.Screen name="About" component={AboutScreen} />
-        <Stack.Screen name="HelpCenter" component={HelpCenterScreen} options={{ title: 'Help Center' }} />
-         <Stack.Screen name="ContactSupport" component={ContactSupportScreen} options={{ title: 'Contact Support' }} />
-        <Stack.Screen name="InviteFriends" component={InviteFriendsScreen} options={{ title: 'Invite Friends' }} />
-        <Stack.Screen name="PrivacySettings" component={PrivacySettingsScreen} options={{ title: 'Privacy Settings' }} />
-        <Stack.Screen name="LocationAndCurrency" component={LocationAndCurrencyScreen} options={{ title: 'Location & Currency' }} />
-        <Stack.Screen name="PaymentMethods" component={PaymentMethodsScreen} options={{ title: 'Payment Methods' }} />
-        <Stack.Screen name="Notification" component={NotificationScreen} />
-        <Stack.Screen name="EditProfile" component={EditProfileScreen} options={{ title: 'Edit Profile' }} />
-        <Stack.Screen name="ChangePassword" component={ChangePasswordScreen} options={{ title: 'Change Password' }} />
-        <Stack.Screen name="ManageAddresses" component={ManageAddressesScreen} options={{ title: 'Manage Addresses' }} />
-        <Stack.Screen name="Login" component={LoginScreen} />
-        <Stack.Screen name="Signup" component={SignupScreen} />
-        <Stack.Screen name="Welcome" component={WelcomeScreen} />
-      </Stack.Navigator>
-    </NavigationContainer>
-    </ThemeProvider>
+    <CartProvider>
+      <ThemeProvider>
+        <NavigationContainer>
+          <Stack.Navigator screenOptions={{ headerShown: false }}>
+            <Stack.Screen name="MainTabs" component={MainTabs} />
+            <Stack.Screen name="Wishlist" component={WishlistScreen} />
+            <Stack.Screen name="TermsAndConditions" component={TermsAndConditionsScreen} options={{ title: 'Terms & Conditions' }} />
+            <Stack.Screen name="About" component={AboutScreen} />
+            <Stack.Screen name="HelpCenter" component={HelpCenterScreen} options={{ title: 'Help Center' }} />
+            <Stack.Screen name="ContactSupport" component={ContactSupportScreen} options={{ title: 'Contact Support' }} />
+            <Stack.Screen name="InviteFriends" component={InviteFriendsScreen} options={{ title: 'Invite Friends' }} />
+            <Stack.Screen name="PrivacySettings" component={PrivacySettingsScreen} options={{ title: 'Privacy Settings' }} />
+            <Stack.Screen name="LocationAndCurrency" component={LocationAndCurrencyScreen} options={{ title: 'Location & Currency' }} />
+            <Stack.Screen name="PaymentMethods" component={PaymentMethodsScreen} options={{ title: 'Payment Methods' }} />
+            <Stack.Screen name="Notification" component={NotificationScreen} />
+            <Stack.Screen name="EditProfile" component={EditProfileScreen} options={{ title: 'Edit Profile' }} />
+            <Stack.Screen name="ChangePassword" component={ChangePasswordScreen} options={{ title: 'Change Password' }} />
+            <Stack.Screen name="ManageAddresses" component={ManageAddressesScreen} options={{ title: 'Manage Addresses' }} />
+            <Stack.Screen name="ProductDetailsScreen" component={ProductDetailsScreen} />
+            <Stack.Screen name="Checkout" component={CheckoutScreen} />
+            <Stack.Screen name="Login" component={LoginScreen} />
+            <Stack.Screen name="Signup" component={SignupScreen} />
+            <Stack.Screen name="Welcome" component={WelcomeScreen} />
+          </Stack.Navigator>
+        </NavigationContainer>
+      </ThemeProvider>
+    </CartProvider>
   );
 }
 
@@ -284,4 +255,3 @@ export default function App() {
 //     </NavigationContainer>
 //   );
 // }
->>>>>>> d4dca5456a9fe63e538f37afc7fde35a5e2cfbf9

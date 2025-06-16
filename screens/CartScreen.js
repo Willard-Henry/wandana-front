@@ -10,7 +10,7 @@ import {
 import { CartContext } from "../context/CartContext";
 import { SwipeListView } from "react-native-swipe-list-view";
 
-const CartScreen = () => {
+const CartScreen = ({ navigation }) => {
   const { cartItems, removeFromCart } = useContext(CartContext);
 
   const renderItem = (data) => {
@@ -57,11 +57,15 @@ const CartScreen = () => {
         renderHiddenItem={renderHiddenItem}
         rightOpenValue={-75}
         disableRightSwipe
-        contentContainerStyle={{ paddingBottom: 100 }}
+        contentContainerStyle={{ paddingBottom: 56 }}
+        showsVerticalScrollIndicator={false}
+        bounces={false}
       />
 
       <View style={styles.checkoutWrapper}>
-        <TouchableOpacity style={styles.checkoutButton}>
+        <TouchableOpacity
+          onPress={() => navigation.navigate("Checkout")}
+          style={styles.checkoutButton}>
           <Text style={styles.checkoutText}>Proceed to Checkout</Text>
         </TouchableOpacity>
       </View>
@@ -138,10 +142,12 @@ const styles = StyleSheet.create({
     fontWeight: "bold",
   },
   checkoutWrapper: {
-    position: "absolute",
-    bottom: 20,
-    left: 16,
-    right: 16,
+    // position: "absolute",
+    // bottom: 20,
+    // left: 16,
+    // right: 16,
+    // marginBottom: 20,
+    marginHorizontal: 16
   },
   checkoutButton: {
     backgroundColor: "#7f00ff",

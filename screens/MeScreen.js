@@ -27,7 +27,7 @@ export default function MeScreen({ navigation }) {
     <ScrollView style={{ flex: 1, backgroundColor: darkTheme ? '#222' : '#fff' }}>
       <View style={[styles.container, darkTheme && styles.darkContainer]}>
         {/* Profile Section */}
-        <TouchableOpacity onPress={pickImage}>
+        {/* <TouchableOpacity onPress={pickImage}>
           <Image
             source={
               profileImage
@@ -36,6 +36,16 @@ export default function MeScreen({ navigation }) {
             }
             style={styles.profileImage}
           />
+        </TouchableOpacity> */}
+
+        <TouchableOpacity onPress={pickImage}>
+          {profileImage ? (
+            <Image
+              source={{ uri: profileImage }}
+              style={styles.profileImage}
+            />
+          ) : null}
+          <Text style={styles.changePhoto}>Change Photo</Text>
         </TouchableOpacity>
         <Text style={[styles.text, darkTheme && styles.darkText]}>Ewuraba</Text>
         <Text style={[styles.subText, darkTheme && styles.darkText]}>ewuraba@email.com</Text>
@@ -44,17 +54,17 @@ export default function MeScreen({ navigation }) {
         <View style={styles.section}>
           <Text style={[styles.sectionTitle, darkTheme && styles.darkText]}>Account</Text>
           <TouchableOpacity style={styles.row} onPress={() => navigation.navigate('EditProfile')}>
-  <Text style={[styles.rowText, darkTheme && styles.darkText]}>Edit Profile</Text>
-</TouchableOpacity>
+            <Text style={[styles.rowText, darkTheme && styles.darkText]}>Edit Profile</Text>
+          </TouchableOpacity>
           <TouchableOpacity style={styles.row} onPress={() => navigation.navigate('ChangePassword')}>
-  <Text style={[styles.rowText, darkTheme && styles.darkText]}>Change Password</Text>
-</TouchableOpacity>
+            <Text style={[styles.rowText, darkTheme && styles.darkText]}>Change Password</Text>
+          </TouchableOpacity>
           <TouchableOpacity style={styles.row} onPress={() => navigation.navigate('ManageAddresses')}>
-  <Text style={[styles.rowText, darkTheme && styles.darkText]}>Manage Addresses</Text>
-</TouchableOpacity>
+            <Text style={[styles.rowText, darkTheme && styles.darkText]}>Manage Addresses</Text>
+          </TouchableOpacity>
           <TouchableOpacity style={styles.row} onPress={() => navigation.navigate('PaymentMethods')}>
-  <Text style={[styles.rowText, darkTheme && styles.darkText]}>Payment Methods</Text>
-</TouchableOpacity>
+            <Text style={[styles.rowText, darkTheme && styles.darkText]}>Payment Methods</Text>
+          </TouchableOpacity>
         </View>
 
         {/* Preferences Section */}
@@ -65,8 +75,8 @@ export default function MeScreen({ navigation }) {
             <Switch value={darkTheme} onValueChange={toggleTheme} />
           </View>
           <TouchableOpacity style={styles.row} onPress={() => navigation.navigate('LocationAndCurrency')}>
-  <Text style={[styles.rowText, darkTheme && styles.darkText]}>Location & Currency</Text>
-</TouchableOpacity>
+            <Text style={[styles.rowText, darkTheme && styles.darkText]}>Location & Currency</Text>
+          </TouchableOpacity>
           <View style={styles.row}>
             <Text style={[styles.rowText, darkTheme && styles.darkText]}>Notifications</Text>
             <Switch value={notifications} onValueChange={setNotifications} />
@@ -78,83 +88,83 @@ export default function MeScreen({ navigation }) {
         <View style={styles.section}>
           <Text style={[styles.sectionTitle, darkTheme && styles.darkText]}>Security & Privacy</Text>
           <TouchableOpacity style={styles.row} onPress={() => navigation.navigate('PrivacySettings')}>
-  <Text style={[styles.rowText, darkTheme && styles.darkText]}>Privacy Settings</Text>
-</TouchableOpacity>
+            <Text style={[styles.rowText, darkTheme && styles.darkText]}>Privacy Settings</Text>
+          </TouchableOpacity>
           <TouchableOpacity
-  style={styles.row}
-  onPress={() => {
-    Alert.alert(
-      'Logout',
-      'Are you sure you want to logout?',
-      [
-        { text: 'Cancel', style: 'cancel' },
-        {
-          text: 'Logout',
-          style: 'destructive',
-          onPress: () => {
-            // Handle your logout logic here (e.g., clear tokens, navigate to login)
-            // Example: navigation.replace('Login');
-          },
-        },
-      ]
-    );
-  }}
->
-  <Text style={[styles.rowText, darkTheme && styles.darkText]}>Logout</Text>
-</TouchableOpacity>
+            style={styles.row}
+            onPress={() => {
+              Alert.alert(
+                'Logout',
+                'Are you sure you want to logout?',
+                [
+                  { text: 'Cancel', style: 'cancel' },
+                  {
+                    text: 'Logout',
+                    style: 'destructive',
+                    onPress: () => {
+                      // Handle your logout logic here (e.g., clear tokens, navigate to login)
+                      // Example: navigation.replace('Login');
+                    },
+                  },
+                ]
+              );
+            }}
+          >
+            <Text style={[styles.rowText, darkTheme && styles.darkText]}>Logout</Text>
+          </TouchableOpacity>
         </View>
 
         {/* Support Section */}
         <View style={styles.section}>
           <Text style={[styles.sectionTitle, darkTheme && styles.darkText]}>Support</Text>
           <TouchableOpacity style={styles.row} onPress={() => navigation.navigate('HelpCenter')}>
-  <Text style={[styles.rowText, darkTheme && styles.darkText]}>Help Center</Text>
-</TouchableOpacity>
+            <Text style={[styles.rowText, darkTheme && styles.darkText]}>Help Center</Text>
+          </TouchableOpacity>
           <TouchableOpacity style={styles.row} onPress={() => navigation.navigate('ContactSupport')}>
-  <Text style={[styles.rowText, darkTheme && styles.darkText]}>Contact Support</Text>
-</TouchableOpacity>
-          
+            <Text style={[styles.rowText, darkTheme && styles.darkText]}>Contact Support</Text>
+          </TouchableOpacity>
+
         </View>
 
         {/* Legal Section */}
         <View style={styles.section}>
           <Text style={[styles.sectionTitle, darkTheme && styles.darkText]}>Legal</Text>
           <TouchableOpacity style={styles.row} onPress={() => navigation.navigate('TermsAndConditions')}>
-  <Text style={[styles.rowText, darkTheme && styles.darkText]}>Terms & Conditions</Text>
-</TouchableOpacity>
+            <Text style={[styles.rowText, darkTheme && styles.darkText]}>Terms & Conditions</Text>
+          </TouchableOpacity>
           <TouchableOpacity style={styles.row} onPress={() => navigation.navigate('About')}>
-  <Text style={[styles.rowText, darkTheme && styles.darkText]}>About</Text>
-</TouchableOpacity>
+            <Text style={[styles.rowText, darkTheme && styles.darkText]}>About</Text>
+          </TouchableOpacity>
         </View>
 
         {/* Optional */}
         <View style={styles.section}>
-         <TouchableOpacity
-  style={styles.row}
-  onPress={() => {
-    Alert.alert(
-      'Delete Account',
-      'Are you sure you want to delete your account? This action cannot be undone.',
-      [
-        { text: 'Cancel', style: 'cancel' },
-        {
-          text: 'Delete',
-          style: 'destructive',
-          onPress: () => {
-            // Call your backend to delete the account here
-            Alert.alert('Account Deleted', 'Your account has been deleted.');
-            // Optionally, log out or navigate to login screen
-          },
-        },
-      ]
-    );
-  }}
->
-  <Text style={[styles.rowText, darkTheme && styles.darkText]}>Delete Account</Text>
-</TouchableOpacity>
+          <TouchableOpacity
+            style={styles.row}
+            onPress={() => {
+              Alert.alert(
+                'Delete Account',
+                'Are you sure you want to delete your account? This action cannot be undone.',
+                [
+                  { text: 'Cancel', style: 'cancel' },
+                  {
+                    text: 'Delete',
+                    style: 'destructive',
+                    onPress: () => {
+                      // Call your backend to delete the account here
+                      Alert.alert('Account Deleted', 'Your account has been deleted.');
+                      // Optionally, log out or navigate to login screen
+                    },
+                  },
+                ]
+              );
+            }}
+          >
+            <Text style={[styles.rowText, darkTheme && styles.darkText]}>Delete Account</Text>
+          </TouchableOpacity>
           <TouchableOpacity style={styles.row} onPress={() => navigation.navigate('InviteFriends')}>
-  <Text style={[styles.rowText, darkTheme && styles.darkText]}>Invite Friends</Text>
-</TouchableOpacity>
+            <Text style={[styles.rowText, darkTheme && styles.darkText]}>Invite Friends</Text>
+          </TouchableOpacity>
         </View>
       </View>
     </ScrollView>

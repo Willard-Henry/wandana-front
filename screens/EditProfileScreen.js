@@ -29,15 +29,24 @@ export default function EditProfileScreen() {
   return (
     <View style={styles.container}>
       <Text style={styles.title}>Edit Profile</Text>
-      <TouchableOpacity onPress={pickImage}>
+      {/* <TouchableOpacity onPress={pickImage}>
         <Image
           source={
             profileImage
               ? { uri: profileImage }
-              : require('C:\\Users\\Ewuraba\\Documents\\SHEIN\\src\\assets\\sky.png')
+              : require('../assets/sky.png')
           }
           style={styles.profileImage}
         />
+        <Text style={styles.changePhoto}>Change Photo</Text>
+      </TouchableOpacity> */}
+      <TouchableOpacity onPress={pickImage}>
+        {profileImage ? (
+          <Image
+            source={{ uri: profileImage }}
+            style={styles.profileImage}
+          />
+        ) : null}
         <Text style={styles.changePhoto}>Change Photo</Text>
       </TouchableOpacity>
       <Text style={styles.label}>Name</Text>
