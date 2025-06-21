@@ -24,7 +24,7 @@ export default function MeScreen({ navigation }) {
   };
 
   return (
-    <ScrollView style={{ flex: 1, backgroundColor: darkTheme ? '#222' : '#fff' }}>
+    <ScrollView style={{ flex: 1, paddingTop: 10, backgroundColor: darkTheme ? '#222' : '#fff' }}>
       <View style={[styles.container, darkTheme && styles.darkContainer]}>
         {/* Profile Section */}
         {/* <TouchableOpacity onPress={pickImage}>

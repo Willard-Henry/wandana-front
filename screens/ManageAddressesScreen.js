@@ -117,7 +117,7 @@ export default function ManageAddressesScreen() {
         onChangeText={setAddress}
         multiline
       />
-      <Button title="Add Address" onPress={addAddress} />
+      <Button title="Add Address" onPress={addAddress} style={styles.Button} />
       <Text style={styles.info}>
         Tap to select default. Long press to remove an address. Tap the map to set location.
       </Text>
@@ -163,6 +163,19 @@ const styles = StyleSheet.create({
     fontSize: 16,
     backgroundColor: '#f9f9f9',
   },
-  empty: { textAlign: 'center', color: '#aaa', marginVertical: 20 },
-  info: { color: '#888', fontSize: 11, textAlign: 'center', marginTop: 50, marginBottom: 20 },
+  empty: {
+    textAlign: 'center',
+    color: '#aaa',
+    marginVertical: 20
+  },
+  info: {
+    color: '#888'
+    , fontSize: 11,
+    textAlign: 'center',
+    marginTop: 50,
+    marginBottom: 20
+  },
+  Button: {
+    backgroundColor: 'red'
+  }
 });

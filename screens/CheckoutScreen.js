@@ -217,7 +217,7 @@ const CheckoutScreen = ({ navigation }) => {
                     <Text style={styles.totalAmount}>₵ {calculateTotal().toFixed(2)}</Text>
                 </View>
                 <TouchableOpacity style={styles.checkoutButton}>
-                    <Text style={styles.checkoutText}>Proceed to Checkout</Text>
+                    <Text style={styles.checkoutText}>Proceed to Payment</Text>
                 </TouchableOpacity>
             </View>
         </SafeAreaView>
@@ -230,6 +230,7 @@ const styles = StyleSheet.create({
     container: {
         flex: 1,
         backgroundColor: "#fff",
+        paddingTop: 20
     },
     listContent: {
         paddingTop: 24,
@@ -270,6 +271,7 @@ const styles = StyleSheet.create({
         flexDirection: "row",
         justifyContent: "space-between",
         alignItems: "center",
+        marginBottom: 40
     },
     totalLabel: {
         fontSize: 16,
@@ -285,6 +287,7 @@ const styles = StyleSheet.create({
         paddingHorizontal: 20,
         paddingVertical: 12,
         borderRadius: 10,
+
     },
     checkoutText: {
         color: "#fff",
