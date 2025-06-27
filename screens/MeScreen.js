@@ -68,12 +68,7 @@ export default function MeScreen({ navigation }) {
         </View>
 
         {/* Preferences Section */}
-        <View style={styles.section}>
-          <Text style={[styles.sectionTitle, darkTheme && styles.darkText]}>Preferences</Text>
-          <View style={styles.row}>
-            <Text style={[styles.rowText, darkTheme && styles.darkText]}>Dark Theme</Text>
-            <Switch value={darkTheme} onValueChange={toggleTheme} />
-          </View>
+        
           <TouchableOpacity style={styles.row} onPress={() => navigation.navigate('LocationAndCurrency')}>
             <Text style={[styles.rowText, darkTheme && styles.darkText]}>Location & Currency</Text>
           </TouchableOpacity>
@@ -166,7 +161,7 @@ export default function MeScreen({ navigation }) {
             <Text style={[styles.rowText, darkTheme && styles.darkText]}>Invite Friends</Text>
           </TouchableOpacity>
         </View>
-      </View>
+      
     </ScrollView>
   );
 }

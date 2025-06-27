@@ -27,9 +27,14 @@ import ChangePasswordScreen from './screens/ChangePasswordScreen';
 import ManageAddressesScreen from './screens/ManageAddressesScreen';
 import ProductDetailsScreen from "./screens/ProductDetailsScreen";
 import CheckoutScreen from "./screens/CheckoutScreen";
+import SplashScreen from './screens/SplashScreen';
+import OnboardingScreen from './screens/OnboardingScreen';
 
 const Tab = createBottomTabNavigator();
 const Stack = createNativeStackNavigator();
+const [showSplash, setShowSplash] = useState(true);
+const [showOnboarding, setShowOnboarding] = useState(true);
+
 
 function MainTabs() {
   return (
