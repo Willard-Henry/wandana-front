@@ -1,37 +1,28 @@
-import React, { useState } from 'react';
-import { View, Text, StyleSheet, FlatList} from 'react-native';
-import {Calendar} from 'react-native-calendars';
 
 
-
-// Example events data
-const events = [
-  { date: '2025-03-15', title: 'Order #1234 Delivery' },
-  { date: '2025-05-18', title: 'Flash Sale: Up to 50% Off!' },
-  { date: '2025-05-21', title: 'Wishlist Item Back in Stock' },
-   { date: '2025-06-21', title: 'Super Sale: Get Ready!' },
-    { date: '2025-06-21', title: 'Wishlist Item Restocked' },
-     { date: '2025-07-21', title: 'Shipping Update: Your Order is on the Way!' },
-      { date: '2025-08-21', title: 'New Arrivals: Check Them Out!' },
-       { date: '2025-09-21', title: 'Sale: Don\'t Miss Out!' },
-        { date: '2025-10-21', title: 'Halloween Special: Get Spooky!' },
-
-];
-
-const markedDates = events.reduce((acc, event) => {
-  acc[event.date] = { selected: true, selectedColor: '#F3F3F3' };
-  return acc;
-}, {});
+import React, { useState, useContext } from 'react';
+import { View, Text, StyleSheet, FlatList } from 'react-native';
+import { Calendar } from 'react-native-calendars';
+import { NotificationContext } from "../context/NotificationContext";
 
 export default function NotificationScreen() {
+  const { events } = useContext(NotificationContext); // <-- Use context events!
   const [selectedDate, setSelectedDate] = useState(null);
+
+  // Mark dates with events
+  const markedDates = events.reduce((acc, event) => {
+    acc[event.date] = { selected: true, selectedColor: '#F3F3F3' };
+    return acc;
+  }, {});
+
+  // Filter events for selected date
   const eventsForDate = events.filter(e => e.date === selectedDate);
 
   return (
     <View style={styles.container}>
-      <Text style={styles.text}>No notifications yet!</Text>
+      <Text style={styles.text}>Notifications</Text>
       <View style={{ width: 300, paddingHorizontal: 16 }}>
-        <Calendar
+        {/* <Calendar
           style={styles.calendar}
           markedDates={{
             ...markedDates,
@@ -44,13 +35,41 @@ export default function NotificationScreen() {
             }),
           }}
           onDayPress={day => setSelectedDate(day.dateString)}
+        /> */}
+        <Calendar
+          style={styles.calendar}
+          markedDates={{
+            ...markedDates,
+            ...(selectedDate && {
+              [selectedDate]: {
+                ...markedDates[selectedDate],
+                selected: true,
+                selectedColor: '#7f00ff',
+              },
+            }),
+          }}
+          theme={{
+            selectedDayBackgroundColor: '#7f00ff',
+            selectedDayTextColor: '#fff',
+            todayTextColor: '#7f00ff',
+            dotColor: '#7f00ff',
+            arrowColor: '#7f00ff',
+            monthTextColor: '#7f00ff',
+            textMonthFontWeight: 'bold',
+            textDayFontWeight: 'bold',
+            textDayHeaderFontWeight: 'bold',
+            textDayFontSize: 16,
+            textMonthFontSize: 18,
+            textDayHeaderFontSize: 14,
+          }}
+          onDayPress={day => setSelectedDate(day.dateString)}
         />
       </View>
       <View style={styles.eventsContainer}>
         {selectedDate && eventsForDate.length > 0 ? (
           <FlatList
             data={eventsForDate}
-            keyExtractor={item => item.title}
+            keyExtractor={item => item.title + item.date}
             renderItem={({ item }) => (
               <View style={styles.eventItem}>
                 <Text style={styles.eventText}>{item.title}</Text>
@@ -110,16 +129,3 @@ const styles = StyleSheet.create({
     marginTop: 10,
   },
 });
-
-
-
-
-
-
-
-
-
-
-
-
-

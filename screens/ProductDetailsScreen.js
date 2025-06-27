@@ -1,4 +1,4 @@
-// screens/ProductDetailsScreen.js
+
 import React, { useState, useContext } from "react";
 import {
   View,
@@ -10,13 +10,28 @@ import {
 } from "react-native";
 import { LinearGradient } from "expo-linear-gradient";
 import { CartContext } from "../context/CartContext";
+import { WishlistContext } from "../context/WishlistContext";
+
 
 const ProductDetailsScreen = ({ route, navigation }) => {
   const { item } = route.params;
   const { addToCart } = useContext(CartContext);
+  const { addToWishlist } = useContext(WishlistContext);
 
   const [quantity, setQuantity] = useState(1);
   const [selectedSize, setSelectedSize] = useState("Medium");
+
+  const handleAddToWishlist = () => {
+    addToWishlist({
+      id: item.id,
+      name: item.name,
+      image: item.image,
+      price: item.price,
+      size: selectedSize,
+      quantity,
+    });
+    navigation.navigate("Wishlist");
+  };
 
   const handleAddToCart = () => {
     addToCart({
@@ -76,9 +91,17 @@ const ProductDetailsScreen = ({ route, navigation }) => {
           </TouchableOpacity>
         </View>
 
-        <TouchableOpacity style={styles.addToCartButton} onPress={handleAddToCart}>
+        {/* <TouchableOpacity style={styles.addToCartButton} onPress={handleAddToCart}>
           <Text style={styles.addToCartText}>Add to Cart</Text>
-        </TouchableOpacity>
+        </TouchableOpacity> */}
+        <View style={{ flexDirection: "row", alignItems: "center", justifyContent: "space-between" }}>
+          <TouchableOpacity style={styles.addToCartButton} onPress={handleAddToCart}>
+            <Text style={styles.addToCartText}>Add to Cart</Text>
+          </TouchableOpacity>
+          <TouchableOpacity style={styles.wishlistButton} onPress={handleAddToWishlist}>
+            <Text style={{ fontSize: 24 }}>❤️</Text>
+          </TouchableOpacity>
+        </View>
       </View>
     </SafeAreaView>
   );
@@ -117,8 +140,16 @@ const styles = StyleSheet.create({
     borderTopLeftRadius: 32,
     borderTopRightRadius: 32,
   },
-  name: { fontSize: 22, fontWeight: "bold", marginBottom: 4 },
-  price: { fontSize: 18, color: "#7f00ff", marginBottom: 12 },
+  name: {
+    fontSize: 22,
+    fontWeight: "bold",
+    marginBottom: 4
+  },
+  price: {
+    fontSize: 18,
+    color: "#7f00ff",
+    marginBottom: 12
+  },
   sizeContainer: {
     flexDirection: "row",
     justifyContent: "space-around",
@@ -152,6 +183,7 @@ const styles = StyleSheet.create({
     paddingVertical: 16,
     borderRadius: 30,
     alignItems: "center",
+    marginBottom: 20
   },
   addToCartText: {
     color: "#fff",
