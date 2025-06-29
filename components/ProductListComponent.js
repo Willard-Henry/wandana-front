@@ -1,7 +1,7 @@
 import React from 'react';
 import { View, FlatList, StyleSheet } from 'react-native';
 import ProductCard from './ProductCard';
-
+import FullImageScreen from '../screens/FullImageScreen';
 const PRODUCTS = [
     {
         id: '1',
@@ -222,6 +222,7 @@ const ProductListComponent = ({ navigation }) => {
             rating={item.rating}
             tag={item.tag}
             onPress={() => navigation.navigate("ProductDetailsScreen", { item })}
+            onPressImage={() => navigation.navigate("FullImageScreen", { image: item.image })}
         />
     );
 

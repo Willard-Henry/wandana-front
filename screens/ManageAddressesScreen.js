@@ -1,7 +1,7 @@
-import React, { useState } from 'react';
+import React, { useState,useContext } from 'react';
 import { View, Text, TextInput, Button, FlatList, TouchableOpacity, Alert, StyleSheet, Dimensions } from 'react-native';
 import MapView, { Marker } from 'react-native-maps';
-
+import { AddressContext } from '../context/AddressContext';
 const initialAddresses = [
   {
     id: '1',
@@ -15,6 +15,8 @@ const initialAddresses = [
 
 export default function ManageAddressesScreen() {
   const [addresses, setAddresses] = useState(initialAddresses);
+  const { setSelectedAddress } = useContext(AddressContext);
+
   const [label, setLabel] = useState('');
   const [address, setAddress] = useState('');
   const [marker, setMarker] = useState({
@@ -23,8 +25,10 @@ export default function ManageAddressesScreen() {
   });
 
   const selectAddress = (id) => {
-    setAddresses(addresses.map(a => ({ ...a, selected: a.id === id })));
-  };
+  const selected = addresses.find(a => a.id === id);
+  setAddresses(addresses.map(a => ({ ...a, selected: a.id === id })));
+  setSelectedAddress(selected); // this updates global context
+};
 
   const removeAddress = (id) => {
     Alert.alert(

@@ -92,14 +92,14 @@ const ProductDetailsScreen = ({ route, navigation }) => {
         </View>
 
         {/* <TouchableOpacity style={styles.addToCartButton} onPress={handleAddToCart}>
-          <Text style={styles.addToCartText}>Add to Cart</Text>
+          <Text style={styles.addToCartText}></Text>
         </TouchableOpacity> */}
         <View style={{ flexDirection: "row", alignItems: "center", justifyContent: "space-between" }}>
           <TouchableOpacity style={styles.addToCartButton} onPress={handleAddToCart}>
             <Text style={styles.addToCartText}>Add to Cart</Text>
           </TouchableOpacity>
           <TouchableOpacity style={styles.wishlistButton} onPress={handleAddToWishlist}>
-            <Text style={{ fontSize: 24 }}>❤️</Text>
+            <Text style={{ fontSize: 24,marginBottom: 20 }}>❤️</Text>
           </TouchableOpacity>
         </View>
       </View>
@@ -180,8 +180,8 @@ const styles = StyleSheet.create({
   quantityText: { fontSize: 20, fontWeight: "600" },
   addToCartButton: {
     backgroundColor: "#7f00ff",
-    paddingVertical: 16,
-    borderRadius: 30,
+    padding: 10,
+    borderRadius: 10,
     alignItems: "center",
     marginBottom: 20
   },

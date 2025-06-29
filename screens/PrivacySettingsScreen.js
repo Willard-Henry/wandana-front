@@ -57,4 +57,4 @@ const styles = StyleSheet.create({
   label: { fontSize: 16, color: '#222' },
   info: { fontSize: 14, color: '#666', marginBottom: 8, marginLeft: 2 },
   policy: { fontSize: 14, color: '#888', marginTop: 30, textAlign: 'center' },
-});
+}); 

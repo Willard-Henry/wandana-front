@@ -83,6 +83,7 @@ const styles = StyleSheet.create({
     fontSize: 24,
     fontWeight: "bold",
     marginVertical: 20,
+    marginTop: 40,
   },
   itemContainer: {
     flexDirection: "row",
@@ -154,6 +155,7 @@ const styles = StyleSheet.create({
     paddingVertical: 16,
     borderRadius: 30,
     alignItems: "center",
+    marginBottom: 20,
   },
   checkoutText: {
     color: "#fff",

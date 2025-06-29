@@ -19,7 +19,8 @@ export default function SignupScreen({ navigation }) {
   const [form, setForm] = useState({
     username: "",
     email: "",
-    password: "",
+    password: ""
+    
 
     // In my backend module, there is sex and dob but your original code didnt have it so im not going to implement it
   });

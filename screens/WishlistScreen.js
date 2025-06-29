@@ -50,7 +50,7 @@ export default function WishlistScreen({ navigation }) {
   return (
     <SafeAreaView style={styles.safe}>
       <View style={styles.headerContainer}>
-        <Text style={styles.header}>❤️ Wishlist</Text>
+        <Text style={[styles.header, { marginTop: 20 }]}>❤️ Wishlist</Text>
       </View>
       <FlatList
         data={wishlistItems}
@@ -82,6 +82,7 @@ const styles = StyleSheet.create({
     paddingBottom: 10,
     alignItems: "center",
     backgroundColor: "#fff",
+   
   },
   header: {
     fontSize: 26,

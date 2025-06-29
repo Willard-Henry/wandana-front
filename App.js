@@ -1,4 +1,5 @@
-import * as React from "react";
+
+import React, { useState } from "react";
 import { NavigationContainer } from "@react-navigation/native";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
@@ -30,11 +31,13 @@ import ProductDetailsScreen from "./screens/ProductDetailsScreen";
 import CheckoutScreen from "./screens/CheckoutScreen";
 import SplashScreen from './screens/SplashScreen';
 import OnboardingScreen from './screens/OnboardingScreen';
+import FullImageScreen from './screens/FullImageScreen';
+import MobileMoneyPaymentScreen from './screens/MobileMoneyPaymentScreen';
+import CardPaymentScreen from './screens/CardPaymentScreen';
+import { AddressProvider } from './context/AddressContext';
 
 const Tab = createBottomTabNavigator();
 const Stack = createNativeStackNavigator();
-const [showSplash, setShowSplash] = useState(true);
-const [showOnboarding, setShowOnboarding] = useState(true);
 
 
 function MainTabs() {
@@ -87,8 +90,20 @@ import SuccessScreen from "./screens/SuccessScreen";
 import PaymentScreen from "./screens/PaymentScreen";
 import { NotificationProvider } from "./context/NotificationContext";
 export default function App() {
+  const [showSplash, setShowSplash] = useState(true);
+const [showOnboarding, setShowOnboarding] = useState(true);
+
+ if (showSplash) {
+    return <SplashScreen onFinish={() => setShowSplash(false)} />;
+  }
+
+  // Show OnboardingScreen after SplashScreen
+  if (showOnboarding) {
+    return <OnboardingScreen onFinish={() => setShowOnboarding(false)} />;
+  }
   return (
     <CartProvider>
+       <AddressProvider> 
       <NotificationProvider>
         <WishlistProvider>
           <ThemeProvider>
@@ -111,7 +126,10 @@ export default function App() {
                 <Stack.Screen name="ProductDetailsScreen" component={ProductDetailsScreen} />
                 <Stack.Screen name="Checkout" component={CheckoutScreen} />
                 <Stack.Screen name="PaymentScreen" component={PaymentScreen} options={{ title: 'Payment' }} />
+                <Stack.Screen name="MobileMoneyPaymentScreen" component={MobileMoneyPaymentScreen} />
+                <Stack.Screen name="CardPaymentScreen" component={CardPaymentScreen} />
                 <Stack.Screen name="SuccessScreen" component={SuccessScreen} options={{ title: 'Order Success' }} />
+                <Stack.Screen name="FullImageScreen" component={FullImageScreen} options={{ headerShown: false }} />
                 <Stack.Screen name="Login" component={LoginScreen} />
                 <Stack.Screen name="Signup" component={SignupScreen} />
                 <Stack.Screen name="Welcome" component={WelcomeScreen} />
@@ -120,6 +138,7 @@ export default function App() {
           </ThemeProvider>
         </WishlistProvider>
       </NotificationProvider>
+       </AddressProvider>
     </CartProvider>
   );
 }
