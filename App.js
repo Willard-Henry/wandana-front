@@ -1,3 +1,4 @@
+import 'react-native-reanimated';
 
 import React, { useState } from "react";
 import { NavigationContainer } from "@react-navigation/native";
@@ -71,6 +72,17 @@ function MainTabs() {
         },
         tabBarActiveTintColor: "#7f00ff",
         tabBarInactiveTintColor: "#7F55B1",
+        // tabBarShowLabel: false,
+        // tabBarItemStyle: {
+        //   backgroundColor: "transparent",
+        // },
+        // tabBarStyle: {
+        //   backgroundColor: "#fff",
+        //   borderTopWidth: 0,
+        //   elevation: 0,
+        // },
+        // Remove the default press/ripple effect
+
       })}
     >
       <Tab.Screen name="Home" component={HomeScreen} />
@@ -91,9 +103,9 @@ import PaymentScreen from "./screens/PaymentScreen";
 import { NotificationProvider } from "./context/NotificationContext";
 export default function App() {
   const [showSplash, setShowSplash] = useState(true);
-const [showOnboarding, setShowOnboarding] = useState(true);
+  const [showOnboarding, setShowOnboarding] = useState(true);
 
- if (showSplash) {
+  if (showSplash) {
     return <SplashScreen onFinish={() => setShowSplash(false)} />;
   }
 
@@ -103,42 +115,57 @@ const [showOnboarding, setShowOnboarding] = useState(true);
   }
   return (
     <CartProvider>
-       <AddressProvider> 
-      <NotificationProvider>
-        <WishlistProvider>
-          <ThemeProvider>
-            <NavigationContainer>
-              <Stack.Navigator screenOptions={{ headerShown: false }}>
-                <Stack.Screen name="MainTabs" component={MainTabs} />
-                <Stack.Screen name="Wishlist" component={WishlistScreen} />
-                <Stack.Screen name="TermsAndConditions" component={TermsAndConditionsScreen} options={{ title: 'Terms & Conditions' }} />
-                <Stack.Screen name="About" component={AboutScreen} />
-                <Stack.Screen name="HelpCenter" component={HelpCenterScreen} options={{ title: 'Help Center' }} />
-                <Stack.Screen name="ContactSupport" component={ContactSupportScreen} options={{ title: 'Contact Support' }} />
-                <Stack.Screen name="InviteFriends" component={InviteFriendsScreen} options={{ title: 'Invite Friends' }} />
-                <Stack.Screen name="PrivacySettings" component={PrivacySettingsScreen} options={{ title: 'Privacy Settings' }} />
-                <Stack.Screen name="LocationAndCurrency" component={LocationAndCurrencyScreen} options={{ title: 'Location & Currency' }} />
-                <Stack.Screen name="PaymentMethods" component={PaymentMethodsScreen} options={{ title: 'Payment Methods' }} />
-                <Stack.Screen name="Notification" component={NotificationScreen} />
-                <Stack.Screen name="EditProfile" component={EditProfileScreen} options={{ title: 'Edit Profile' }} />
-                <Stack.Screen name="ChangePassword" component={ChangePasswordScreen} options={{ title: 'Change Password' }} />
-                <Stack.Screen name="ManageAddresses" component={ManageAddressesScreen} options={{ title: 'Manage Addresses' }} />
-                <Stack.Screen name="ProductDetailsScreen" component={ProductDetailsScreen} />
-                <Stack.Screen name="Checkout" component={CheckoutScreen} />
-                <Stack.Screen name="PaymentScreen" component={PaymentScreen} options={{ title: 'Payment' }} />
-                <Stack.Screen name="MobileMoneyPaymentScreen" component={MobileMoneyPaymentScreen} />
-                <Stack.Screen name="CardPaymentScreen" component={CardPaymentScreen} />
-                <Stack.Screen name="SuccessScreen" component={SuccessScreen} options={{ title: 'Order Success' }} />
-                <Stack.Screen name="FullImageScreen" component={FullImageScreen} options={{ headerShown: false }} />
-                <Stack.Screen name="Login" component={LoginScreen} />
-                <Stack.Screen name="Signup" component={SignupScreen} />
-                <Stack.Screen name="Welcome" component={WelcomeScreen} />
-              </Stack.Navigator>
-            </NavigationContainer>
-          </ThemeProvider>
-        </WishlistProvider>
-      </NotificationProvider>
-       </AddressProvider>
+      <AddressProvider>
+        <NotificationProvider>
+          <WishlistProvider>
+            <ThemeProvider>
+              <NavigationContainer>
+                <Stack.Navigator screenOptions={{
+                  headerShown: false,
+                  animation: 'slide_from_right', // or 'fade', etc.
+                  cardStyleInterpolator: ({ current, layouts }) => ({
+                    cardStyle: {
+                      transform: [
+                        {
+                          translateX: current.progress.interpolate({
+                            inputRange: [0, 1],
+                            outputRange: [layouts.screen.width, 0],
+                          }),
+                        },
+                      ],
+                    },
+                  }),
+                }}>
+                  <Stack.Screen name="MainTabs" component={MainTabs} />
+                  <Stack.Screen name="Wishlist" component={WishlistScreen} />
+                  <Stack.Screen name="TermsAndConditions" component={TermsAndConditionsScreen} options={{ title: 'Terms & Conditions' }} />
+                  <Stack.Screen name="About" component={AboutScreen} />
+                  <Stack.Screen name="HelpCenter" component={HelpCenterScreen} options={{ title: 'Help Center' }} />
+                  <Stack.Screen name="ContactSupport" component={ContactSupportScreen} options={{ title: 'Contact Support' }} />
+                  <Stack.Screen name="InviteFriends" component={InviteFriendsScreen} options={{ title: 'Invite Friends' }} />
+                  <Stack.Screen name="PrivacySettings" component={PrivacySettingsScreen} options={{ title: 'Privacy Settings' }} />
+                  <Stack.Screen name="LocationAndCurrency" component={LocationAndCurrencyScreen} options={{ title: 'Location & Currency' }} />
+                  <Stack.Screen name="PaymentMethods" component={PaymentMethodsScreen} options={{ title: 'Payment Methods' }} />
+                  <Stack.Screen name="Notification" component={NotificationScreen} />
+                  <Stack.Screen name="EditProfile" component={EditProfileScreen} options={{ title: 'Edit Profile' }} />
+                  <Stack.Screen name="ChangePassword" component={ChangePasswordScreen} options={{ title: 'Change Password' }} />
+                  <Stack.Screen name="ManageAddresses" component={ManageAddressesScreen} options={{ title: 'Manage Addresses' }} />
+                  <Stack.Screen name="ProductDetailsScreen" component={ProductDetailsScreen} />
+                  <Stack.Screen name="Checkout" component={CheckoutScreen} />
+                  <Stack.Screen name="PaymentScreen" component={PaymentScreen} options={{ title: 'Payment' }} />
+                  <Stack.Screen name="MobileMoneyPaymentScreen" component={MobileMoneyPaymentScreen} />
+                  <Stack.Screen name="CardPaymentScreen" component={CardPaymentScreen} />
+                  <Stack.Screen name="SuccessScreen" component={SuccessScreen} options={{ title: 'Order Success' }} />
+                  <Stack.Screen name="FullImageScreen" component={FullImageScreen} options={{ headerShown: false }} />
+                  <Stack.Screen name="Login" component={LoginScreen} />
+                  <Stack.Screen name="Signup" component={SignupScreen} />
+                  <Stack.Screen name="Welcome" component={WelcomeScreen} />
+                </Stack.Navigator>
+              </NavigationContainer>
+            </ThemeProvider>
+          </WishlistProvider>
+        </NotificationProvider>
+      </AddressProvider>
     </CartProvider>
   );
 }

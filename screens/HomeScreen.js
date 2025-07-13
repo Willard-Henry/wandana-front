@@ -1,11 +1,13 @@
 import React from 'react';
 import { View, Text, ScrollView, SafeAreaView, ImageBackground } from 'react-native';
 import ProductListComponent from '../components/ProductListComponent';
+import FadeInView from '../components/FadeInView';
 import TopNavBar from '../components/TopNav';
 
 export default function HomeScreen({ navigation }) {
   return (
-    <>
+
+    <FadeInView>
       <TopNavBar />
       <ImageBackground
         source={{
@@ -15,10 +17,10 @@ export default function HomeScreen({ navigation }) {
         resizeMode="cover"
       />
 
-      <SafeAreaView edges={['middle']} style={{ padding: 25}}>
-        <View style={{ padding: 1 }}></View>
+      <SafeAreaView edges={['middle']} style={{}}>
+        {/* <View style={{ padding: 1 }}></View> */}
 
-        <View
+        {/* <View
           style={{
             flexDirection: 'row',
             alignItems: 'center',
@@ -27,12 +29,14 @@ export default function HomeScreen({ navigation }) {
             borderRadius: 20,
           }}
         >
-          <Text style={{ fontSize: 20, fontWeight: 'bold' , textAlign: 'center'}}>Hot Picks 🔥</Text>
-        </View>
+          <Text style={{ fontSize: 20, fontWeight: 'bold', textAlign: 'center' }}>Hot Picks 🔥</Text>
+        </View> */}
       </SafeAreaView>
 
       {/* ✅ Pass navigation here */}
       <ProductListComponent navigation={navigation} />
-    </>
+
+    </FadeInView>
+
   );
 }
