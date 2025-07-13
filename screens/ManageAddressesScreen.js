@@ -121,7 +121,10 @@ export default function ManageAddressesScreen() {
         onChangeText={setAddress}
         multiline
       />
-      <Button title="Add Address" onPress={addAddress} style={styles.Button} />
+      
+      <TouchableOpacity style={styles.addButton} onPress={addAddress}>
+  <Text style={styles.addButtonText}>Add Address</Text>
+</TouchableOpacity>
       <Text style={styles.info}>
         Tap to select default. Long press to remove an address. Tap the map to set location.
       </Text>
@@ -142,11 +145,11 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     borderColor: '#eee',
     marginBottom: 1,
-    backgroundColor: '#f9f9f9',
+    backgroundColor: '#7f00ff',
   },
   selected: {
     borderColor: '#7f00ff',
-    backgroundColor: '#e7ddfa',
+    backgroundColor: '#7f00ff',
   },
   addressLabel: { fontWeight: 'bold', fontSize: 16, color: '#333' },
   addressText: { color: '#555', fontSize: 15 },
@@ -165,7 +168,7 @@ const styles = StyleSheet.create({
     padding: 10,
     marginBottom: 30,
     fontSize: 16,
-    backgroundColor: '#f9f9f9',
+    backgroundColor: '#f3e8ff',
   },
   empty: {
     textAlign: 'center',
@@ -173,13 +176,25 @@ const styles = StyleSheet.create({
     marginVertical: 20
   },
   info: {
-    color: '#888'
-    , fontSize: 11,
+    color: '#888',
+    fontSize: 11,
     textAlign: 'center',
     marginTop: 50,
     marginBottom: 20
   },
   Button: {
     backgroundColor: 'red'
-  }
+  },
+  addButton: {
+  backgroundColor: '#7f00ff',
+  paddingVertical: 14,
+  borderRadius: 8,
+  alignItems: 'center',
+  marginBottom: 10,
+},
+addButtonText: {
+  color: '#fff',
+  fontWeight: 'bold',
+  fontSize: 16,
+},
 });

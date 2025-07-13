@@ -170,7 +170,7 @@ export default function SignupScreen({ navigation }) {
         <Button
           title="Go to Login"
           onPress={() => navigation.navigate("Login")}
-          color="#7f00ff"
+          color="c"
         />
       </View>
     </View>

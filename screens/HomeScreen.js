@@ -15,7 +15,7 @@ export default function HomeScreen({ navigation }) {
         resizeMode="cover"
       />
 
-      <SafeAreaView edges={['middle']} style={{ padding: 25}}>
+      <SafeAreaView edges={['middle']} style={{ padding: 45}}>
         <View style={{ padding: 1 }}></View>
 
         <View
@@ -23,8 +23,10 @@ export default function HomeScreen({ navigation }) {
             flexDirection: 'row',
             alignItems: 'center',
             justifyContent: 'center',
-            marginRight: 90,
+            marginRight: 0,
             borderRadius: 20,
+            
+            
           }}
         >
           <Text style={{ fontSize: 20, fontWeight: 'bold' , textAlign: 'center'}}>Hot Picks 🔥</Text>
