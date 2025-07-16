@@ -334,6 +334,8 @@ const subcategories = {
   Men: ['Men Casual', 'Men Official', 'Trousers', 'Suits', 'Sportswear', 'Footwear'],
   Women: ['Casual dress', 'Official dress', 'Tops', 'Bags', 'Jewelry', 'Footwear'],
   Kids: ['Casual dress', 'Tops', 'Footwear', 'Bags', 'Jewelry', 'Beachwear',],
+  Curve: ['Casual dress', 'Tops', 'Footwear', 'Bags', 'Jewelry', 'Beachwear'],
+  Home: ['Furniture', 'Decor', 'Kitchenware', 'Bedding', 'Lighting'],
 };
 
 export default function CategoryScreen({ navigation }) {
