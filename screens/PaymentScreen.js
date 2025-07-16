@@ -1,5 +1,5 @@
 
-import React, { useState, useContext,useEffect } from "react";
+import React, { useState, useContext, useEffect } from "react";
 import { View, Text, StyleSheet, TouchableOpacity, TextInput, SafeAreaView, Alert } from "react-native";
 import { CartContext } from "../context/CartContext";
 import { AddressContext } from '../context/AddressContext';
@@ -11,10 +11,10 @@ const PaymentScreen = ({ navigation, route }) => {
     const { clearCart } = useContext(CartContext);
     const { selectedAddress } = useContext(AddressContext);
     useEffect(() => {
-  if (selectedAddress) {
-    setAddress(selectedAddress.address);
-  }
-}, [selectedAddress]);
+        if (selectedAddress) {
+            setAddress(selectedAddress.address);
+        }
+    }, [selectedAddress]);
 
     // Get total from route params or fallback to 0
     const totalAmount = route.params?.totalAmount || 0;
@@ -25,20 +25,20 @@ const PaymentScreen = ({ navigation, route }) => {
             return;
         }
 
-         if (selectedMethod === "momo") {
-        navigation.navigate("MobileMoneyPaymentScreen", { totalAmount, address });
-    } else if (selectedMethod === "card") {
-        navigation.navigate("CardPaymentScreen", { totalAmount, address });
-    } else {
-        Alert.alert("Payment", "Unknown payment method selected.");
-    }
-};
+        if (selectedMethod === "momo") {
+            navigation.navigate("MobileMoneyPaymentScreen", { totalAmount, address });
+        } else if (selectedMethod === "card") {
+            navigation.navigate("CardPaymentScreen", { totalAmount, address });
+        } else {
+            Alert.alert("Payment", "Unknown payment method selected.");
+        }
+    };
 
-// Clear cart items after payment
-// clearCart();
-// Alert.alert("Success", "Payment successful!");
-// navigation.navigate("SuccessScreen");
-// };
+    // Clear cart items after payment
+    // clearCart();
+    // Alert.alert("Success", "Payment successful!");
+    // navigation.navigate("SuccessScreen");
+    // };
 
     return (
         <SafeAreaView style={styles.container}>

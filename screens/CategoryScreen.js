@@ -76,18 +76,14 @@ import ProductListComponent from '../components/ProductListComponent';
 import TabItem from '../components/TabItem';
 import TopNav from '../components/TopNav';
 
-const subcategories = [
-  'Official dress',
-  'Casual dress',
-  'Beachwear',
-  'Sportswear',
-  'Nightwear',
-  'Footwear',
-  'Bags',
-  'Jewelry',
-  'Electronics',
-  'Furniture'
-];
+const subcategories = {
+  All: ['Official dress', 'Casual dress', 'Beachwear', 'Sportswear', 'Nightwear', 'Footwear', 'Bags', 'Jewelry', 'Electronics', 'Furniture'],
+  Men: ['Men Casual', 'Men Official', 'Trousers', 'Suits', 'Sportswear', 'Footwear'],
+  Women: ['Casual dress', 'Official dress', 'Tops', 'Bags', 'Jewelry', 'Footwear'],
+  Kids: ['Casual dress', 'Tops', 'Footwear', 'Bags', 'Jewelry', 'Beachwear',],
+  Curve: ['Casual dress', 'Tops', 'Footwear', 'Bags', 'Jewelry', 'Beachwear'],
+  Home: ['Furniture', 'Decor', 'Kitchenware', 'Bedding', 'Lighting'],
+};
 
 export default function CategoryScreen({ navigation }) {
   const [selected, setSelected] = useState(subcategories[0]);

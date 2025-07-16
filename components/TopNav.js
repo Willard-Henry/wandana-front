@@ -25,7 +25,7 @@ export default function TopNavBar({ activeTab, onTabChange }) {
   const route = useRoute();
 
   const getIconColor = (screen) =>
-    route.name === screen ? '#7f00ff' : '#7F55B1';
+    route.name === screen ? '#7F55B1' : '#7F55B1';
 
   const handleSearch = () => {
   alert(`Searching for: ${searchText}`);
@@ -70,7 +70,7 @@ export default function TopNavBar({ activeTab, onTabChange }) {
 
   return (
     <View style={styles.container}>
-      {/* Top icons and search */}
+
       <View style={styles.topRow}>
         <TouchableOpacity onPress={() => navigation.navigate('Notification')}>
           <Icon name="mail-outline" size={24} color={getIconColor('Notification')} style={styles.icon} />
@@ -119,7 +119,7 @@ export default function TopNavBar({ activeTab, onTabChange }) {
               key={tab}
               label={tab}
               isActive={activeTab === tab}
-              onPress={() => onTabChange && onTabChange(tab)} // 👈 this triggers the change
+              onPress={() => onTabChange && onTabChange(tab)}
             />
           ))}
         </ScrollView>
@@ -138,7 +138,7 @@ const styles = StyleSheet.create({
   topRow: {
     flexDirection: 'row',
     alignItems: 'center',
-    gap: 10,
+    gap: 6,
     marginTop: 15,
   },
   icon: {
@@ -158,7 +158,7 @@ const styles = StyleSheet.create({
     marginHorizontal: 8,
   },
   tabContainer: {
-    marginTop: 7,
+    marginTop: 5,
   },
 });
 

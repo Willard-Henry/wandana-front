@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 // import React from 'react';
 // import { View, Text, ScrollView, SafeAreaView, StyleSheet } from 'react-native';
 // import { Video } from 'expo-av';
@@ -144,16 +145,20 @@
 
 
 
+=======
+>>>>>>> 2203a3d8e840c4bb9a77e022f68f3c7c2014198f
 
 
 import React from 'react';
-import { View, Text, ScrollView, SafeAreaView, ImageBackground } from 'react-native';
-import ProductListComponent from '../components/ProductListComponent';
+import { View, StyleSheet } from 'react-native';
 import FadeInView from '../components/FadeInView';
 import TopNavBar from '../components/TopNav';
+import Banner from '../components/Banner';
+import ProductListComponent from '../components/ProductListComponent';
 
 export default function HomeScreen({ navigation }) {
   return (
+<<<<<<< HEAD
     <>
       <TopNavBar />
       <ImageBackground
@@ -185,5 +190,18 @@ export default function HomeScreen({ navigation }) {
       {/* ✅ Pass navigation here */}
       <ProductListComponent navigation={navigation} />
     </>
+=======
+    <FadeInView style={styles.container}>
+      <TopNavBar />
+      <ProductListComponent navigation={navigation} showBanner />
+    </FadeInView>
+>>>>>>> 2203a3d8e840c4bb9a77e022f68f3c7c2014198f
   );
 }
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: '#fff',
+  },
+});
