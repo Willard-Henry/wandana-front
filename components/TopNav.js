@@ -1,9 +1,7 @@
 
 
 
-
-
-import React, { useState } from 'react';
+import React from 'react';
 import {
   View,
   TextInput,
@@ -21,11 +19,13 @@ import * as Speech from 'expo-speech';
 
 const tabs = ['All', 'Women', 'Men', 'Kids', 'Curve', 'Home'];
 
-export default function TopNavBar() {
-  const [activeTab, setActiveTab] = useState(0);
-  const [searchText, setSearchText] = useState('');
+export default function TopNavBar({ activeTab, onTabChange }) {
+  const [searchText, setSearchText] = React.useState('');
   const navigation = useNavigation();
   const route = useRoute();
+
+  const getIconColor = (screen) =>
+    route.name === screen ? '#7f00ff' : '#7F55B1';
 
   const handleSearch = () => {
   alert(`Searching for: ${searchText}`);
@@ -70,16 +70,18 @@ export default function TopNavBar() {
 
   return (
     <View style={styles.container}>
+      {/* Top icons and search */}
       <View style={styles.topRow}>
         <TouchableOpacity onPress={() => navigation.navigate('Notification')}>
-          <Icon name="mail-outline" size={24} />
+          <Icon name="mail-outline" size={24} color={getIconColor('Notification')} style={styles.icon} />
         </TouchableOpacity>
         <TouchableOpacity onPress={() => navigation.navigate('Cart')}>
-          <Icon name="calendar-outline" size={24} style={styles.icon} />
+          <Icon name="calendar-outline" size={24} color={getIconColor('Cart')} style={styles.icon} />
         </TouchableOpacity>
+
         <View style={styles.searchBar}>
           <TouchableOpacity onPress={handleSearch}>
-            <Icon name="search-outline" size={20}  marginHorizontal={5} />
+            <Icon name="search-outline" size={20} color="#7F55B1" style={styles.icon} />
           </TouchableOpacity>
           <TextInput
             placeholder={route.name === 'Home' ? 'Search' : 'Categories'}
@@ -87,36 +89,37 @@ export default function TopNavBar() {
             value={searchText}
             onChangeText={setSearchText}
           />
-           {route.name !== 'Home' && (
+          {route.name !== 'Home' && (
             <>
               <TouchableOpacity onPress={handlePickImage}>
-                <Icon name="camera-outline" size={22} style={{ marginHorizontal: 5 }} />
+                <Icon name="camera-outline" size={22} color="#7F55B1" style={{ marginHorizontal: 5 }} />
               </TouchableOpacity>
               {/* <TouchableOpacity onPress={handleVoiceSearch}>
                 <Icon name="mic-outline" size={24} style={{ marginHorizontal: 2 }} />
               </TouchableOpacity> */}
+             
               <TouchableOpacity onPress={handleVoiceSearch}>
-  <Icon name="mic-outline" size={24} style={{ marginHorizontal: 2 }} />
-</TouchableOpacity>
-
+                <Icon name="mic-outline" size={24} color="#7F55B1" style={{ marginHorizontal: 2 }} />
+              </TouchableOpacity>
             </>
             
           )}
         </View>
+
         <TouchableOpacity onPress={() => navigation.navigate('Wishlist')}>
-          <Icon name="heart-outline" size={24} style={styles.icon} />
+          <Icon name="heart-outline" size={24} color={getIconColor('Wishlist')} style={styles.icon} />
         </TouchableOpacity>
       </View>
 
-      {/* Only show tabs if NOT on Home screen */}
+      {/* Main category tabs */}
       {route.name !== 'Home' && (
         <ScrollView horizontal showsHorizontalScrollIndicator={false} style={styles.tabContainer}>
-          {tabs.map((tab, idx) => (
+          {tabs.map((tab) => (
             <TabItem
-              key={idx}
+              key={tab}
               label={tab}
-              isActive={activeTab === idx}
-              onPress={() => setActiveTab(idx)}
+              isActive={activeTab === tab}
+              onPress={() => onTabChange && onTabChange(tab)} // 👈 this triggers the change
             />
           ))}
         </ScrollView>
@@ -127,14 +130,16 @@ export default function TopNavBar() {
 
 const styles = StyleSheet.create({
   container: {
-    backgroundColor: '#E0F0FF',
+    backgroundColor: '#fff',
     padding: 15,
+    borderBottomWidth: 1,
+    borderBottomColor: '#fff',
   },
   topRow: {
     flexDirection: 'row',
     alignItems: 'center',
     gap: 10,
-    marginTop: 20,
+    marginTop: 15,
   },
   icon: {
     marginHorizontal: 3,
@@ -142,7 +147,7 @@ const styles = StyleSheet.create({
   searchBar: {
     flex: 1,
     flexDirection: 'row',
-    backgroundColor: '#fff',
+    backgroundColor: '#f5f0ff',
     paddingHorizontal: 0,
     alignItems: 'center',
     borderRadius: 10,
@@ -153,7 +158,7 @@ const styles = StyleSheet.create({
     marginHorizontal: 8,
   },
   tabContainer: {
-    marginTop: 10,
+    marginTop: 7,
   },
 });
 
@@ -166,3 +171,158 @@ const styles = StyleSheet.create({
 
 
 
+// import React, { useState } from 'react';
+// import {
+//   View,
+//   TextInput,
+//   StyleSheet,
+//   TouchableOpacity,
+//   ScrollView,
+// } from 'react-native';
+// import Icon from 'react-native-vector-icons/Ionicons';
+// import TabItem from './TabItem';
+// import { useNavigation, useRoute } from '@react-navigation/native';
+// import * as ImagePicker from 'expo-image-picker';
+// import * as SpeechToText from 'expo-speech-to-text';
+
+// const tabs = ['All', 'Women', 'Men', 'Kids', 'Curve', 'Home'];
+
+// export default function TopNavBar({ activeTab, onTabChange }) {
+//   const [searchText, setSearchText] = useState('');
+//   const [isListening, setIsListening] = useState(false);
+//   const navigation = useNavigation();
+//   const route = useRoute();
+
+//   const getIconColor = (screen) =>
+//     route.name === screen ? '#7f00ff' : '#7F55B1';
+
+//   const handleSearch = () => {
+//     alert(`Searching for: ${searchText}`);
+//   };
+
+//   const handlePickImage = async () => {
+//     let result = await ImagePicker.launchImageLibraryAsync({
+//       mediaTypes: ImagePicker.MediaTypeOptions.Images,
+//       allowsEditing: true,
+//       aspect: [4, 3],
+//       quality: 1,
+//     });
+
+//     if (!result.canceled) {
+//       alert('Image selected!');
+//     }
+//   };
+
+//   const handleVoiceSearch = async () => {
+//     try {
+//       setIsListening(true);
+//       const { status } = await SpeechToText.requestPermissionsAsync();
+//       if (status !== 'granted') {
+//         alert('Permission to use microphone was denied');
+//         setIsListening(false);
+//         return;
+//       }
+//       const result = await SpeechToText.startAsync({
+//         onResult: (transcript) => {
+//           setSearchText(transcript);
+//           setIsListening(false);
+//         },
+//         onError: (error) => {
+//           alert('Voice search failed');
+//           setIsListening(false);
+//         },
+//       });
+//     } catch (e) {
+//       alert('Voice search failed');
+//       setIsListening(false);
+//     }
+//   };
+
+//   return (
+//     <View style={styles.container}>
+//       {/* Top icons and search */}
+//       <View style={styles.topRow}>
+//         <TouchableOpacity onPress={() => navigation.navigate('Notification')}>
+//           <Icon name="mail-outline" size={24} color={getIconColor('Notification')} style={styles.icon} />
+//         </TouchableOpacity>
+//         <TouchableOpacity onPress={() => navigation.navigate('Cart')}>
+//           <Icon name="calendar-outline" size={24} color={getIconColor('Cart')} style={styles.icon} />
+//         </TouchableOpacity>
+
+//         <View style={styles.searchBar}>
+//           <TouchableOpacity onPress={handleSearch}>
+//             <Icon name="search-outline" size={20} color="#7F55B1" style={styles.icon} />
+//           </TouchableOpacity>
+//           <TextInput
+//             placeholder={route.name === 'Home' ? 'Search' : 'Categories'}
+//             style={styles.input}
+//             value={searchText}
+//             onChangeText={setSearchText}
+//           />
+//           {route.name !== 'Home' && (
+//             <>
+//               <TouchableOpacity onPress={handlePickImage}>
+//                 <Icon name="camera-outline" size={22} color="#7F55B1" style={{ marginHorizontal: 5 }} />
+//               </TouchableOpacity>
+//               <TouchableOpacity onPress={handleVoiceSearch}>
+//                 <Icon name="mic-outline" size={24} color={isListening ? "#7f00ff" : "#7F55B1"} style={{ marginHorizontal: 2 }} />
+//               </TouchableOpacity>
+//             </>
+//           )}
+//         </View>
+
+//         <TouchableOpacity onPress={() => navigation.navigate('Wishlist')}>
+//           <Icon name="heart-outline" size={24} color={getIconColor('Wishlist')} style={styles.icon} />
+//         </TouchableOpacity>
+//       </View>
+
+//       {/* Main category tabs */}
+//       {route.name !== 'Home' && (
+//         <ScrollView horizontal showsHorizontalScrollIndicator={false} style={styles.tabContainer}>
+//           {tabs.map((tab) => (
+//             <TabItem
+//               key={tab}
+//               label={tab}
+//               isActive={activeTab === tab}
+//               onPress={() => onTabChange && onTabChange(tab)}
+//             />
+//           ))}
+//         </ScrollView>
+//       )}
+//     </View>
+//   );
+// }
+
+// const styles = StyleSheet.create({
+//   container: {
+//     backgroundColor: '#fff',
+//     padding: 15,
+//     borderBottomWidth: 1,
+//     borderBottomColor: '#fff',
+//   },
+//   topRow: {
+//     flexDirection: 'row',
+//     alignItems: 'center',
+//     gap: 10,
+//     marginTop: 15,
+//   },
+//   icon: {
+//     marginHorizontal: 3,
+//   },
+//   searchBar: {
+//     flex: 1,
+//     flexDirection: 'row',
+//     backgroundColor: '#f5f0ff',
+//     paddingHorizontal: 0,
+//     alignItems: 'center',
+//     borderRadius: 10,
+//     marginHorizontal: 3,
+//   },
+//   input: {
+//     flex: 1,
+//     marginHorizontal: 8,
+//   },
+//   tabContainer: {
+//     marginTop: 7,
+//   },
+// });

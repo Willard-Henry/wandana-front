@@ -37,7 +37,7 @@ export default function MeScreen({ navigation }) {
             style={styles.profileImage}
           />
         </TouchableOpacity> */}
-
+       
         <TouchableOpacity onPress={pickImage}>
           {profileImage ? (
             <Image
