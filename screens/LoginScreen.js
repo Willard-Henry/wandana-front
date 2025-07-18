@@ -59,6 +59,7 @@ export default function LoginScreen({ navigation, onLogin }) {
           "Error",
           result.message || "Login failed. Please check your credentials."
         );
+        console.log('login failed')
       }
     } catch (error) {
       console.error("Login API call failed:", error);

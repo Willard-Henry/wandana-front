@@ -758,6 +758,11 @@ import { WishlistContext } from '../context/WishlistContext';
 import REVIEWS from '../src/data/reviews';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 import PRODUCTS from '../src/data/products';
+import React, { useEffect, useState } from 'react';
+import { ActivityIndicator } from 'react-native';
+import ShimmerPlaceholder from 'react-native-shimmer-placeholder';
+import LinearGradient from 'react-native-linear-gradient';
+
 
 
 
