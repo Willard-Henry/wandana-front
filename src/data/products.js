@@ -103,7 +103,7 @@ const PRODUCTS = [
         id: '3',
         name: 'Ladies Winter Suit',
         category: 'Women',
-        subcategory: 'Official dress',
+        subcategory: 'Casual dress',
         price: 29.99,
         rating: 4.5,
         image: 'https://i.pinimg.com/736x/db/a0/8d/dba08df2d10beda558ae1b74b5c165e7.jpg',
@@ -361,10 +361,60 @@ const PRODUCTS = [
         tag: 'Bestseller',
     },
     {
-        id: '16',
+        id: '60',
         name: 'Women Dress',
         category: 'Women',
         subcategory: 'Casual dress', // as requested
+        price: 35.99,
+        rating: 4.5,
+        image: 'https://i.pinimg.com/736x/17/e8/31/17e8313d5036c048cfb630840bdc8ec9.jpg',
+        tag: 'Bestseller',
+    },
+    {
+        id: '61',
+        name: 'Women Dress',
+        category: 'Women',
+        subcategory: 'Casual dress', // as requested
+        price: 29.99,
+        rating: 4.5,
+        image: 'https://i.pinimg.com/1200x/45/52/71/455271bc27f3d029067f57bb474fe31f.jpg',
+        tag: 'Bestseller',
+    },
+    {
+        id: '62',
+        name: 'Women Dress',
+        category: 'Women',
+        subcategory: 'Casual dress', // as requested
+        price: 29.99,
+        rating: 4.5,
+        image: 'https://i.pinimg.com/736x/80/49/bc/8049bca2fe1b8ea38e26fa9da382153e.jpg',
+        tag: 'Bestseller',
+    },
+    {
+        id: '63',
+        name: 'Women Dress',
+        category: 'Women',
+        subcategory: 'Casual dress', // as requested
+        price: 29.99,
+        rating: 4.5,
+        image: 'https://i.pinimg.com/736x/d6/b4/ff/d6b4ff248e145b188b58f0790055856b.jpg',
+        tag: 'Bestseller',
+    },
+    {
+        id: '64',
+        name: 'Women Dress',
+        category: 'Women',
+        subcategory: 'Casual dress', // as requested
+        price: 29.99,
+        rating: 4.5,
+        image: 'https://i.pinimg.com/736x/0f/b4/23/0fb4239329e26721798604d87fb43375.jpg',
+        tag: 'Bestseller',
+    },
+    {
+        id: '16',
+        name: 'Women Dress',
+        category: 'Women',
+        subcategory: 'Official dress', // as requested
         price: 19.99,
         rating: 4.2,
         image: 'https://i.pinimg.com/736x/ae/8c/24/ae8c24bd917712e87f84aaf89f0e4cee.jpg',
@@ -374,7 +424,7 @@ const PRODUCTS = [
         id: '17',
         name: 'Women Dress',
         category: 'Women',
-        subcategory: 'Casual dress', // as requested
+        subcategory: 'Official dress', // as requested
         price: 39.99,
         rating: 4.8,
         image: 'https://i.pinimg.com/736x/52/33/37/523337b11e778a52550d0b945f05d36d.jpg',
@@ -384,7 +434,7 @@ const PRODUCTS = [
         id: '18',
         name: 'Women Dress',
         category: 'Women',
-        subcategory: 'Casual dress', // as requested
+        subcategory: 'Official dress', // as requested
         price: 49.99,
         rating: 4.7,
         image: 'https://i.pinimg.com/736x/c2/84/88/c284883b92b2269e2d078bb97dac3407.jpg',

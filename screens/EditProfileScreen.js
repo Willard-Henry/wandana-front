@@ -3,7 +3,8 @@ import { View, Text, TextInput, Button, StyleSheet, Alert, TouchableOpacity, Ima
 import * as ImagePicker from 'expo-image-picker';
 
 export default function EditProfileScreen() {
-  const [name, setName] = useState('Ewuraba');
+  const [Firstname, setName] = useState('Ewuraba');
+  const [Lastname, setLastName] = useState('Adomako');
   const [email, setEmail] = useState('ewuraba@email.com');
   const [phone, setPhone] = useState('+1234567890');
   const [profileImage, setProfileImage] = useState(null);
@@ -49,10 +50,19 @@ export default function EditProfileScreen() {
         ) : null}
         <Text style={styles.changePhoto}>Change Photo</Text>
       </TouchableOpacity>
-      <Text style={styles.label}>Name</Text>
+      <Text style={styles.label}>Firstname</Text>
       <TextInput
         style={styles.input}
-        value={name}
+        value={Firstname}
+        
+        onChangeText={setName}
+        placeholder="Your Name"
+      />
+      <Text style={styles.label}>Lastname</Text>
+      <TextInput
+        style={styles.input}
+        value={Lastname}
+
         onChangeText={setName}
         placeholder="Your Name"
       />
