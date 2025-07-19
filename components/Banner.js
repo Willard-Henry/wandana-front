@@ -12,7 +12,7 @@ import {
 import { LinearGradient } from 'expo-linear-gradient';
 
 const { width } = Dimensions.get('window');
-const BANNER_HEIGHT = 180;
+const BANNER_HEIGHT = 260;
 
 const banners = [
     {
@@ -59,6 +59,7 @@ const BannerCarousel = () => {
                 source={{ uri: item.image }}
                 style={styles.banner}
                 imageStyle={{ borderRadius: 16 }}
+                linearBlurRadius={{ radius: 7, alpha: 1 }}
             >
                 <LinearGradient
                     colors={['rgba(0,0,0,0.7)', 'transparent']}
@@ -92,19 +93,20 @@ const styles = StyleSheet.create({
     container: {
         height: BANNER_HEIGHT,
         marginTop: 0,
-        marginBottom: 10,
+        marginBottom: 0,
     },
     banner: {
-        width: width - 30,
+        width: width - 0,
         height: BANNER_HEIGHT,
-        marginHorizontal: 15,
+        marginHorizontal: 0,
         justifyContent: 'flex-end',
-        borderRadius: 16,
+        borderRadius: 10,
         overflow: 'hidden',
+        blurRadius: 65,
     },
     gradient: {
         padding: 15,
-        borderRadius: 16,
+        borderRadius: 6,
     },
     title: {
         color: '#fff',

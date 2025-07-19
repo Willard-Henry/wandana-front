@@ -55,4 +55,11 @@ const styles = StyleSheet.create({
     fontSize: 16,
     backgroundColor: '#7f00ff',
   },
+  button: {
+    backgroundColor: '#7f00ff',
+    paddingVertical: 14,
+    borderRadius: 8,
+    alignItems: 'center',
+    marginTop: 10,
+  },
 });

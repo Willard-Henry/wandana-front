@@ -43,17 +43,19 @@ export default function TopNavBar({ activeTab, onTabChange }) {
 };
 
   const handlePickImage = async () => {
-    let result = await ImagePicker.launchImageLibraryAsync({
-      mediaTypes: ImagePicker.MediaTypeOptions.Images,
-      allowsEditing: true,
-      aspect: [4, 3],
-      quality: 1,
-    });
+  let result = await ImagePicker.launchImageLibraryAsync({
+    mediaTypes: ImagePicker.MediaTypeOptions.Images,
+    allowsEditing: true,
+    aspect: [4, 3],
+    quality: 1,
+  });
 
-    if (!result.canceled) {
-      alert('Image selected!');
-    }
-  };
+  if (!result.canceled) {
+    // Simulate similarity by passing a fixed subcategory
+    navigation.navigate('Category', { suggestedSubcategory: 'Casual dress' });
+  }
+};
+
 
   // const handleVoiceSearch = async () => {
   //   try {
@@ -130,10 +132,10 @@ export default function TopNavBar({ activeTab, onTabChange }) {
 
 const styles = StyleSheet.create({
   container: {
-    backgroundColor: '#fff',
+    backgroundColor: 'transparent',
     padding: 15,
     borderBottomWidth: 1,
-    borderBottomColor: '#fff',
+    borderBottomColor: 'transparent',
   },
   topRow: {
     flexDirection: 'row',

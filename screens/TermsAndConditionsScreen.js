@@ -76,7 +76,7 @@ export default function TermsAndConditionsScreen({ navigation }) {
       >
         <Text style={styles.text}>{termsText}</Text>
       </ScrollView>
-      <Button
+      <Button style={styles.button}
         title="I Agree"
         onPress={() => navigation.goBack()}
         disabled={!agreed}
@@ -89,4 +89,11 @@ const styles = StyleSheet.create({
   container: { flex: 1, padding: 40, backgroundColor: '#fff' },
   scroll: { flex: 1, marginBottom: 15 },
   text: { fontSize: 12, color: '#333' },
+  button: {
+    backgroundColor: '#7f00ff',
+    paddingVertical: 14,
+    borderRadius: 8,
+    alignItems: 'center',
+    marginTop: 10,
+  },
 });

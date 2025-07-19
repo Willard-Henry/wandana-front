@@ -23,8 +23,7 @@ export default function InviteFriendsScreen() {
       </Text>
       <Text style={styles.codeLabel}>Your Referral Code:</Text>
       <Text style={styles.code}>{referralCode}</Text>
-      <Button title="Share Invite" onPress={onShare} />
-      
+      <Button style={styles.Button} title="Share Invite" onPress={onShare} />
 
     </View>
   );
@@ -47,5 +46,12 @@ addButtonText: {
   color: '#fff',
   fontWeight: 'bold',
   fontSize: 16,
+},
+Button: {
+  backgroundColor: '#7f00ff',
+  paddingVertical: 14,
+  borderRadius: 8,
+  alignItems: 'center',
+  marginBottom: 10,
 },
 });

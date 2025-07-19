@@ -62,7 +62,7 @@ export default function SplashScreen({ onFinish }) {
       Animated.sequence([
         Animated.timing(blinkAnim, {
           toValue: 0.2,
-          duration: 900,
+          duration: 950,
           useNativeDriver: true,
         }),
         Animated.timing(blinkAnim, {
@@ -91,7 +91,7 @@ export default function SplashScreen({ onFinish }) {
         ]}
       />
       <Animated.Text style={[styles.text, { opacity: blinkAnim }]}>
-        Welcome to SHEIN
+        Welcome to WANDANA
       </Animated.Text>
     </View>
   );

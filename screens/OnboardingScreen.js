@@ -122,7 +122,7 @@ export default function OnboardingScreen({ onFinish }) {
       <View style={[styles.buttonRow, { justifyContent: 'center' }]}>
         <TouchableOpacity style={[styles.button, { width: '80%' }]} onPress={handleNext}>
           <Text style={styles.buttonText}>
-            {index === slides.length - 1 ? 'Get Started' : 'Next'}
+            {index === slides.length - 1 ? 'Get Started' : 'Skip'}
           </Text>
         </TouchableOpacity>
       </View>
