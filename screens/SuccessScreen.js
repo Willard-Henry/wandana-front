@@ -9,12 +9,14 @@ import { BackHandler } from "react-native";
 
 export default function SuccessScreen({ route }) {
     const navigation = useNavigation();
-    const { addEvents } = useContext(NotificationContext);
+    const { addEvent } = useContext(NotificationContext);
     const { clearCart } = useContext(CartContext);
 
     useEffect(() => {
         const now = new Date();
-        const orderId = `order-${now.getTime()}`; // Unique order ID
+        // const orderId = `order-${now.getTime()}`; 
+        const orderId = `order-${Date.now()}-${Math.floor(Math.random() * 10000)}`;
+        // Unique order ID
         const pad = n => n.toString().padStart(2, "0");
         const formatTime = date => `${pad(date.getHours())}:${pad(date.getMinutes())}`;
 
@@ -50,7 +52,7 @@ export default function SuccessScreen({ route }) {
         ];
         clearCart(); // Clear cart items after payment
 
-        addEvents(events);
+        addEvent(events);
 
         const backHandler = BackHandler.addEventListener("hardwareBackPress", () => true);
         // const timer = setTimeout(() => {
@@ -61,13 +63,26 @@ export default function SuccessScreen({ route }) {
             //     index: 0,
             //     routes: [{ name: "Maintabs" }], // Replace with "MainTabs" if you want Home
             // });
+            // navigation.reset({
+            //     index: 1,
+            //     routes: [{ name: "Home" }], // Navigate to Notification screen
+            //     //  params: { screen: "Notification" } 
+            //     // }
+            //     // ],
+            // });
             navigation.reset({
                 index: 0,
-                routes: [{ name: "Notification" }], // Navigate to Notification screen
-                //  params: { screen: "Notification" } 
-                // }
-                // ],
+                routes: [
+                    {
+                        name: 'MainTabs',
+                        state: {
+                            index: 1, // Assuming Notification tab is index 1
+                            routes: [{ name: 'Notification' }],
+                        },
+                    },
+                ],
             });
+            backHandler.remove();
 
         }, 2000);
 

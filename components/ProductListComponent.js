@@ -16,10 +16,15 @@ const numColumns = 2;
 const itemWidth = (screenWidth - itemSpacing * (numColumns + 1)) / numColumns;
 
 const ProductListComponent = ({ navigation, mainCategory = 'All', subCategory = '', showBanner = false }) => {
+    // const filteredProducts = PRODUCTS.filter(product =>
+    //     (mainCategory === 'All' || product.category === mainCategory) &&
+    //     (!subCategory || product.subcategory === subCategory)
+    // );
     const filteredProducts = PRODUCTS.filter(product =>
         (mainCategory === 'All' || product.category === mainCategory) &&
-        (!subCategory || product.subcategory === subCategory)
+        (!subCategory || product.subcategory.toLowerCase().includes(subCategory.toLowerCase()))
     );
+
 
     const renderItem = ({ item }) => (
         <View style={styles.productWrapper}>
@@ -73,8 +78,10 @@ const styles = StyleSheet.create({
         shadowOffset: { width: 0, height: 2 },
         shadowOpacity: 0.07,
         shadowRadius: 4,
-        elevation: 3, // Android shadow
+        elevation: 3,
     },
 });
 
 export default ProductListComponent;
+
+
