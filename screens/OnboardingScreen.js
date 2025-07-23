@@ -315,7 +315,7 @@ export default function OnboardingScreen({ onFinish }) {
       <View style={styles.buttonContainer}>
         <TouchableOpacity style={styles.button} onPress={handleNext}>
           <Text style={styles.buttonText}>
-            {index === slides.length - 1 ? 'Get Started' : 'Next'}
+            {index === slides.length - 1 ? 'Get Started' : 'Skip'}
           </Text>
         </TouchableOpacity>
       </View>

@@ -38,6 +38,6 @@ const styles = StyleSheet.create({
   title: { fontSize: 24, fontWeight: 'bold', marginBottom: 2 },
   sectionTitle: { fontSize: 16, fontWeight: 'bold', marginTop: 18, marginBottom: 4 },
   text: { fontSize: 14, marginBottom: 5, color: '#333' },
-  q: { fontWeight: 'bold', marginTop: 10, color: '#222', fontSize: 16 },
+  q: { fontWeight: 'bold', marginTop: 10, color: '#333', fontSize: 16 },
   a: { marginLeft: 10, marginBottom: 4, color: '#333', fontSize: 16 },
 });
