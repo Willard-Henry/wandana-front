@@ -141,7 +141,7 @@ export default function ProductDetailsScreen({ route, navigation }) {
               ) : (
                 <>
                   <Text style={styles.productName}>{item.name}</Text>
-                  <Text style={styles.productPrice}>${item.price.toFixed(2)}</Text>
+                  <Text style={styles.productPrice}>₵{item.price.toFixed(2)}</Text>
                 </>
               )}
             </View>
@@ -227,7 +227,7 @@ export default function ProductDetailsScreen({ route, navigation }) {
                     >
                       <Image source={{ uri: prod.image }} style={styles.relatedImage} />
                       <Text numberOfLines={1} style={styles.relatedName}>{prod.name}</Text>
-                      <Text style={styles.relatedPrice}>${prod.price.toFixed(2)}</Text>
+                      <Text style={styles.relatedPrice}>₵{prod.price.toFixed(2)}</Text>
                     </TouchableOpacity>
                   )}
                 />
@@ -259,25 +259,7 @@ export default function ProductDetailsScreen({ route, navigation }) {
         </View>
       </ScrollView>
 
-      {/* 
-      <View style={styles.bottomBar}>
-        <TouchableOpacity style={styles.addToCartButton} onPress={handleAddToCart}>
-          <Text style={styles.addToCartText}>Add to Cart</Text>
-        </TouchableOpacity>
-        <TouchableOpacity style={styles.wishlistButton} onPress={handleAddToWishlist}>
-          <Text style={styles.heart}>❤️</Text>
-        </TouchableOpacity>
-        <TouchableOpacity style={styles.buyNowButton} onPress={() => {
-          navigation.navigate('Checkout', {
-            item,
-            quantity,
-            size: selectedSize,
-          });
-        }}>
-          <Text style={styles.buyNowText}>Buy Now</Text>
-        </TouchableOpacity>
 
-      </View> */}
       <View style={styles.bottomBar}>
         <TouchableOpacity style={styles.wishlistButton} onPress={handleAddToWishlist}>
           <Icon name="favorite-border" size={24} color="#7f00ff" />

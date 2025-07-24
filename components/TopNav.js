@@ -170,6 +170,8 @@ import TabItem from './TabItem';
 import { useNavigation, useRoute } from '@react-navigation/native';
 import * as ImagePicker from 'expo-image-picker';
 import Voice from '@react-native-voice/voice';
+import { BlurView } from 'expo-blur';
+
 
 const tabs = ['All', 'Women', 'Men', 'Kids', 'Curve', 'Home'];
 
@@ -179,7 +181,7 @@ export default function TopNavBar({ activeTab, onTabChange }) {
   const route = useRoute();
 
   const getIconColor = (screen) =>
-    route.name === screen ? '#7F55B1' : '#7F55B1';
+    route.name === screen ? '#000' : '#000';
 
   const handleSearch = () => {
     alert(`Searching for: ${searchText}`);
@@ -211,19 +213,6 @@ export default function TopNavBar({ activeTab, onTabChange }) {
   };
 
 
-  // const handleVoiceSearch = async () => {
-  //   try {
-  //     await Voice.start('en-US');
-  //     Voice.onSpeechResults = (event) => {
-  //       const text = event.value[0];
-  //       setSearchText(text);
-  //       handleSearch();
-  //     };
-  //   } catch (error) {
-  //     console.error(error);
-  //   }
-  // };
-
   return (
     <View style={styles.container}>
       <View style={styles.topRow}>
@@ -236,7 +225,7 @@ export default function TopNavBar({ activeTab, onTabChange }) {
         </TouchableOpacity>
 
         {/* 🔥 Frosted glass search bar */}
-        <BlurView intensity={50} tint="light" style={styles.searchBar}>
+        <BlurView intensity={90} tint="light" style={styles.searchBar}>
           <TouchableOpacity onPress={handleSearch}>
             <Icon name="search-outline" size={20} color="#7F55B1" style={styles.icon} />
           </TouchableOpacity>
@@ -302,6 +291,38 @@ const styles = StyleSheet.create({
   icon: {
     marginHorizontal: 3,
   },
+  // searchBar: {
+  //   flex: 1,
+  //   flexDirection: 'row',
+  //   borderRadius: 12,
+  //   paddingHorizontal: 10,
+  //   paddingVertical: 8,
+  //   alignItems: 'center',
+  //   marginHorizontal: 3,
+  //   overflow: 'hidden',
+  //   backgroundColor: 'rgba(255,255,255,0.1)', // fallback for Android
+  //   borderWidth: 1,
+  //   borderColor: 'rgba(255,255,255,0.3)',
+  // },
+  // input: {
+  //   flex: 1,
+  //   marginHorizontal: 8,
+  //   backgroundColor: 'transparent',
+  //   color: '#000',
+  // },
+  // searchBar: {
+  //   flex: 1,
+  //   flexDirection: 'row',
+  //   borderRadius: 12,
+  //   paddingHorizontal: 10,
+  //   paddingVertical: 8,
+  //   alignItems: 'center',
+  //   marginHorizontal: 3,
+  //   overflow: 'hidden',
+  //   backgroundColor: 'rgba(255,255,255,0.15)', // slightly stronger translucent white
+  //   borderWidth: 1,
+  //   borderColor: 'rgba(255,255,255,0.35)', // slightly stronger border
+  // },
   searchBar: {
     flex: 1,
     flexDirection: 'row',
@@ -311,16 +332,20 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     marginHorizontal: 3,
     overflow: 'hidden',
-    backgroundColor: 'rgba(255,255,255,0.1)', // fallback for Android
+    backgroundColor: 'rgba(30, 30, 30, 0.25)',  // subtle dark tint
     borderWidth: 1,
-    borderColor: 'rgba(255,255,255,0.3)',
+    borderColor: 'rgba(255,255,255,0.15)',      // very soft white border
   },
+
   input: {
     flex: 1,
     marginHorizontal: 8,
     backgroundColor: 'transparent',
-    color: '#000',
+    color: '#fff',            // <--- change to white for glass effect
+    fontWeight: '500',
+    fontSize: 16,
   },
+
   tabContainer: {
     marginTop: 5,
   },
