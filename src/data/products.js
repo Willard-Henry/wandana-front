@@ -634,9 +634,1056 @@ const PRODUCTS = [
         image: 'https://i.pinimg.com/736x/9f/a9/4a/9fa94a34ca949f53b7299826cfd87ab6.jpg',
         tag: 'Super',
     },
-
-
-
+{
+  id: '100',
+  name: 'Men Casual Shirt XL',
+  category: 'Men',
+  subcategory: 'casual',
+  price: 34.99,
+  rating: 4.6,
+  image: 'https://i.pinimg.com/736x/2b/41/b1/2b41b10cc50d0bad26ed713de9e01e1a.jpg',
+  tag: 'Bestseller'
+},
+{
+  id: '101',
+  name: 'Men Casual Shirt L',
+  category: 'Men',
+  subcategory: 'casual',
+  price: 32.99,
+  rating: 4.4,
+  image: 'https://i.pinimg.com/736x/ce/c8/9c/cec89cf1c0a8aac01bb206a2949475ec.jpg',
+  tag: 'Hot'
+},
+{
+  id: '102',
+  name: 'Men Top L',
+  category: 'Men',
+  subcategory: 'casual',
+  price: 28.99,
+  rating: 4.2,
+  image: 'https://i.pinimg.com/736x/53/dc/52/53dc52dd7ea904e6553122bde6cdb5fa.jpg',
+  tag: 'New'
+},
+{
+  id: '103',
+  name: 'Men Bag',
+  category: 'Men',
+  subcategory: 'bags',
+  price: 39.99,
+  rating: 4.7,
+  image: 'https://i.pinimg.com/1200x/89/d2/14/89d2142fe738848b5a44ec5e7cb9fadd.jpg',
+  tag: 'Super'
+},
+{
+  id: '104',
+  name: 'Men Bag Classic',
+  category: 'Men',
+  subcategory: 'bags',
+  price: 41.99,
+  rating: 4.5,
+  image: 'https://i.pinimg.com/736x/7b/4c/75/7b4c75121a3aedd617420f83f55d46bd.jpg',
+  tag: 'Hot'
+},
+{
+  id: '105',
+  name: 'Men Sneaker',
+  category: 'Men',
+  subcategory: 'footwear',
+  price: 59.99,
+  rating: 4.7,
+  image: 'https://i.pinimg.com/736x/16/e5/63/16e563f816f8d1cb405f2d3ab900deca.jpg',
+  tag: 'New'
+},
+{
+  id: '106',
+  name: 'Men Sport Footwear',
+  category: 'Men',
+  subcategory: 'footwear',
+  price: 62.49,
+  rating: 4.5,
+  image: 'https://i.pinimg.com/736x/eb/15/44/eb15446e5ccdbb22834ada9579792c67.jpg',
+  tag: 'Super'
+},
+{
+  id: '107',
+  name: 'Men Chain Necklace',
+  category: 'Men',
+  subcategory: 'jewelry',
+  price: 22.99,
+  rating: 4.4,
+  image: 'https://i.pinimg.com/1200x/f8/82/2a/f8822afab2fd7126a0907482963aa034.jpg',
+  tag: 'Hot'
+},
+{
+  id: '108',
+  name: 'Men Pendant Jewelry',
+  category: 'Men',
+  subcategory: 'jewelry',
+  price: 24.49,
+  rating: 4.6,
+  image: 'https://i.pinimg.com/1200x/d8/cd/e5/d8cde573c6b277b52397039305d3553c.jpg',
+  tag: 'Bestseller'
+},
+{
+  id: '109',
+  name: 'Men Bracelet',
+  category: 'Men',
+  subcategory: 'jewelry',
+  price: 18.99,
+  rating: 4.1,
+  image: 'https://i.pinimg.com/1200x/a9/76/e6/a976e6d3b0b91908ec7e54316b5062bc.jpg',
+  tag: 'New'
+},
+{
+  id: '110',
+  name: 'Men Fashion Ring',
+  category: 'Men',
+  subcategory: 'jewelry',
+  price: 16.99,
+  rating: 4.0,
+  image: 'https://i.pinimg.com/1200x/9f/68/67/9f6867f6dc933179a8b2439a110fb2a2.jpg',
+  tag: 'Hot'
+},
+{
+  id: '111',
+  name: 'Men Jewelry Combo',
+  category: 'Men',
+  subcategory: 'jewelry',
+  price: 29.99,
+  rating: 4.6,
+  image: 'https://i.pinimg.com/1200x/89/e5/c5/89e5c5648321170aa3e6db2fdfea5d76.jpg',
+  tag: 'Super'
+},
+{
+  id: '112',
+  name: 'Men Swim Shorts',
+  category: 'Men',
+  subcategory: 'beachware',
+  price: 25.49,
+  rating: 4.2,
+  image: 'https://i.pinimg.com/1200x/c8/4b/8b/c84b8b6889d3e7f674a795c0df04992d.jpg',
+  tag: 'New'
+},
+{
+  id: '113',
+  name: 'Men Beachwear Set',
+  category: 'Men',
+  subcategory: 'beachware',
+  price: 27.99,
+  rating: 4.3,
+  image: 'https://i.pinimg.com/1200x/2a/13/94/2a13946fd97964aa2f94e67a43e25f1a.jpg',
+  tag: 'Bestseller'
+},
+{
+  id: '114',
+  name: 'Men Blazer XL',
+  category: 'Men',
+  subcategory: 'official',
+  price: 65.99,
+  rating: 4.7,
+  image: 'https://i.pinimg.com/736x/f1/e4/4a/f1e44a8ee618e7739ebd73a3f4c11cbe.jpg',
+  tag: 'Super'
+},
+{
+  id: '115',
+  name: 'Men Suit XXL',
+  category: 'Men',
+  subcategory: 'official',
+  price: 72.99,
+  rating: 4.8,
+  image: 'https://i.pinimg.com/736x/fb/5c/d4/fb5cd482a95a0314af5b54b69f559e3d.jpg',
+  tag: 'Hot'
+},
+{
+  id: '116',
+  name: 'Men Side Bag',
+  category: 'Men',
+  subcategory: 'bags',
+  price: 36.49,
+  rating: 4.4,
+  image: 'https://i.pinimg.com/736x/f8/da/fc/f8dafc83247af9b8d5ed74c5bd1b5499.jpg',
+  tag: 'New'
+},
+{
+  id: '117',
+  name: 'Men Slip-On Shoe',
+  category: 'Men',
+  subcategory: 'footwear',
+  price: 49.99,
+  rating: 4.5,
+  image: 'https://i.pinimg.com/736x/f7/9f/16/f79f16cc44f29010d81a5821dc1f4e43.jpg',
+  tag: 'Bestseller'
+},
+{
+  id: '118',
+  name: 'Men Casual Tee',
+  category: 'Men',
+  subcategory: 'casual',
+  price: 30.49,
+  rating: 4.2,
+  image: 'https://i.pinimg.com/736x/96/98/09/96980929de8841c90b2678fd4023ba72.jpg',
+  tag: 'Hot'
+},
+{
+  id: '119',
+  name: 'Men Casual Polo',
+  category: 'Men',
+  subcategory: 'casual',
+  price: 32.00,
+  rating: 4.3,
+  image: 'https://i.pinimg.com/1200x/25/6e/0c/256e0c33413fa927e7786b7f5b240f96.jpg',
+  tag: 'Super'
+},
+{
+  id: '120',
+  name: 'Men Casual Wear',
+  category: 'Men',
+  subcategory: 'casual',
+  price: 31.99,
+  rating: 4.2,
+  image: 'https://i.pinimg.com/736x/58/b0/96/58b096d929f432bae48ac75ae5b07c21.jpg',
+  tag: 'New'
+},
+{
+  id: '121',
+  name: 'Men Classic Shirt',
+  category: 'Men',
+  subcategory: 'casual',
+  price: 29.99,
+  rating: 4.3,
+  image: 'https://i.pinimg.com/736x/c5/07/93/c507932349cf8a21ee54e3bbe6bb4887.jpg',
+  tag: 'Hot'
+},
+{
+  id: '122',
+  name: 'Kids Sneakers Blue',
+  category: 'Child',
+  subcategory: 'footwear',
+  price: 27.49,
+  rating: 4.4,
+  image: 'https://i.pinimg.com/1200x/af/bc/40/afbc4053607a8e340090e32a0887b2f0.jpg',
+  tag: 'Super'
+},
+{
+  id: '123',
+  name: 'Kids Footwear Black',
+  category: 'Child',
+  subcategory: 'footwear',
+  price: 25.99,
+  rating: 4.3,
+  image: 'https://i.pinimg.com/736x/cb/7c/fb/cb7cfb082a619401a4d0785f1de5200b.jpg',
+  tag: 'Hot'
+},
+{
+  id: '124',
+  name: 'Kids Casual Shoes',
+  category: 'Child',
+  subcategory: 'footwear',
+  price: 26.99,
+  rating: 4.1,
+  image: 'https://i.pinimg.com/1200x/a6/2b/2b/a62b2bf5cc71dd7d961fd5406dbf925a.jpg',
+  tag: 'New'
+},
+{
+  id: '125',
+  name: 'Kids Sneaker White',
+  category: 'Child',
+  subcategory: 'footwear',
+  price: 29.49,
+  rating: 4.5,
+  image: 'https://i.pinimg.com/1200x/78/51/f8/7851f89b5381a0a4a6fde13b7d99f3cf.jpg',
+  tag: 'Bestseller'
+},
+{
+  id: '126',
+  name: 'Kids Bright Sneakers',
+  category: 'Child',
+  subcategory: 'footwear',
+  price: 28.99,
+  rating: 4.6,
+  image: 'https://i.pinimg.com/736x/b0/82/2a/b0822a2f734d80f00e2be12bb651b7eb.jpg',
+  tag: 'Hot'
+},
+{
+  id: '127',
+  name: 'Kids Low-cut Shoe',
+  category: 'Child',
+  subcategory: 'footwear',
+  price: 22.99,
+  rating: 4.3,
+  image: 'https://i.pinimg.com/736x/b4/2a/a4/b42aa4a45474dafdc296fca28e25602b.jpg',
+  tag: 'New'
+},
+{
+  id: '128',
+  name: 'Kids Slip-On Footwear',
+  category: 'Child',
+  subcategory: 'footwear',
+  price: 23.99,
+  rating: 4.4,
+  image: 'https://i.pinimg.com/736x/b5/fc/d2/b5fcd26bb08ffb2a9474b9ace3d491ce.jpg',
+  tag: 'Super'
+},
+{
+  id: '129',
+  name: 'Men Black Sneakers',
+  category: 'Men',
+  subcategory: 'footwear',
+  price: 49.99,
+  rating: 4.6,
+  image: 'https://i.pinimg.com/736x/55/14/9c/55149caa2206511f63bb04565371e6d4.jpg',
+  tag: 'Bestseller'
+},
+{
+  id: '130',
+  name: 'Men Sport Sneakers',
+  category: 'Men',
+  subcategory: 'footwear',
+  price: 51.99,
+  rating: 4.5,
+  image: 'https://i.pinimg.com/736x/26/31/d6/2631d69539b2b13dbad5bdabfbbb2f4e.jpg',
+  tag: 'Hot'
+},
+{
+  id: '131',
+  name: 'Men White Trainers',
+  category: 'Men',
+  subcategory: 'footwear',
+  price: 54.99,
+  rating: 4.7,
+  image: 'https://i.pinimg.com/1200x/37/e8/30/37e8306d0ce49cddac14f85c3b1dc57a.jpg',
+  tag: 'Super'
+},
+{
+  id: '132',
+  name: 'Kids Tee Casual Small',
+  category: 'Child',
+  subcategory: 'casual',
+  price: 18.99,
+  rating: 4.3,
+  image: 'https://i.pinimg.com/736x/72/c2/d6/72c2d6c9f257773de5a894cb98200925.jpg',
+  tag: 'Hot'
+},
+{
+  id: '133',
+  name: 'Kids Shirt Casual Small',
+  category: 'Child',
+  subcategory: 'casual',
+  price: 19.49,
+  rating: 4.2,
+  image: 'https://i.pinimg.com/1200x/ff/98/04/ff98047a4166a8448de93c45988a13cc.jpg',
+  tag: 'New'
+},
+{
+  id: '134',
+  name: 'Kids Polo Casual Small',
+  category: 'Child',
+  subcategory: 'casual',
+  price: 20.99,
+  rating: 4.4,
+  image: 'https://i.pinimg.com/1200x/59/89/2f/59892fa010836473215d6cfcce79dc3b.jpg',
+  tag: 'Super'
+},
+{
+  id: '135',
+  name: 'Kids Casual Top Small',
+  category: 'Child',
+  subcategory: 'casual',
+  price: 21.99,
+  rating: 4.5,
+  image: 'https://i.pinimg.com/1200x/13/9d/c5/139dc59b60f9db88ba80e1868ea59379.jpg',
+  tag: 'Bestseller'
+},
+{
+  id: '136',
+  name: 'Kids Bright Tee Small',
+  category: 'Child',
+  subcategory: 'casual',
+  price: 20.49,
+  rating: 4.1,
+  image: 'https://i.pinimg.com/1200x/0e/a5/56/0ea55639a143d26736161b511c8c4df9.jpg',
+  tag: 'Hot'
+},
+{
+  id: '137',
+  name: 'Kids Beachwear Yellow',
+  category: 'Child',
+  subcategory: 'beachware',
+  price: 22.49,
+  rating: 4.3,
+  image: 'https://i.pinimg.com/1200x/9e/0f/45/9e0f45a8ba132f68c9a431907b0545b7.jpg',
+  tag: 'New'
+},
+{
+  id: '138',
+  name: 'Kids Swimwear Blue',
+  category: 'Child',
+  subcategory: 'beachware',
+  price: 24.99,
+  rating: 4.2,
+  image: 'https://i.pinimg.com/736x/05/b9/30/05b9303b9814b9aa7da749c98286b9c4.jpg',
+  tag: 'Super'
+},
+{
+  id: '139',
+  name: 'Kids Beach Shorts',
+  category: 'Child',
+  subcategory: 'beachware',
+  price: 26.49,
+  rating: 4.4,
+  image: 'https://i.pinimg.com/1200x/0d/20/a6/0d20a6d17d0b6f21ce439dcbde751548.jpg',
+  tag: 'Bestseller'
+},
+{
+  id: '140',
+  name: 'Kids Beachwear Set',
+  category: 'Child',
+  subcategory: 'beachware',
+  price: 27.99,
+  rating: 4.5,
+  image: 'https://i.pinimg.com/736x/a2/04/0b/a2040b6992de0b8a156cb44093b729a9.jpg',
+  tag: 'Super'
+},
+{
+  id: '141',
+  name: 'Kids Casual Tee',
+  category: 'Child',
+  subcategory: 'casual',
+  price: 19.99,
+  rating: 4.2,
+  image: 'https://i.pinimg.com/736x/05/b9/30/05b9303b9814b9aa7da749c98286b9c4.jpg',
+  tag: 'New'
+},
+{
+  id: '142',
+  name: 'Silver Pendant Jewelry',
+  category: 'Home',
+  subcategory: 'jewelry',
+  price: 35.49,
+  rating: 4.6,
+  image: 'https://i.pinimg.com/1200x/c7/96/a5/c796a52aeac8b441a3be0ba2a3041a0a.jpg',
+  tag: 'Bestseller'
+},
+{
+  id: '143',
+  name: 'Gold Chain Jewelry',
+  category: 'Home',
+  subcategory: 'jewelry',
+  price: 42.99,
+  rating: 4.7,
+  image: 'https://i.pinimg.com/736x/49/6d/57/496d57c96967a672a6228fadd861b29f.jpg',
+  tag: 'Hot'
+},
+{
+  id: '144',
+  name: 'Diamond Ring',
+  category: 'Home',
+  subcategory: 'jewelry',
+  price: 55.99,
+  rating: 4.8,
+  image: 'https://i.pinimg.com/736x/d6/28/84/d628846a7f31106b314f3a30b0bb481c.jpg',
+  tag: 'Super'
+},
+{
+  id: '145',
+  name: 'Beaded Necklace',
+  category: 'Home',
+  subcategory: 'jewelry',
+  price: 33.99,
+  rating: 4.4,
+  image: 'https://i.pinimg.com/736x/25/b3/64/25b364aec0761d1597bb10a089767eab.jpg',
+  tag: 'New'
+},
+{
+  id: '146',
+  name: 'Traditional Jewelry Set',
+  category: 'Home',
+  subcategory: 'jewelry',
+  price: 48.99,
+  rating: 4.6,
+  image: 'https://i.pinimg.com/1200x/0b/de/9c/0bde9c7ed5dfea194d722a33161cce9d.jpg',
+  tag: 'Bestseller'
+},
+{
+  id: '147',
+  name: 'Colorful Bracelets',
+  category: 'Home',
+  subcategory: 'jewelry',
+  price: 27.49,
+  rating: 4.3,
+  image: 'https://i.pinimg.com/1200x/62/8d/89/628d89c3826cc3f093891522015fb994.jpg',
+  tag: 'Hot'
+},
+{
+  id: '148',
+  name: 'Elegant Jewelry Pack',
+  category: 'Home',
+  subcategory: 'jewelry',
+  price: 50.99,
+  rating: 4.7,
+  image: 'https://i.pinimg.com/1200x/af/09/46/af0946bd08d1edc7beaff384cf0f7284.jpg',
+  tag: 'Super'
+},
+{
+  id: '149',
+  name: 'Jewelry Gift Box',
+  category: 'Home',
+  subcategory: 'jewelry',
+  price: 36.99,
+  rating: 4.5,
+  image: 'https://i.pinimg.com/736x/5a/86/4b/5a864b793245a7213b9435539a39a57e.jpg',
+  tag: 'New'
+},
+{
+  id: '150',
+  name: 'Luxury Jewelry Set',
+  category: 'Home',
+  subcategory: 'jewelry',
+  price: 58.99,
+  rating: 4.9,
+  image: 'https://i.pinimg.com/1200x/ef/43/6c/ef436c3b734870c68ab56793f2702cea.jpg',
+  tag: 'Super'
+},
+{
+  id: '151',
+  name: 'Jewelry Collection',
+  category: 'Home',
+  subcategory: 'jewelry',
+  price: 52.49,
+  rating: 4.8,
+  image: 'https://i.pinimg.com/736x/30/8c/e6/308ce68f4c73e1d111b7125875c17a3e.jpg',
+  tag: 'Bestseller'
+},
+{
+  id: '152',
+  name: 'Women Heels Red',
+  category: 'Women',
+  subcategory: 'footwear',
+  price: 44.99,
+  rating: 4.6,
+  image: 'https://i.pinimg.com/1200x/de/61/e3/de61e33fdd7a6e7f2c7bdef1f8ba9f20.jpg',
+  tag: 'Hot'
+},
+{
+  id: '153',
+  name: 'Women Heels Nude',
+  category: 'Women',
+  subcategory: 'footwear',
+  price: 42.99,
+  rating: 4.5,
+  image: 'https://i.pinimg.com/736x/b1/45/da/b145da40e09ff3715c3db1f9f9907bef.jpg',
+  tag: 'New'
+},
+{
+  id: '154',
+  name: 'Women Heels White',
+  category: 'Women',
+  subcategory: 'footwear',
+  price: 45.99,
+  rating: 4.7,
+  image: 'https://i.pinimg.com/736x/fa/66/b1/fa66b1b35f5e09b07197e15abc01eee2.jpg',
+  tag: 'Super'
+},
+{
+  id: '155',
+  name: 'Women Slippers Pink',
+  category: 'Women',
+  subcategory: 'footwear',
+  price: 23.99,
+  rating: 4.3,
+  image: 'https://i.pinimg.com/1200x/15/47/03/1547039291462bebfdd36b575c1c4142.jpg',
+  tag: 'Bestseller'
+},
+{
+  id: '156',
+  name: 'Women Slippers Red',
+  category: 'Women',
+  subcategory: 'footwear',
+  price: 24.99,
+  rating: 4.4,
+  image: 'https://i.pinimg.com/1200x/b0/09/73/b009736ad3332c4f89de5b66cec40d7b.jpg',
+  tag: 'New'
+},
+{
+  id: '157',
+  name: 'Women Formal Suit',
+  category: 'Women',
+  subcategory: 'official',
+  price: 64.99,
+  rating: 4.6,
+  image: 'https://i.pinimg.com/1200x/ad/9c/2e/ad9c2eb7984bf7ef54d4c48cda1ac81c.jpg',
+  tag: 'Hot'
+},
+{
+  id: '158',
+  name: 'Women Office Wear',
+  category: 'Women',
+  subcategory: 'official',
+  price: 62.99,
+  rating: 4.5,
+  image: 'https://i.pinimg.com/736x/60/6c/66/606c666b5d25076f545ad8c8030ce4ed.jpg',
+  tag: 'Super'
+},
+{
+  id: '159',
+  name: 'Mortar and Pestle Set',
+  category: 'Home',
+  subcategory: 'kitchenware',
+  price: 29.99,
+  rating: 4.8,
+  image: 'https://i.pinimg.com/736x/94/c9/9b/94c99bad08ec66eae1d17aae13d9f83e.jpg',
+  tag: 'Bestseller'
+},
+{
+  id: '160',
+  name: 'Wooden Cutting Board',
+  category: 'Home',
+  subcategory: 'kitchenware',
+  price: 18.99,
+  rating: 4.5,
+  image: 'https://i.pinimg.com/736x/a0/51/fb/a051fbd3e4a36cf46c84a01b8c5421a0.jpg',
+  tag: 'New'
+},
+{
+  id: '161',
+  name: 'Stainless Steel Pan',
+  category: 'Home',
+  subcategory: 'kitchenware',
+  price: 32.99,
+  rating: 4.6,
+  image: 'https://i.pinimg.com/736x/21/fd/6b/21fd6b86c0102526b73d97e2fa87c1cc.jpg',
+  tag: 'Hot'
+},
+{
+  id: '162',
+  name: 'Non-Stick Frying Pan',
+  category: 'Home',
+  subcategory: 'kitchenware',
+  price: 28.49,
+  rating: 4.4,
+  image: 'https://i.pinimg.com/736x/a5/4d/95/a54d95470bfece6782bb0485c53a3a9e.jpg',
+  tag: 'Super'
+},
+{
+  id: '163',
+  name: 'Ceramic Plate Set',
+  category: 'Home',
+  subcategory: 'kitchenware',
+  price: 34.99,
+  rating: 4.7,
+  image: 'https://i.pinimg.com/1200x/d0/36/92/d03692f517a3bdbb61024e9d561a3607.jpg',
+  tag: 'Bestseller'
+},
+{
+  id: '164',
+  name: 'Glass Cups Pack',
+  category: 'Home',
+  subcategory: 'kitchenware',
+  price: 26.99,
+  rating: 4.3,
+  image: 'https://i.pinimg.com/736x/49/f4/a3/49f4a37aa3a60a9164400c865c8aa8f5.jpg',
+  tag: 'New'
+},
+{
+  id: '165',
+  name: 'Cutlery Set 24pcs',
+  category: 'Home',
+  subcategory: 'kitchenware',
+  price: 29.99,
+  rating: 4.6,
+  image: 'https://i.pinimg.com/736x/34/c8/ce/34c8cece7ad14394db73199d1cbe5d69.jpg',
+  tag: 'Hot'
+},
+{
+  id: '166',
+  name: 'Kitchen Knife Set',
+  category: 'Home',
+  subcategory: 'kitchenware',
+  price: 39.99,
+  rating: 4.8,
+  image: 'https://i.pinimg.com/736x/4a/54/2f/4a542fb320ae9cf00a4bd0adf6cc7a65.jpg',
+  tag: 'Super'
+},
+{
+  id: '167',
+  name: 'Baking Tray Steel',
+  category: 'Home',
+  subcategory: 'kitchenware',
+  price: 24.49,
+  rating: 4.4,
+  image: 'https://i.pinimg.com/736x/69/5f/0f/695f0fc0ea82ae6a3354d4c897169ee3.jpg',
+  tag: 'Bestseller'
+},
+{
+  id: '168',
+  name: 'Children Pajamas Blue',
+  category: 'Child',
+  subcategory: 'nightwear',
+  price: 22.99,
+  rating: 4.5,
+  image: 'https://i.pinimg.com/736x/32/e5/2a/32e52ab25f1a2ddf3578f4a09b32b7a0.jpg',
+  tag: 'Hot'
+},
+{
+  id: '169',
+  name: 'Children Pajamas Pink',
+  category: 'Child',
+  subcategory: 'nightwear',
+  price: 23.99,
+  rating: 4.6,
+  image: 'https://i.pinimg.com/736x/7a/cc/13/7acc13e25ed6c2be3035ac5a0f5425a1.jpg',
+  tag: 'Super'
+},
+{
+  id: '170',
+  name: 'Children Pajamas Green',
+  category: 'Child',
+  subcategory: 'nightwear',
+  price: 22.49,
+  rating: 4.4,
+  image: 'https://i.pinimg.com/736x/0f/c6/b3/0fc6b31a8f1708de9a24d634a9c2e73e.jpg',
+  tag: 'New'
+},
+{
+  id: '171',
+  name: 'Women Classic Denim',
+  category: 'Women',
+  subcategory: 'casual',
+  price: 39.99,
+  rating: 4.6,
+  image: 'https://i.pinimg.com/736x/5d/d8/f0/5dd8f0ca5f03f621a3ba979d89c03c4f.jpg',
+  tag: 'Hot'
+},
+{
+  id: '172',
+  name: 'Women T-Shirt White',
+  category: 'Women',
+  subcategory: 'casual',
+  price: 19.99,
+  rating: 4.3,
+  image: 'https://i.pinimg.com/736x/ed/98/32/ed9832d86a099f78d41fc77629f3fe51.jpg',
+  tag: 'New'
+},
+{
+  id: '173',
+  name: 'Women T-Shirt Black',
+  category: 'Women',
+  subcategory: 'casual',
+  price: 19.99,
+  rating: 4.5,
+  image: 'https://i.pinimg.com/736x/dc/d4/5d/dcd45d3809ffbb29d23e395e8be3fa3a.jpg',
+  tag: 'Super'
+},
+{
+  id: '174',
+  name: 'Women T-Shirt Grey',
+  category: 'Women',
+  subcategory: 'casual',
+  price: 19.99,
+  rating: 4.4,
+  image: 'https://i.pinimg.com/736x/16/c9/66/16c9666af1a9ea0d901a0321d1a0059d.jpg',
+  tag: 'Bestseller'
+},
+{
+  id: '175',
+  name: 'Women Denim Shorts',
+  category: 'Women',
+  subcategory: 'casual',
+  price: 24.99,
+  rating: 4.2,
+  image: 'https://i.pinimg.com/736x/25/d1/eb/25d1ebf2f7f2982597b28972f3509a0a.jpg',
+  tag: 'Hot'
+},
+{
+  id: '176',
+  name: 'Women Crop Hoodie',
+  category: 'Women',
+  subcategory: 'casual',
+  price: 29.99,
+  rating: 4.6,
+  image: 'https://i.pinimg.com/736x/a1/5a/37/a15a379b52b6e37d585a0b8cf4f7ca42.jpg',
+  tag: 'Super'
+},
+{
+  id: '177',
+  name: 'Women Casual Set',
+  category: 'Women',
+  subcategory: 'casual',
+  price: 36.99,
+  rating: 4.5,
+  image: 'https://i.pinimg.com/736x/3f/c3/e2/3fc3e2921ac183eaa6ae8b675498c59a.jpg',
+  tag: 'Bestseller'
+},
+{
+  id: '178',
+  name: 'Children Raincoat Blue',
+  category: 'Child',
+  subcategory: 'outerwear',
+  price: 27.99,
+  rating: 4.4,
+  image: 'https://i.pinimg.com/736x/fc/3f/bd/fc3fbd1be01c4ef82bde0f101aad69b3.jpg',
+  tag: 'New'
+},
+{
+  id: '179',
+  name: 'Children Raincoat Yellow',
+  category: 'Child',
+  subcategory: 'outerwear',
+  price: 27.99,
+  rating: 4.6,
+  image: 'https://i.pinimg.com/736x/8c/3f/f4/8c3ff4643680a5aaff15631346b536ac.jpg',
+  tag: 'Hot'
+},
+{
+  id: '180',
+  name: 'Air Fryer Pro',
+  category: 'Home',
+  subcategory: 'kitchenware',
+  price: 64.99,
+  rating: 4.7,
+  image: 'https://i.pinimg.com/736x/b9/3a/48/b93a48094a955751f00087b04ea8d80b.jpg',
+  tag: 'Super'
+},
+{
+  id: '181',
+  name: 'Electric Rice Cooker',
+  category: 'Home',
+  subcategory: 'kitchenware',
+  price: 49.99,
+  rating: 4.6,
+  image: 'https://i.pinimg.com/736x/d2/97/54/d297545eda3e0c8687a5f03b855e67e3.jpg',
+  tag: 'Hot'
+},
+{
+  id: '182',
+  name: 'Multi-Speed Blender',
+  category: 'Home',
+  subcategory: 'kitchenware',
+  price: 39.99,
+  rating: 4.4,
+  image: 'https://i.pinimg.com/736x/83/06/b5/8306b59a6f83b8899017807a98981d53.jpg',
+  tag: 'Bestseller'
+},
+{
+  id: '183',
+  name: 'Electric Kettle',
+  category: 'Home',
+  subcategory: 'kitchenware',
+  price: 29.99,
+  rating: 4.3,
+  image: 'https://i.pinimg.com/736x/34/d2/24/34d224afc706b0e342f94ccd397cec4b.jpg',
+  tag: 'New'
+},
+{
+  id: '184',
+  name: 'Washing Machine Compact',
+  category: 'Home',
+  subcategory: 'kitchenware',
+  price: 139.99,
+  rating: 4.6,
+  image: 'https://i.pinimg.com/736x/f0/1a/f1/f01af17130501f0c39647dd1ee976d98.jpg',
+  tag: 'Super'
+},
+{
+  id: '185',
+  name: 'Room Decor Frames',
+  category: 'Home',
+  subcategory: 'decor',
+  price: 24.99,
+  rating: 4.2,
+  image: 'https://i.pinimg.com/736x/02/94/57/029457e2de5c64a68a07598eea4df3d9.jpg',
+  tag: 'Hot'
+},
+{
+  id: '186',
+  name: 'Decor Chair Set',
+  category: 'Home',
+  subcategory: 'decor',
+  price: 74.99,
+  rating: 4.5,
+  image: 'https://i.pinimg.com/1200x/ae/65/08/ae65085c68f8c7c6550b18e946c99614.jpg',
+  tag: 'Bestseller'
+},
+{
+  id: '187',
+  name: 'Men Beachwear Shorts',
+  category: 'Men',
+  subcategory: 'beachware',
+  price: 25.49,
+  rating: 4.3,
+  image: 'https://i.pinimg.com/736x/c8/4b/8b/c84b8b6889d3e7f674a795c0df04992d.jpg',
+  tag: 'New'
+},
+{
+  id: '188',
+  name: 'Men Footwear High Top',
+  category: 'Men',
+  subcategory: 'footwear',
+  price: 52.99,
+  rating: 4.7,
+  image: 'https://i.pinimg.com/736x/eb/15/44/eb15446e5ccdbb22834ada9579792c67.jpg',
+  tag: 'Super'
+},
+{
+  id: '189',
+  name: 'Kids Casual Hoodie',
+  category: 'Child',
+  subcategory: 'casual',
+  price: 21.99,
+  rating: 4.4,
+  image: 'https://i.pinimg.com/1200x/9e/0f/45/9e0f45a8ba132f68c9a431907b0545b7.jpg',
+  tag: 'Bestseller'
+},
+{
+  id: '190',
+  name: 'Kids Flip Flops',
+  category: 'Child',
+  subcategory: 'footwear',
+  price: 16.99,
+  rating: 4.2,
+  image: 'https://i.pinimg.com/736x/b0/82/2a/b0822a2f734d80f00e2be12bb651b7eb.jpg',
+  tag: 'Hot'
+},
+{
+  id: '191',
+  name: 'Women Slippers Grey',
+  category: 'Women',
+  subcategory: 'footwear',
+  price: 22.99,
+  rating: 4.3,
+  image: 'https://i.pinimg.com/1200x/b0/09/73/b009736ad3332c4f89de5b66cec40d7b.jpg',
+  tag: 'New'
+},
+{
+  id: '192',
+  name: 'Men Formal Pants',
+  category: 'Men',
+  subcategory: 'official',
+  price: 34.99,
+  rating: 4.2,
+  image: 'https://i.pinimg.com/736x/f1/e4/4a/f1e44a8ee618e7739ebd73a3f4c11cbe.jpg',
+  tag: 'Hot'
+},
+{
+  id: '193',
+  name: 'Men Formal Suit Black',
+  category: 'Men',
+  subcategory: 'official',
+  price: 72.49,
+  rating: 4.5,
+  image: 'https://i.pinimg.com/736x/fb/5c/d4/fb5cd482a95a0314af5b54b69f559e3d.jpg',
+  tag: 'Super'
+},
+{
+  id: '194',
+  name: 'Women Casual Sandals',
+  category: 'Women',
+  subcategory: 'footwear',
+  price: 28.99,
+  rating: 4.4,
+  image: 'https://i.pinimg.com/736x/fa/66/b1/fa66b1b35f5e09b07197e15abc01eee2.jpg',
+  tag: 'Hot'
+},
+{
+  id: '195',
+  name: 'Kids Tee Orange',
+  category: 'Child',
+  subcategory: 'casual',
+  price: 19.49,
+  rating: 4.3,
+  image: 'https://i.pinimg.com/736x/72/c2/d6/72c2d6c9f257773de5a894cb98200925.jpg',
+  tag: 'New'
+},
+{
+  id: '196',
+  name: 'Kids Polo Blue',
+  category: 'Child',
+  subcategory: 'casual',
+  price: 20.99,
+  rating: 4.4,
+  image: 'https://i.pinimg.com/1200x/ff/98/04/ff98047a4166a8448de93c45988a13cc.jpg',
+  tag: 'Super'
+},
+{
+  id: '197',
+  name: 'Women Office Wear Navy',
+  category: 'Women',
+  subcategory: 'official',
+  price: 59.99,
+  rating: 4.6,
+  image: 'https://i.pinimg.com/736x/60/6c/66/606c666b5d25076f545ad8c8030ce4ed.jpg',
+  tag: 'Bestseller'
+},
+{
+  id: '198',
+  name: 'Kids Beach Shorts Aqua',
+  category: 'Child',
+  subcategory: 'beachware',
+  price: 22.49,
+  rating: 4.3,
+  image: 'https://i.pinimg.com/736x/05/b9/30/05b9303b9814b9aa7da749c98286b9c4.jpg',
+  tag: 'Hot'
+},
+{
+  id: '199',
+  name: 'Room Decor Lounge Chair',
+  category: 'Home',
+  subcategory: 'decor',
+  price: 89.99,
+  rating: 4.8,
+  image: 'https://i.pinimg.com/1200x/ae/65/08/ae65085c68f8c7c6550b18e946c99614.jpg',
+  tag: 'Super'
+},
+{
+  id: '200',
+  name: 'Men Footwear Modern',
+  category: 'Men',
+  subcategory: 'footwear',
+  price: 46.99,
+  rating: 4.5,
+  image: 'https://i.pinimg.com/736x/26/31/d6/2631d69539b2b13dbad5bdabfbbb2f4e.jpg',
+  tag: 'New'
+},
+{
+  id: '201',
+  name: 'Ceramic Cup Single',
+  category: 'Home',
+  subcategory: 'kitchenware',
+  price: 9.99,
+  rating: 4.2,
+  image: 'https://i.pinimg.com/736x/a5/46/ba/a546ba46d9b75784dd7f028cf43f44b6.jpg',
+  tag: 'Bestseller'
+},
+{
+  id: '202',
+  name: 'Mini Kettle Chrome',
+  category: 'Home',
+  subcategory: 'kitchenware',
+  price: 24.99,
+  rating: 4.3,
+  image: 'https://i.pinimg.com/736x/34/d2/24/34d224afc706b0e342f94ccd397cec4b.jpg',
+  tag: 'Hot'
+},
+{
+  id: '203',
+  name: 'Decor Frame Wall Set',
+  category: 'Home',
+  subcategory: 'decor',
+  price: 19.99,
+  rating: 4.5,
+  image: 'https://i.pinimg.com/736x/02/94/57/029457e2de5c64a68a07598eea4df3d9.jpg',
+  tag: 'New'
+},
+{
+  id: '204',
+  name: 'Decor Chair Lounge Set',
+  category: 'Home',
+  subcategory: 'decor',
+  price: 84.99,
+  rating: 4.8,
+  image: 'https://i.pinimg.com/1200x/ae/65/08/ae65085c68f8c7c6550b18e946c99614.jpg',
+  tag: 'Super'
+}
 ];
 
 export default PRODUCTS;
