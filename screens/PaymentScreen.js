@@ -148,6 +148,7 @@ import {
     Alert,
     Animated,
 } from "react-native";
+
 import { CartContext } from "../context/CartContext";
 import { AddressContext } from "../context/AddressContext";
 
@@ -214,6 +215,14 @@ const PaymentScreen = ({ navigation, route }) => {
             ]),
         ]).start();
     }, []);
+
+    const { order } = route.params;
+
+    console.log("Order ID:", order.id);
+    console.log("Total:", order.total);
+    console.log("Items:", order.items);
+    // Use it to trigger notification, order tracking, etc.
+
 
     const handleProceed = () => {
         if (!selectedMethod || !address) {
@@ -289,8 +298,8 @@ const PaymentScreen = ({ navigation, route }) => {
                 }}
             >
                 <Text style={styles.totalText}>
-                    Total:{" "}
-                    <Text style={styles.totalAmount}>GHS {totalAmount.toFixed(2)}</Text>
+                    Total:{""}
+                    <Text style={styles.totalAmount}>GHS {order.total.toFixed(2)}</Text>
                 </Text>
 
                 <TouchableOpacity style={styles.proceedButton} onPress={handleProceed}>

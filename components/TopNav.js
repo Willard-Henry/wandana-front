@@ -291,48 +291,16 @@ const styles = StyleSheet.create({
   icon: {
     marginHorizontal: 3,
   },
-  // searchBar: {
-  //   flex: 1,
-  //   flexDirection: 'row',
-  //   borderRadius: 12,
-  //   paddingHorizontal: 10,
-  //   paddingVertical: 8,
-  //   alignItems: 'center',
-  //   marginHorizontal: 3,
-  //   overflow: 'hidden',
-  //   backgroundColor: 'rgba(255,255,255,0.1)', // fallback for Android
-  //   borderWidth: 1,
-  //   borderColor: 'rgba(255,255,255,0.3)',
-  // },
-  // input: {
-  //   flex: 1,
-  //   marginHorizontal: 8,
-  //   backgroundColor: 'transparent',
-  //   color: '#000',
-  // },
-  // searchBar: {
-  //   flex: 1,
-  //   flexDirection: 'row',
-  //   borderRadius: 12,
-  //   paddingHorizontal: 10,
-  //   paddingVertical: 8,
-  //   alignItems: 'center',
-  //   marginHorizontal: 3,
-  //   overflow: 'hidden',
-  //   backgroundColor: 'rgba(255,255,255,0.15)', // slightly stronger translucent white
-  //   borderWidth: 1,
-  //   borderColor: 'rgba(255,255,255,0.35)', // slightly stronger border
-  // },
   searchBar: {
     flex: 1,
     flexDirection: 'row',
     borderRadius: 12,
     paddingHorizontal: 10,
-    paddingVertical: 8,
+    paddingVertical: 6,
     alignItems: 'center',
     marginHorizontal: 3,
     overflow: 'hidden',
-    backgroundColor: 'rgba(30, 30, 30, 0.25)',  // subtle dark tint
+    backgroundColor: 'transparent', // make the background fully transparent
     borderWidth: 1,
     borderColor: 'rgba(255,255,255,0.15)',      // very soft white border
   },
