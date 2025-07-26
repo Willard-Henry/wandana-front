@@ -39,7 +39,7 @@ const countries = [
 const allLanguages = Array.from(new Set(countries.flatMap((c) => c.languages)));
 const allCurrencies = Array.from(new Set(countries.map((c) => c.currency)));
 
-export default function WelcomeScreen({ setIsAuthenticated }) {
+export default function WelcomeScreen({ navigation }) {
   const [selectedCountry, setSelectedCountry] = useState(countries[0]);
   const [selectedLanguage, setSelectedLanguage] = useState(
     countries[0].languages[0]
@@ -294,7 +294,7 @@ export default function WelcomeScreen({ setIsAuthenticated }) {
           <Button
             title="Go Shopping"
             color="#7f00ff"
-            onPress={() => setIsAuthenticated(true)}
+            onPress={() => navigation.navigate("Login")}
           />
         </View>
         <Text
