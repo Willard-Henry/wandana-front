@@ -17,18 +17,18 @@ import Icon from "react-native-vector-icons/Ionicons";
 import { initiateMobileMoneyPayment } from "../api"; // Import the new API function
 import { useTheme } from "../ThemeContext"; // Assuming you have a ThemeContext
 import { useAuth } from "../context/AuthContext"; // Assuming you have AuthContext for user email
-import { v4 as uuid } from "uuid"; // For generating unique transaction IDs
+//import { v4 as uuidv4 } from "uuid"; // For generating unique transaction IDs
 
 const mobileNetworks = [
   {
     name: "MTN Mobile Money",
-    value: "mtn",
+    value: "MTN",
     icon: "phone-portrait-outline",
     color: "#FFCC00",
   },
   {
     name: "Telecel Cash",
-    value: "vod",
+    value: "VODAFONE",
     icon: "phone-portrait-outline",
     color: "#E60000",
   }, // Assuming 'TELECEL' as internal name
@@ -48,13 +48,22 @@ export default function MobileMoneyPaymentScreen() {
   const { authState } = useAuth(); // Get authenticated user's email
 
   // Get order details from route params
-  const { orderId, amount, customerEmail } = route.params;
+  const { id: orderId, total: amount, items } = route.params?.order || {};
+  const customerEmail = authState?.user?.email; // Get email from authState
 
   const [selectedNetwork, setSelectedNetwork] = useState(null);
   const [mobileNumber, setMobileNumber] = useState("");
   const [shippingAddress, setShippingAddress] = useState("");
   const [isLoading, setIsLoading] = useState(false);
   const [paymentStatusMessage, setPaymentStatusMessage] = useState("");
+
+  // Log route params and order details for debugging
+  useEffect(() => {
+    console.log("🚀 Route Params:", route.params);
+    console.log("🧾 Order ID:", orderId);
+    console.log("💰 Amount:", amount);
+    console.log("📧 Customer Email (from auth):", customerEmail);
+  }, []);
 
   useEffect(() => {
     // You might want to pre-fill customerEmail if it's available from authState
@@ -100,7 +109,7 @@ export default function MobileMoneyPaymentScreen() {
         mobileNetwork: selectedNetwork, // e.g., "MTN"
         shippingAddress: shippingAddress.trim(),
         reference: orderId, // e.g., "ORDER_12345"
-        clientTransactionId: uuid.v4(), // Generate a unique transaction ID
+        //clientTransactionId: uuidv4(), // Generate a unique transaction ID
       };
 
       console.log("Initiating payment with details:", paymentDetails);
