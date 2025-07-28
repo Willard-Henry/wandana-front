@@ -15,7 +15,7 @@
 //   };
 
 //   const removeMethod = (id) => {
-//     Alert.alert(
+//     showAlert(
 //       'Remove Payment Method',
 //       'Are you sure you want to remove this payment method?',
 //       [
@@ -30,7 +30,7 @@
 //   };
 
 //   const addMethod = () => {
-//     Alert.alert('Add Payment Method', 'This is a placeholder for adding a new payment method.');
+//     showAlert('Add Payment Method', 'This is a placeholder for adding a new payment method.');
 //     // You can navigate to an "AddPaymentMethod" screen or show a modal here
 //   };
 
@@ -104,9 +104,6 @@
 ////////////////////////////////////////////////////
 ///////////////////////////////////////////////////
 
-
-
-
 // import React, { useState } from 'react';
 // import {
 //   View,
@@ -132,7 +129,7 @@
 //   };
 
 //   const removeMethod = (id) => {
-//     Alert.alert(
+//     showAlert(
 //       'Remove Payment Method',
 //       'Are you sure you want to remove this payment method?',
 //       [
@@ -147,7 +144,7 @@
 //   };
 
 //   const addMethod = () => {
-//     Alert.alert('Add Payment Method', 'This is a placeholder for adding a new payment method.');
+//     showAlert('Add Payment Method', 'This is a placeholder for adding a new payment method.');
 //     // You can navigate to an "AddPaymentMethod" screen or show a modal here
 //   };
 
@@ -251,10 +248,8 @@
 //   info: { color: '#888', fontSize: 14, textAlign: 'center', marginTop: 10 },
 // });
 
-
 ///////////////////////////////////////////////////
 //////////////////////////////////////////////////////
-
 
 // import React, { useState, useEffect, useRef } from 'react';
 // import {
@@ -328,7 +323,7 @@
 //   };
 
 //   const removeMethod = (id) => {
-//     Alert.alert(
+//     showAlert(
 //       'Remove Payment Method',
 //       'Are you sure you want to remove this payment method?',
 //       [
@@ -343,7 +338,7 @@
 //   };
 
 //   const addMethod = () => {
-//     Alert.alert('Add Payment Method', 'This is a placeholder for adding a new payment method.');
+//     showAlert('Add Payment Method', 'This is a placeholder for adding a new payment method.');
 //   };
 
 //   return (
@@ -409,12 +404,10 @@
 //   info: { color: '#888', fontSize: 14, textAlign: 'center', marginTop: 10 },
 // });
 
-
 ////////////////////////////////////////
 ////////////////////////////////////////
 
-
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect, useRef } from "react";
 import {
   View,
   Text,
@@ -423,18 +416,19 @@ import {
   FlatList,
   Alert,
   Animated,
-} from 'react-native';
+} from "react-native";
+import { CustomAlertContext } from "../context/CustomAlertContext";
 
 const initialMethods = [
-  { id: '1', type: 'Visa', last4: '1234', selected: true },
-  { id: '2', type: 'MasterCard', last4: '5678', selected: false },
-  { id: '3', type: 'PayPal', email: 'user@email.com', selected: false },
+  { id: "1", type: "Visa", last4: "1234", selected: true },
+  { id: "2", type: "MasterCard", last4: "5678", selected: false },
+  { id: "3", type: "PayPal", email: "user@email.com", selected: false },
 ];
 
 function AnimatedPaymentItem({ item, index, onSelect, onRemove }) {
   const translateY = useRef(new Animated.Value(30)).current;
   const opacity = useRef(new Animated.Value(0)).current;
-
+  const { showAlert } = useContext(CustomAlertContext);
   useEffect(() => {
     Animated.parallel([
       Animated.timing(translateY, {
@@ -468,7 +462,7 @@ function AnimatedPaymentItem({ item, index, onSelect, onRemove }) {
         onLongPress={() => onRemove(item.id)}
       >
         <Text style={styles.methodText}>
-          {item.type === 'PayPal'
+          {item.type === "PayPal"
             ? `PayPal (${item.email})`
             : `${item.type} •••• ${item.last4}`}
         </Text>
@@ -486,14 +480,14 @@ export default function PaymentMethodsScreen() {
   };
 
   const removeMethod = (id) => {
-    Alert.alert(
-      'Remove Payment Method',
-      'Are you sure you want to remove this payment method?',
+    showAlert(
+      "Remove Payment Method",
+      "Are you sure you want to remove this payment method?",
       [
-        { text: 'Cancel', style: 'cancel' },
+        { text: "Cancel", style: "cancel" },
         {
-          text: 'Remove',
-          style: 'destructive',
+          text: "Remove",
+          style: "destructive",
           onPress: () => setMethods(methods.filter((m) => m.id !== id)),
         },
       ]
@@ -501,7 +495,10 @@ export default function PaymentMethodsScreen() {
   };
 
   const addMethod = () => {
-    Alert.alert('Add Payment Method', 'This is a placeholder for adding a new payment method.');
+    showAlert(
+      "Add Payment Method",
+      "This is a placeholder for adding a new payment method."
+    );
   };
 
   return (
@@ -521,7 +518,9 @@ export default function PaymentMethodsScreen() {
         )}
         initialNumToRender={methods.length}
         showsVerticalScrollIndicator={false}
-        ListEmptyComponent={<Text style={styles.empty}>No payment methods added.</Text>}
+        ListEmptyComponent={
+          <Text style={styles.empty}>No payment methods added.</Text>
+        }
         style={{ marginBottom: 20 }}
       />
 
@@ -537,36 +536,36 @@ export default function PaymentMethodsScreen() {
 }
 
 const styles = StyleSheet.create({
-  container: { flex: 1, backgroundColor: '#000', padding: 24 },
-  title: { fontSize: 22, fontWeight: 'bold', marginBottom: 20 },
+  container: { flex: 1, backgroundColor: "#000", padding: 24 },
+  title: { fontSize: 22, fontWeight: "bold", marginBottom: 20 },
   animatedCard: {
-    width: '100%',
+    width: "100%",
     marginBottom: 12,
   },
   method: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'space-between',
+    flexDirection: "row",
+    alignItems: "center",
+    justifyContent: "space-between",
     padding: 16,
     borderRadius: 8,
     borderWidth: 1,
-    borderColor: '#eee',
-    backgroundColor: '#f9f9f9',
+    borderColor: "#eee",
+    backgroundColor: "#f9f9f9",
   },
   selected: {
-    borderColor: '#7f00ff',
-    backgroundColor: '#e7ddfa',
+    borderColor: "#7f00ff",
+    backgroundColor: "#e7ddfa",
   },
-  methodText: { fontSize: 16, color: '#333' },
-  selectedText: { color: '#7f00ff', fontWeight: 'bold', fontSize: 18 },
+  methodText: { fontSize: 16, color: "#333" },
+  selectedText: { color: "#7f00ff", fontWeight: "bold", fontSize: 18 },
   addButton: {
-    backgroundColor: '#7f00ff',
+    backgroundColor: "#7f00ff",
     padding: 14,
     borderRadius: 8,
-    alignItems: 'center',
+    alignItems: "center",
     marginBottom: 10,
   },
-  addButtonText: { color: '#fff', fontSize: 16, fontWeight: 'bold' },
-  empty: { textAlign: 'center', color: '#aaa', marginVertical: 20 },
-  info: { color: '#888', fontSize: 14, textAlign: 'center', marginTop: 10 },
+  addButtonText: { color: "#fff", fontSize: 16, fontWeight: "bold" },
+  empty: { textAlign: "center", color: "#aaa", marginVertical: 20 },
+  info: { color: "#888", fontSize: 14, textAlign: "center", marginTop: 10 },
 });

@@ -1,11 +1,9 @@
-
-
-import React from 'react';
-import { View, StyleSheet } from 'react-native';
-import FadeInView from '../components/FadeInView';
-import TopNavBar from '../components/TopNav';
-import Banner from '../components/Banner'; // assuming you renamed Banner to this
-import ProductListComponent from '../components/ProductListComponent';
+import React from "react";
+import { View, StyleSheet } from "react-native";
+import FadeInView from "../components/FadeInView";
+import TopNavBar from "../components/TopNav";
+import Banner from "../components/Banner"; // assuming you renamed Banner to this
+import ProductListComponent from "../components/ProductListComponent";
 
 export default function HomeScreen({ navigation }) {
   return (
@@ -27,23 +25,22 @@ export default function HomeScreen({ navigation }) {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
+    backgroundColor: "#fff",
   },
   bannerContainer: {
-    position: 'relative',
+    position: "relative",
     height: 290, // or whatever your BANNER_HEIGHT is
-    backgroundColor: 'transparent', // optional background color
+    backgroundColor: "transparent", // optional background color
   },
   topNavOverlay: {
-    position: 'absolute',
+    position: "absolute",
     top: 0,
     left: 0,
     right: 0,
     paddingTop: 0,
     marginBottom: 10,
-    backgroundColor: 'transparent' // adjust based on your TopNav height
+    backgroundColor: "transparent", // adjust based on your TopNav height
     // ensure it overlays the banner
     // optional: add padding if you want to offset it from top
-
   },
 });

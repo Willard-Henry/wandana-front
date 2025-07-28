@@ -13,14 +13,15 @@ import {
 } from "react-native";
 import { Ionicons } from "@expo/vector-icons";
 import { signup } from "../api"; // Import the signup function from the API module
+import { CustomAlertContext } from "../context/CustomAlertContext";
 
 export default function SignupScreen({ navigation }) {
+  const { showAlert } = useContext(CustomAlertContext);
   // State to hold form data for signup (email, password, username)
   const [form, setForm] = useState({
     username: "",
     email: "",
-    password: ""
-    
+    password: "",
 
     // In my backend module, there is sex and dob but your original code didnt have it so im not going to implement it
   });
@@ -41,12 +42,12 @@ export default function SignupScreen({ navigation }) {
   const handleSignup = async () => {
     //Client-side validation
     if (!form.username || !form.email || !form.password || !confirmPassword) {
-      Alert.alert("Validation Error", "Please fill all fields.");
+      showAlert("Validation Error", "Please fill all fields.");
       return;
     }
     // In-screen function for confirm password
     if (form.password !== confirmPassword) {
-      Alert.alert("Validation Error", "Passwords do not match.");
+      showAlert("Validation Error", "Passwords do not match.");
       return;
     }
     // Basic password strength check (I actually got this part from chatgpt and idk if it'll work)
@@ -55,7 +56,7 @@ export default function SignupScreen({ navigation }) {
       !/[a-zA-Z]/.test(form.password) ||
       !/[0-9]/.test(form.password)
     ) {
-      Alert.alert(
+      showAlert(
         "Validation Error",
         "Password must be at least 8 characters, contain at least one letter and one number."
       );
@@ -68,19 +69,19 @@ export default function SignupScreen({ navigation }) {
 
       // Show an alert with the result of the signup attempt
       if (result.status === "success") {
-        Alert.alert("Success", result.message);
+        showAlert("Success", result.message);
         // Navigate to login screen after successful signup
         navigation.navigate("Login");
       } else {
         // Show error message if signup fails
-        Alert.alert(
+        showAlert(
           "Error",
           result.message || "Signup failed. Please try again."
         );
       }
     } catch (error) {
       console.error("Signup API call failed:", error);
-      Alert.alert(
+      showAlert(
         "Error",
         "Network error or unable to connect. Please try again later."
       );

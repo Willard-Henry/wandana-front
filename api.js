@@ -13,10 +13,10 @@ const api = axios.create({
   },
 });
 
-// A placeholder for the logout handler provided by AuthContext
 let logoutHandler = null;
 
 // Function to set the logout handler from AuthContext
+// Call this once during your app's initialization, e.g., in your main App.js or AuthProvider.
 api.setLogoutHandler = (handler) => {
   logoutHandler = handler;
 };
@@ -25,7 +25,6 @@ api.setLogoutHandler = (handler) => {
 api.interceptors.request.use(
   async (config) => {
     const token = await AsyncStorage.getItem("jwtToken");
-    // ADDED DEBUG LOGS
     console.log(`API Interceptor: Request to ${config.url}`);
     if (token) {
       config.headers.Authorization = `Bearer ${token}`;
@@ -59,11 +58,13 @@ api.interceptors.response.use(
         "API Interceptor: Authentication token expired or unauthorized. Triggering logout..."
       );
 
+      // Trigger the external logout handler if it's been set
       if (logoutHandler) {
         await logoutHandler();
       } else {
+        // Fallback: Directly clear storage if no specific handler is provided
         console.error(
-          "API Interceptor: No logout handler set on API instance."
+          "API Interceptor: No logout handler set on API instance. Performing default logout."
         );
         await AsyncStorage.removeItem("jwtToken");
         await AsyncStorage.removeItem("user");
@@ -75,8 +76,6 @@ api.interceptors.response.use(
     return Promise.reject(error);
   }
 );
-
-// --- All your existing API functions now use the 'api' instance ---
 
 export const signup = async (userData) => {
   try {
@@ -90,164 +89,21 @@ export const signup = async (userData) => {
 export const login = async (credentials) => {
   try {
     const response = await api.post(`/api/auth/login`, credentials);
+    // When logging in, ensure you store the user ID received from the backend
+    // along with the JWT token.
+    if (response.data.success && response.data.data.user) {
+      await AsyncStorage.setItem(
+        "user",
+        JSON.stringify(response.data.data.user)
+      );
+    }
     return response.data;
   } catch (error) {
     return error.response?.data || { success: false, message: "Login error" };
   }
 };
 
-// export const getProducts = async (
-//   page = 0,
-//   size = 10,
-//   sort = "id,asc",
-//   category = null,
-//   subcategory = null
-// ) => {
-//   try {
-//     const params = { page, size, sort };
-//     if (category && category !== "All") {
-//       params.category = category;
-//     }
-//     if (subcategory && subcategory !== "") {
-//       params.subcategory = subcategory;
-//     }
-//     const response = await api.get(`/api/products`, { params: params });
-//     return { success: true, data: response.data };
-//   } catch (error) {
-//     console.error(
-//       "Error fetching products:",
-//       error.response?.data || error.message
-//     );
-//     return {
-//       success: false,
-//       message: error.response?.data?.message || "Failed to fetch products",
-//     };
-//   }
-// };
-
-// export const getProductById = async (productId) => {
-//   try {
-//     const response = await api.get(`/api/products/${productId}`);
-//     return { success: true, data: response.data };
-//   } catch (error) {
-//     console.error(
-//       `Error fetching product by ID ${productId}:`,
-//       error.response?.data || error.message
-//     );
-//     return {
-//       success: false,
-//       message: error.response?.data?.message || "Failed to fetch product",
-//     };
-//   }
-// };
-
-// export const addItemToCart = async (itemData) => {
-//   try {
-//     const response = await api.post(`/api/carts/items`, itemData);
-//     return { success: true, data: response.data };
-//   } catch (error) {
-//     console.error(
-//       "Error adding item to cart:",
-//       error.response?.data || error.message
-//     );
-//     return (
-//       error.response?.data || {
-//         success: false,
-//         message: error.response?.data?.message || "Failed to add item to cart.",
-//       }
-//     );
-//   }
-// };
-
-// export const searchProducts = async (
-//   query,
-//   filters = {},
-//   page = 0,
-//   size = 10,
-//   sort = "id,asc"
-// ) => {
-//   try {
-//     const params = { query, page, size, sort, ...filters };
-//     Object.keys(params).forEach((key) => {
-//       if (
-//         key !== "query" &&
-//         (params[key] === null ||
-//           params[key] === undefined ||
-//           params[key] === "")
-//       ) {
-//         delete params[key];
-//       }
-//     });
-//     console.log("Sending search request with params:", params);
-//     console.log(
-//       "Sending search request to URL:",
-//       `${api.defaults.baseURL}/api/search/products`
-//     );
-//     const response = await api.get(`/api/search/products`, { params: params });
-//     return { success: true, data: response.data };
-//   } catch (error) {
-//     console.error(
-//       "Error searching products:",
-//       error.response?.data || error.message
-//     );
-//     return {
-//       success: false,
-//       message: error.response?.data?.message || "Failed to search products",
-//     };
-//   }
-// };
-
-// export const getRecentSearches = async () => {
-//   try {
-//     const response = await api.get(`/api/search/recent`);
-//     return { success: true, data: response.data };
-//   } catch (error) {
-//     console.error(
-//       "Error fetching recent searches:",
-//       error.response?.data || error.message
-//     );
-//     return {
-//       success: false,
-//       message:
-//         error.response?.data?.message || "Failed to fetch recent searches",
-//     };
-//   }
-// };
-
-// export const getUserCart = async () => {
-//   try {
-//     const response = await api.get(`/api/carts`);
-//     return { success: true, data: response.data };
-//   } catch (error) {
-//     console.error(
-//       "Error fetching user cart:",
-//       error.response?.data || error.message
-//     );
-//     return {
-//       success: false,
-//       message: error.response?.data?.message || "Failed to fetch cart",
-//     };
-//   }
-// };
-
-// export const createOrder = async (orderData) => {
-//   try {
-//     const response = await api.post(`/api/orders`, orderData);
-//     return { success: true, data: response.data.data };
-//   } catch (error) {
-//     console.error(
-//       "Error creating order:",
-//       error.response?.data || error.message
-//     );
-//     return (
-//       error.response?.data || {
-//         success: false,
-//         message: error.response?.data?.message || "Failed to create order.",
-//       }
-//     );
-//   }
-// };
-
+// initiateMobileMoneyPayment function
 export const initiateMobileMoneyPayment = async (paymentDetails) => {
   try {
     const response = await api.post(
@@ -264,6 +120,132 @@ export const initiateMobileMoneyPayment = async (paymentDetails) => {
       error.response?.data || {
         success: false,
         message: "Failed to initiate payment.",
+      }
+    );
+  }
+};
+
+// function to submit OTP verification
+// This function is used to verify the OTP code entered by the user
+export const submitOtpVerification = async (otpCode, reference) => {
+  try {
+    const response = await api.post(`/api/payments/mobile-money/submit-otp`, {
+      otp: otpCode,
+      reference: reference,
+    });
+    return response.data;
+  } catch (error) {
+    console.error(
+      "Error submitting OTP verification:",
+      error.response?.data || error.message
+    );
+    return (
+      error.response?.data || {
+        success: false,
+        message: "Failed to verify OTP.",
+      }
+    );
+  }
+};
+
+// this function is used to resend the OTP code
+// It can be called if the user did not receive the OTP or if it expired
+export const resendOtp = async (reference) => {
+  try {
+    const response = await api.post(`/api/payments/mobile-money/resend-otp`, {
+      reference: reference,
+    });
+    return response.data;
+  } catch (error) {
+    console.error(
+      "Error resending OTP:",
+      error.response?.data || error.message
+    );
+    return (
+      error.response?.data || {
+        success: false,
+        message: "Failed to resend OTP.",
+      }
+    );
+  }
+};
+
+/**
+ * Handles user logout purely on the client-side by acknowledging the request.
+ * In a stateless JWT setup, removing the token from client storage is often
+ * sufficient for logging out, as there's no server-side session to invalidate.
+ * This function does not make any backend calls.
+ * @returns {Promise<object>} A success response indicating client-side logout.
+ */
+
+export const logoutUser = async () => {
+  // No backend call is needed for client-side logout in a stateless JWT setup.
+  // The frontend handles clearing the token and user data from AsyncStorage,
+  // and then navigating away.
+  console.log("Performing client-side logout. No backend call needed.");
+  return { success: true, message: "Logged out successfully (client-side)." };
+};
+
+/**
+ * Calls the backend to change the current user's password.
+ * @param {string} currentPassword The user's current password.
+ * @param {string} newPassword The user's new password.
+ * @returns {Promise<object>} The ApiResponse from the backend.
+ */
+export const changeUserPassword = async (currentPassword, newPassword) => {
+  try {
+    const response = await api.post(`/api/users/change-password`, {
+      currentPassword: currentPassword,
+      newPassword: newPassword,
+    });
+    return response.data; // Expected ApiResponse<Void> on success
+  } catch (error) {
+    console.error(
+      "Error changing password:",
+      error.response?.data || error.message
+    );
+    // Backend returns ApiResponse.error on failure
+    return (
+      error.response?.data || {
+        success: false,
+        message: "Failed to change password.",
+      }
+    );
+  }
+};
+
+/**
+ * Calls the backend to delete the current user's account.
+ * This function retrieves the user's ID from AsyncStorage and uses it
+ * to call the DELETE /api/users/{id} endpoint provided by your UserController.
+ * @returns {Promise<object>} The response data from the backend.
+ */
+export const deleteUserAccount = async () => {
+  try {
+    // Retrieve the user object from AsyncStorage to get the user ID
+    const userString = await AsyncStorage.getItem("user");
+    if (!userString) {
+      return { success: false, message: "User data not found for deletion." };
+    }
+    const user = JSON.parse(userString);
+    const userId = user.id; // Assuming the user object has an 'id' field
+
+    if (!userId) {
+      return { success: false, message: "User ID not found for deletion." };
+    }
+
+    // Call the backend's DELETE /api/users/{id} endpoint
+    const response = await api.delete(`/api/users/${userId}`);
+    return response.data; // Expecting ApiResponse<Void> with success message
+  } catch (error) {
+    console.error(
+      "Error deleting user account:",
+      error.response?.data || error.message
+    );
+    return (
+      error.response?.data || {
+        success: false,
+        message: "Failed to delete account.",
       }
     );
   }

@@ -12,8 +12,10 @@ import {
 } from "react-native";
 import { Ionicons } from "@expo/vector-icons";
 import { useAuth } from "../context/AuthContext"; // Import useAuth hook
+import { CustomAlertContext } from "../context/CustomAlertContext";
 
 export default function LoginScreen({ navigation }) {
+  const { showAlert } = useContext(CustomAlertContext);
   const { login } = useAuth(); // Get the login function from AuthContext
   const [form, setForm] = useState({
     email: "",
@@ -28,7 +30,7 @@ export default function LoginScreen({ navigation }) {
 
   const handleLogin = async () => {
     if (!form.email || !form.password) {
-      Alert.alert("Validation Error", "Please enter both email and password.");
+      showAlert("Validation Error", "Please enter both email and password.");
       return;
     }
 
@@ -38,19 +40,19 @@ export default function LoginScreen({ navigation }) {
 
       // --- FIX: Change result.status to result.success ---
       if (result.success) {
-        Alert.alert("Success", result.message || "Login Successful!");
+        showAlert("Success", result.message || "Login Successful!");
         // The AuthContext will automatically update isAuthenticated,
         // and App.js will handle navigation to AppStack.
         // No explicit navigation.navigate('MainTabs') or onLogin() needed here.
       } else {
-        Alert.alert(
+        showAlert(
           "Error",
           result.message || "Login failed. Please check your credentials."
         );
       }
     } catch (error) {
       console.error("Login process failed:", error);
-      Alert.alert(
+      showAlert(
         "Error",
         "Network error or unable to connect. Please try again later."
       );

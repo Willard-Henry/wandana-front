@@ -40,7 +40,8 @@ import MobileMoneyPaymentScreen from "./screens/MobileMoneyPaymentScreen";
 import CardPaymentScreen from "./screens/CardPaymentScreen";
 import SuccessScreen from "./screens/SuccessScreen";
 import PaymentScreen from "./screens/PaymentScreen";
-//import SearchScreen from "./screens/SearchScreen";
+import SearchScreen from "./screens/SearchScreen";
+import OtpScreen from "./screens/OtpScreen";
 
 // Import Context Providers
 import { AddressProvider } from "./context/AddressContext";
@@ -49,6 +50,7 @@ import { CartProvider } from "./context/CartContext";
 import { WishlistProvider } from "./context/WishlistContext";
 import { NotificationProvider } from "./context/NotificationContext";
 import { AuthProvider, useAuth } from "./context/AuthContext";
+import { CustomAlertProvider } from "./context/CustomAlertContext";
 
 const Tab = createBottomTabNavigator();
 const Stack = createNativeStackNavigator();
@@ -130,6 +132,8 @@ function AppStack() {
     >
       <Stack.Screen name="MainTabs" component={MainTabs} />
       <Stack.Screen name="Wishlist" component={WishlistScreen} />
+      <Stack.Screen name="Search" component={SearchScreen} />
+      <Stack.Screen name="Otp" component={OtpScreen} />
       <Stack.Screen
         name="TermsAndConditions"
         component={TermsAndConditionsScreen}
@@ -268,8 +272,10 @@ export default function App() {
           <NotificationProvider>
             <WishlistProvider>
               <ThemeProvider>
-                {/* Render the new nested component here */}
-                <MainAppContent />
+                <CustomAlertProvider>
+                  {/* Render the new nested component here */}
+                  <MainAppContent />
+                </CustomAlertProvider>
               </ThemeProvider>
             </WishlistProvider>
           </NotificationProvider>
