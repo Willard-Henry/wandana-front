@@ -7,7 +7,7 @@ export const BASE_URL = "https://c7eaf16a0db4.ngrok-free.app";
 // Create an Axios instance
 const api = axios.create({
   baseURL: BASE_URL,
-  timeout: 10000,
+  timeout: 100000,
   headers: {
     "Content-Type": "application/json",
   },
