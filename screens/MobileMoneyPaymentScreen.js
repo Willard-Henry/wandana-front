@@ -1,5 +1,5 @@
-// screens/MobileMoneyPaymentScreen.js (Only the relevant section)
-import React, { useState, useEffect, useContext } from "react";
+// screens/MobileMoneyPaymentScreen.js
+import React, { useState, useEffect, useContext, useCallback } from "react"; // Added useCallback
 import {
   View,
   Text,
@@ -15,7 +15,7 @@ import { useNavigation, useRoute } from "@react-navigation/native";
 import Icon from "react-native-vector-icons/Ionicons";
 import { initiateMobileMoneyPayment } from "../api";
 import { useTheme } from "../ThemeContext";
-import { useAuth } from "../context/AuthContext";
+import { useAuth } from "../context/AuthContext"; // Important for accessing user's phone number
 import { CustomAlertContext } from "../context/CustomAlertContext";
 import { AddressContext } from "../context/AddressContext";
 import { CartContext } from "../context/CartContext";
@@ -28,11 +28,18 @@ const mobileNetworks = [
     color: "#FFCC00",
   },
   {
-    name: "Telecel Cash",
+    name: "Telecel Cash", // Was VODAFONE, now Telecel based on common understanding in Ghana
     value: "VODAFONE",
     icon: "phone-portrait-outline",
     color: "#E60000",
   },
+  // You might want to add AirtelTigo if applicable:
+  // {
+  //   name: "AirtelTigo Money",
+  //   value: "AIRTELTIGO",
+  //   icon: "phone-portrait-outline",
+  //   color: "#007bff",
+  // },
 ];
 
 export default function MobileMoneyPaymentScreen() {
@@ -40,7 +47,7 @@ export default function MobileMoneyPaymentScreen() {
   const route = useRoute();
   const { darkTheme } = useTheme();
   const { selectedAddress } = useContext(AddressContext);
-  const { authState } = useAuth();
+  const { authState } = useAuth(); // Access authState to get user's phone number
   const { showAlert } = useContext(CustomAlertContext);
   const { clearCart } = useContext(CartContext);
 
@@ -56,20 +63,58 @@ export default function MobileMoneyPaymentScreen() {
   const [paymentStatus, setPaymentStatus] = useState(null);
   const [paymentMessage, setPaymentMessage] = useState("");
 
+  // Helper function to determine network based on phone number prefix
+  // Wrapped in useCallback to prevent unnecessary re-creation
+  const determineNetworkFromNumber = useCallback((number) => {
+    const cleanedNumber = number.replace(/[^0-9]/g, ""); // Remove non-digits
+    if (cleanedNumber.length >= 3) {
+      const prefix = cleanedNumber.substring(0, 3);
+      if (prefix === "020" || prefix === "050") {
+        // Telecel (Vodafone)
+        setSelectedNetwork("VODAFONE");
+      } else if (
+        prefix === "024" ||
+        prefix === "054" ||
+        prefix === "055" ||
+        prefix === "053"
+      ) {
+        // MTN
+        setSelectedNetwork("MTN");
+      }
+      // Add more conditions for other networks if needed (e.g., 027, 057 for AirtelTigo)
+      else {
+        setSelectedNetwork(null); // No match, clear selection
+      }
+    } else {
+      setSelectedNetwork(null); // Not enough digits to determine
+    }
+  }, []); // Empty dependency array as it doesn't rely on component state/props that change
+
+  // Effect to pre-fill mobile number from user profile and auto-select network
+  useEffect(() => {
+    if (authState.user?.phoneNumber) {
+      const userPhoneNumber = authState.user.phoneNumber;
+      setMobileNumber(userPhoneNumber);
+      // Immediately try to determine the network based on the pre-filled number
+      determineNetworkFromNumber(userPhoneNumber);
+    }
+  }, [authState.user, determineNetworkFromNumber]); // Added determineNetworkFromNumber to dependencies
+
+  // Effect to handle shipping address changes
   useEffect(() => {
     if (selectedAddress && selectedAddress.address !== shippingAddress) {
       setShippingAddress(selectedAddress.address);
     } else if (!selectedAddress && shippingAddress !== "") {
       setShippingAddress("");
     }
-  }, [selectedAddress]);
+  }, [selectedAddress, shippingAddress]);
 
   useEffect(() => {
     console.log("🚀 Route Params:", route.params);
     console.log("🧾 Order ID:", orderId);
     console.log("💰 Amount:", amount);
     console.log("📧 Customer Email (from auth):", customerEmail);
-  }, []);
+  }, [route.params, orderId, amount, customerEmail]); // Added dependencies to console.log's useEffect
 
   const handleInitiatePayment = async () => {
     // Validation
@@ -261,9 +306,26 @@ export default function MobileMoneyPaymentScreen() {
 
   const getStatusIcon = () => {
     /* ... unchanged ... */
+    // Implement or ensure these exist as they are called in render
+    if (paymentStatus === "successful") {
+      return <Icon name="checkmark-circle" size={40} color="#28a745" />;
+    } else if (paymentStatus === "failed" || paymentStatus === "abandoned") {
+      return <Icon name="close-circle" size={40} color="crimson" />;
+    } else if (paymentStatus === "pending" || paymentStatus === "send_otp") {
+      return <Icon name="time-outline" size={40} color="#ffc107" />;
+    }
+    return null;
   };
+
   const getStatusColor = () => {
     /* ... unchanged ... */
+    // Implement or ensure these exist as they are called in render
+    if (paymentStatus === "successful") return "#28a745";
+    if (paymentStatus === "failed" || paymentStatus === "abandoned")
+      return "crimson";
+    if (paymentStatus === "pending" || paymentStatus === "send_otp")
+      return "#ffc107";
+    return "#333";
   };
   const containerStyle = [styles.container, darkTheme && styles.darkContainer];
   const textStyle = [styles.text, darkTheme && styles.darkText];
@@ -325,6 +387,7 @@ export default function MobileMoneyPaymentScreen() {
                         darkTheme &&
                         styles.darkNetworkOptionSelected,
                     ]}
+                    // User can still manually change selection
                     onPress={() => setSelectedNetwork(network.value)}
                   >
                     <Icon
@@ -359,7 +422,12 @@ export default function MobileMoneyPaymentScreen() {
                 placeholderTextColor={darkTheme ? "#aaa" : "#888"}
                 keyboardType="phone-pad"
                 value={mobileNumber}
-                onChangeText={setMobileNumber}
+                // --- NEW LOGIC HERE ---
+                onChangeText={(text) => {
+                  setMobileNumber(text); // Update the state
+                  determineNetworkFromNumber(text); // Call the network auto-selection logic
+                }}
+                // --- END NEW LOGIC ---
               />
 
               <View style={styles.addressSection}>
@@ -420,8 +488,14 @@ export default function MobileMoneyPaymentScreen() {
               onPress={() => {
                 setPaymentStatus(null);
                 setPaymentMessage("");
-                setSelectedNetwork(null); // Reset network
-                setMobileNumber(""); // Reset mobile number
+                // Re-initialize mobile number and network from user profile when retrying
+                if (authState.user?.phoneNumber) {
+                  setMobileNumber(authState.user.phoneNumber);
+                  determineNetworkFromNumber(authState.user.phoneNumber);
+                } else {
+                  setMobileNumber(""); // Clear if no number in profile
+                  setSelectedNetwork(null); // Clear network
+                }
                 setShippingAddress(selectedAddress?.address || ""); // Reset shipping address from context
               }}
             >
