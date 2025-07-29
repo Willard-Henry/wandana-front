@@ -10,10 +10,15 @@ import {
 import { CartContext } from "../context/CartContext";
 import { SwipeListView } from "react-native-swipe-list-view";
 import { ThemeContext } from "../ThemeContext";
+import { useTranslation } from 'react-i18next';
+
 
 const CartScreen = ({ navigation }) => {
   const { cartItems, removeFromCart } = useContext(CartContext);
   const { darkTheme } = useContext(ThemeContext);
+  const { i18n, t } = useTranslation();
+  const lang = i18n.language || 'en';
+
 
   const renderItem = (data) => {
     const item = data.item;
@@ -23,10 +28,10 @@ const CartScreen = ({ navigation }) => {
       <View style={styles.itemContainer}>
         <Image source={{ uri: item.image }} style={styles.image} />
         <View style={styles.details}>
-          <Text style={styles.name}>{item.name}</Text>
-          <Text style={styles.info}>Size: {item.size}</Text>
-          <Text style={styles.info}>Qty: {item.quantity}</Text>
-          <Text style={styles.total}>Total: ${itemTotal.toFixed(2)}</Text>
+          <Text style={styles.name}>{item.name?.[lang] || item.name?.en}</Text>
+          <Text style={styles.info}>{t("cart.size")}: {item.size}</Text>
+          <Text style={styles.info}>{t("cart.quantity")}: {item.quantity}</Text>
+          <Text style={styles.total}>{t("cart.total")}: ${itemTotal.toFixed(2)}</Text>
         </View>
       </View>
     );
@@ -43,14 +48,14 @@ const CartScreen = ({ navigation }) => {
           removeFromCart(data.item.id, data.item.size);
         }}
       >
-        <Text style={styles.deleteText}>Delete</Text>
+        <Text style={styles.deleteText}>{t("cart.delete")}</Text>
       </TouchableOpacity>
     </View>
   );
 
   return (
     <SafeAreaView style={styles.container}>
-      <Text style={styles.header}>Your Cart</Text>
+      <Text style={styles.header}>{t("cart.your_cart")}:</Text>
 
       <SwipeListView
         data={cartItems}
@@ -69,7 +74,7 @@ const CartScreen = ({ navigation }) => {
           onPress={() => navigation.navigate("Checkout")}
           style={styles.checkoutButton}
         >
-          <Text style={styles.checkoutText}>Proceed to Checkout</Text>
+          <Text style={styles.checkoutText}>{t("cart.proceed_to_checkout")}:</Text>
         </TouchableOpacity>
       </View>
     </SafeAreaView>

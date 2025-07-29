@@ -31,7 +31,13 @@
         "quantity": "Dodow",
         "total": "Nyinaa",
         "delete": "Pepa",
-        "proceed_to_checkout": "Kɔ Tua Ka No"
+        "proceed_to_checkout": "toa so kɔtotɔ nneɛma"
+    },
+    "checkout": {
+        "size": "Kɛseɛ",
+        "quantity": "dodoɔ",
+        "total": "kabɔm:",
+        "proceed_to_payment": "toa so kɔtua"
     },
     "Login": {
         "welcomeTitle": "Akwaaba!",
