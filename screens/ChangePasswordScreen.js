@@ -113,7 +113,7 @@ export default function ChangePasswordScreen() {
         <Text style={[styles.headerTitle, { color: textColor }]}>
           Change Password
         </Text>
-        <View style={{ width: 24 }} /> {/* Placeholder for alignment */}
+        <View style={{ width: 24 }} />
       </View>
 
       <ScrollView contentContainerStyle={styles.scrollContent}>

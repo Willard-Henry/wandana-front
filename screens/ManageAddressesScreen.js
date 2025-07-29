@@ -262,7 +262,6 @@ export default function ManageAddressesScreen() {
     <View
       style={[styles.fullScreenContainer, { backgroundColor: containerBg }]}
     >
-      {/* Header */}
       <View style={[styles.header, { backgroundColor: cardBg }]}>
         <TouchableOpacity
           onPress={() => navigation.goBack()}
@@ -273,7 +272,7 @@ export default function ManageAddressesScreen() {
         <Text style={[styles.headerTitle, { color: textColor }]}>
           Manage Addresses
         </Text>
-        <View style={{ width: 24 }} /> {/* Placeholder for alignment */}
+        <View style={{ width: 24 }} />
       </View>
 
       <FlatList
