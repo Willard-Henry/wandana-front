@@ -4,7 +4,7 @@ const PRODUCTS = [
         id: "1",
         name: {
             en: "Ladies Official Dress",
-            twi: "Mmaa ɔfese ataaadeɛ",
+            tw: "Mmaa ɔfese ataaadeɛ",
             ga: "Yei ɔ fis atale",
             ewe: "nyɔnuwo ƒe ɔfis awudodo",
         },
@@ -26,7 +26,7 @@ const PRODUCTS = [
             "https://s.alicdn.com/@sc04/kf/H86323f72edd0495d8ac47e1627b2a67en.jpg",
         tag: {
             en: "Bestseller",
-            twi: "wɔtɔn sen biara",
+            tw: "wɔtɔn sen biara",
             ga: "Bestseller",
             ewe: "nu vɔ̃ feɖeƒe",
         },
@@ -35,7 +35,7 @@ const PRODUCTS = [
         id: "40",
         name: {
             en: "Ladies Official Dress",
-            twi: "Mmaa ɔfese ataaadeɛ",
+            tw: "Mmaa ɔfese ataaadeɛ",
             ga: "Yei ɔfis atale",
             ewe: "nyɔnuwo ƒe ɔfis awudodo",
         },
@@ -57,7 +57,7 @@ const PRODUCTS = [
             "https://i.pinimg.com/736x/04/11/51/041151711cc50ff4534acebfd799393b.jpg",
         tag: {
             en: "Bestseller",
-            twi: "wɔtɔn sen biara",
+            tw: "wɔtɔn sen biara",
             ga: "Bestseller",
             ewe: "nu vɔ̃ feɖeƒe",
         },
@@ -66,7 +66,7 @@ const PRODUCTS = [
         id: "3",
         name: {
             en: "Ladies Winter Suit",
-            twi: "Mmaa awɔw bere atadeɛ",
+            tw: "Mmaa awɔw bere atadeɛ",
             ga: "Yei shishi kpakpa atale",
             ewe: "nyɔnuwo ƒe jacket",
         },
@@ -88,7 +88,7 @@ const PRODUCTS = [
             "https://i.pinimg.com/736x/db/a0/8d/dba08df2d10beda558ae1b74b5c165e7.jpg",
         tag: {
             en: "Bestseller",
-            twi: "wɔtɔn sen biara",
+            tw: "wɔtɔn sen biara",
             ga: "Bestseller",
             ewe: "nu vɔ̃ feɖeƒe",
         },
@@ -119,7 +119,7 @@ const PRODUCTS = [
             "https://i.pinimg.com/736x/7c/cb/db/7ccbdb5a00ff80a216fed28716193a4b.jpg",
         tag: {
             en: "Bestseller",
-            twi: "wɔtɔn sen biara",
+            tw: "wɔtɔn sen biara",
             ga: "Bestseller",
             ewe: "nu vɔ̃ feɖeƒe",
         },
@@ -128,7 +128,7 @@ const PRODUCTS = [
         id: "48",
         name: {
             en: "Men Official",
-            twi: "Mmarima  atadeɛ",
+            tw: "Mmarima  atadeɛ",
             ga: "Hii ɔfis atale",
             ewe: "ŋutsuwo ƒe ɔfis",
         },
@@ -150,7 +150,7 @@ const PRODUCTS = [
             "https://i.pinimg.com/1200x/af/c6/88/afc688001683a776358194f1bdd1bee3.jpg",
         tag: {
             en: "Bestseller",
-            twi: "wɔtɔn sen biara",
+            tw: "wɔtɔn sen biara",
             ga: "Bestseller",
             ewe: "nu vɔ̃ feɖeƒe",
         },
@@ -159,7 +159,7 @@ const PRODUCTS = [
         id: "49",
         name: {
             en: "Men Winter Suit",
-            twi: "Mmarima awɔw atadeɛ",
+            tw: "Mmarima awɔw atadeɛ",
             ga: "Hii ɔfis atale",
             ewe: "Men Winter Suit",
         },
@@ -181,7 +181,7 @@ const PRODUCTS = [
             "https://i.pinimg.com/1200x/3d/81/f3/3d81f3fdedc9a9e9452bad1ca354489c.jpg",
         tag: {
             en: "Bestseller",
-            twi: "wɔtɔn sen biara",
+            tw: "wɔtɔn sen biara",
             ga: "Bestseller",
             ewe: "nu vɔ̃ feɖeƒe",
         },
@@ -190,7 +190,7 @@ const PRODUCTS = [
         id: "49",
         name: {
             en: "Men Winter Suit",
-            twi: "Mmarima awɔw atadeɛ",
+            tw: "Mmarima awɔw atadeɛ",
             ga: "Hii abɔmɔ ni atade",
             ewe: "Tɔgbui xexeme ɖoɖo",
         },
@@ -218,7 +218,7 @@ const PRODUCTS = [
 
         tag: {
             en: "Bestseller",
-            twi: "wɔtɔn sen biara",
+            tw: "wɔtɔn sen biara",
             ga: "Bestseller",
             ewe: "nu vɔ̃ feɖeƒe",
         },
@@ -227,7 +227,7 @@ const PRODUCTS = [
         id: "50",
         name: {
             en: "Men Winter Suit",
-            twi: "Mmarima Awareɛ Ataaadeɛ",
+            tw: "Mmarima Awareɛ Ataaadeɛ",
             ga: "Hii gbɛjɛ atale",
             ewe: "Menɔvi ƒuƒu atade",
         },
@@ -261,7 +261,7 @@ const PRODUCTS = [
         id: "51",
         name: {
             en: "Men Winter Suit",
-            twi: "Mmarima Awɔw Ataaadeɛ", // updated "Winter" to "Awɔw"
+            tw: "Mmarima Awɔw Ataaadeɛ", // updated "Winter" to "Awɔw"
             ga: "Hii gbɛjɛ atale",
             ewe: "Menɔvi ƒuƒu atade",
         },
@@ -292,7 +292,7 @@ const PRODUCTS = [
         id: "52",
         name: {
             en: "Men Winter Suit",
-            twi: "Mmarima Awɔw Ataaadeɛ",
+            tw: "Mmarima Awɔw Ataaadeɛ",
             ga: "Hii gbɛjɛ atale",
             ewe: "Menɔvi ƒuƒu atade",
         },

@@ -76,7 +76,7 @@ import ewe from '../locales/ewe.json';
 
 const resources = {
     en: { translation: en },
-    twi: { translation: twi },
+    tw: { translation: twi },
     ga: { translation: ga },
     ewe: { translation: ewe },
 };
