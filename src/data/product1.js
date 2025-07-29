@@ -1,11 +1,12 @@
 const PRODUCTS = [
   // Already translated first 5 items...
+
   {
     id: "1",
     name: {
       en: "Ladies Official Dress",
       tw: "Mmaa ɔfese ataaadeɛ",
-      ga: "Yei ɔfis atale",
+      ga: "Yei ɔ fis atale",
       ewe: "nyɔnuwo ƒe ɔfis awudodo",
     },
     category: {
@@ -97,7 +98,7 @@ const PRODUCTS = [
     id: "4",
     name: {
       en: "Ladies Dress",
-      tw: "Mmaa ataaadeɛ",
+      twi: "Mmaa ataaadeɛ",
       ga: "Yei atale",
       ewe: "nyɔnuwo ƒe awudodo",
     },
@@ -155,26 +156,20 @@ const PRODUCTS = [
       ewe: "nu vɔ̃ feɖeƒe",
     },
   },
-
   {
     id: "49",
     name: {
       en: "Men Winter Suit",
       tw: "Mmarima awɔw atadeɛ",
-      ga: "Hii abɔmɔ ni atade",
-      ewe: "Tɔgbui xexeme ɖoɖo",
+      ga: "Hii ɔfis atale",
+      ewe: "Men Winter Suit",
     },
-
-    ////CATEORY FOR MEN ////////////////////////
     category: {
       en: "Men",
       tw: "Mmarima",
       ga: "Hii",
       ewe: "Ŋutsu",
     },
-
-    ////MEN OFFICIAL///////////
-    ///////////////////////////
     subcategory: {
       en: "Men Official",
       tw: "Mmarima ɔfese",
@@ -185,7 +180,6 @@ const PRODUCTS = [
     rating: 4.5,
     image:
       "https://i.pinimg.com/1200x/3d/81/f3/3d81f3fdedc9a9e9452bad1ca354489c.jpg",
-
     tag: {
       en: "Bestseller",
       tw: "wɔtɔn sen biara",
@@ -193,6 +187,7 @@ const PRODUCTS = [
       ewe: "nu vɔ̃ feɖeƒe",
     },
   },
+
   {
     id: "50",
     name: {
@@ -622,37 +617,7 @@ const PRODUCTS = [
       ewe: "nu vɔ̃ feɖeƒe",
     },
   },
-  {
-    id: "101",
-    name: {
-      en: "Men Casual Shirt L",
-      tw: "Mmarima efie ataaadeɛ L",
-      ga: "Hii efie atale L",
-      ewe: "ŋutsuwo ƒe efie awu L",
-    },
-    category: {
-      en: "Men",
-      tw: "Mmarima",
-      ga: "Hii",
-      ewe: "Ŋutsu",
-    },
-    subcategory: {
-      en: "casual",
-      tw: "efie",
-      ga: "Atadei",
-      ewe: "Awudodo",
-    },
-    price: 32.99,
-    rating: 4.4,
-    image:
-      "https://i.pinimg.com/736x/ce/c8/9c/cec89cf1c0a8aac01bb206a2949475ec.jpg",
-    tag: {
-      en: "Hot",
-      tw: "Agye din",
-      ga: "He gbɛi",
-      ewe: "Nyanyɛ",
-    },
-  },
+
   {
     id: "102",
     name: {
@@ -684,37 +649,7 @@ const PRODUCTS = [
       ewe: "Yɛye",
     },
   },
-  {
-    id: "103",
-    name: {
-      en: "Men Bag",
-      tw: "Mmarima kotokuo",
-      ga: "Hii kotokuo",
-      ewe: "ŋutsuwo ƒe kotokuo",
-    },
-    category: {
-      en: "Men",
-      tw: "Mmarima",
-      ga: "Hii",
-      ewe: "Ŋutsu",
-    },
-    subcategory: {
-      en: "bags",
-      tw: "kotokuo",
-      ga: "Kotokui",
-      ewe: "Akplowo",
-    },
-    price: 39.99,
-    rating: 4.7,
-    image:
-      "https://i.pinimg.com/1200x/89/d2/14/89d2142fe738848b5a44ec5e7cb9fadd.jpg",
-    tag: {
-      en: "Super",
-      tw: "Soronko",
-      ga: "Waa",
-      ewe: "Nyo ŋutɔ",
-    },
-  },
+
   {
     id: "104",
     name: {
@@ -746,37 +681,7 @@ const PRODUCTS = [
       ewe: "Nyanyɛ",
     },
   },
-  {
-    id: "105",
-    name: {
-      en: "Men Sneaker",
-      tw: "Mmarima sneaker",
-      ga: "Hii sneaker",
-      ewe: "ŋutsuwo ƒe sneaker",
-    },
-    category: {
-      en: "Men",
-      tw: "Mmarima",
-      ga: "Hii",
-      ewe: "Ŋutsu",
-    },
-    subcategory: {
-      en: "footwear",
-      tw: "Mpaboa",
-      tw: "Naneshi atadei",
-      ewe: "Afɔkpawo",
-    },
-    price: 59.99,
-    rating: 4.7,
-    image:
-      "https://i.pinimg.com/736x/16/e5/63/16e563f816f8d1cb405f2d3ab900deca.jpg",
-    tag: {
-      en: "New",
-      tw: "Foforɔ",
-      ga: "Ehee",
-      ewe: "Yɛye",
-    },
-  },
+
   {
     id: "106",
     name: {
@@ -808,37 +713,7 @@ const PRODUCTS = [
       ewe: "Nyo ŋutɔ",
     },
   },
-  {
-    id: "107",
-    name: {
-      en: "Men Chain Necklace",
-      tw: "Mmarima nkyene kɔnmuadie",
-      ga: "Hii Chain Necklace",
-      ewe: "ŋutsuwo ƒe Chain Necklace",
-    },
-    category: {
-      en: "Men",
-      tw: "Mmarima",
-      ga: "Hii",
-      ewe: "Ŋutsu",
-    },
-    subcategory: {
-      en: "jewelry",
-      tw: "nnwinne",
-      ga: "Jwinei",
-      ewe: "Atsyɔɖonu",
-    },
-    price: 22.99,
-    rating: 4.4,
-    image:
-      "https://i.pinimg.com/1200x/f8/82/2a/f8822afab2fd7126a0907482963aa034.jpg",
-    tag: {
-      en: "Hot",
-      tw: "Agye din",
-      ga: "He gbɛi",
-      ewe: "Nyanyɛ",
-    },
-  },
+
   {
     id: "108",
     name: {
@@ -870,37 +745,7 @@ const PRODUCTS = [
       ewe: "nu vɔ̃ feɖeƒe",
     },
   },
-  {
-    id: "109",
-    name: {
-      en: "Men Bracelet",
-      tw: "Mmarima nsabɔ",
-      ga: "Hii Bracelet",
-      ewe: "ŋutsuwo ƒe Bracelet",
-    },
-    category: {
-      en: "Men",
-      tw: "Mmarima",
-      ga: "Hii",
-      ewe: "Ŋutsu",
-    },
-    subcategory: {
-      en: "jewelry",
-      tw: "nnwinne",
-      ga: "Jwinei",
-      ewe: "Atsyɔɖonu",
-    },
-    price: 18.99,
-    rating: 4.1,
-    image:
-      "https://i.pinimg.com/1200x/a9/76/e6/a976e6d3b0b91908ec7e54316b5062bc.jpg",
-    tag: {
-      en: "New",
-      tw: "Foforɔ",
-      ga: "Ehee",
-      ewe: "Yɛye",
-    },
-  },
+
   {
     id: "110",
     name: {
@@ -932,37 +777,7 @@ const PRODUCTS = [
       ewe: "Nyanyɛ",
     },
   },
-  {
-    id: "111",
-    name: {
-      en: "Men Jewelry Combo",
-      tw: "Mmarima nnwinne Combo",
-      ga: "Hii jewelry Combo",
-      ewe: "ŋutsuwo ƒe jewelry Combo",
-    },
-    category: {
-      en: "Men",
-      tw: "Mmarima",
-      ga: "Hii",
-      ewe: "Ŋutsu",
-    },
-    subcategory: {
-      en: "jewelry",
-      tw: "nnwinne",
-      ga: "Jwinei",
-      ewe: "Atsyɔɖonu",
-    },
-    price: 29.99,
-    rating: 4.6,
-    image:
-      "https://i.pinimg.com/1200x/89/e5/c5/89e5c5648321170aa3e6db2fdfea5d76.jpg",
-    tag: {
-      en: "Super",
-      tw: "Soronko",
-      ga: "Waa",
-      ewe: "Nyo ŋutɔ",
-    },
-  },
+
   {
     id: "112",
     name: {
@@ -994,37 +809,7 @@ const PRODUCTS = [
       ewe: "Yɛye",
     },
   },
-  {
-    id: "113",
-    name: {
-      en: "Men Beachwear Set",
-      tw: "Mmarima mpoano ntoma set",
-      ga: "Hii Beachwear Set",
-      ewe: "ŋutsuwo ƒe Beachwear Set",
-    },
-    category: {
-      en: "Men",
-      tw: "Mmarima",
-      ga: "Hii",
-      ewe: "Ŋutsu",
-    },
-    subcategory: {
-      en: "beachware",
-      tw: "mpoano ntoma",
-      ga: "Ŋshɔnaa atadei",
-      ewe: "Ƒutawuwo",
-    },
-    price: 27.99,
-    rating: 4.3,
-    image:
-      "https://i.pinimg.com/1200x/2a/13/94/2a13946fd97964aa2f94e67a43e25f1a.jpg",
-    tag: {
-      en: "Bestseller",
-      tw: "wɔtɔn sen biara",
-      ga: "ni ahɔ̃ɔ fe fɛɛ",
-      ewe: "nu vɔ̃ feɖeƒe",
-    },
-  },
+
   {
     id: "114",
     name: {
@@ -1056,37 +841,7 @@ const PRODUCTS = [
       ewe: "Nyo ŋutɔ",
     },
   },
-  {
-    id: "115",
-    name: {
-      en: "Men Suit XXL",
-      tw: "Mmarima Suit XXL",
-      ga: "Hii Suit XXL",
-      ewe: "ŋutsuwo ƒe Suit XXL",
-    },
-    category: {
-      en: "Men",
-      tw: "Mmarima",
-      ga: "Hii",
-      ewe: "Ŋutsu",
-    },
-    subcategory: {
-      en: "official",
-      tw: "ɔfese",
-      ga: "ɔfis",
-      ewe: "ɔfis",
-    },
-    price: 72.99,
-    rating: 4.8,
-    image:
-      "https://i.pinimg.com/736x/fb/5c/d4/fb5cd482a95a0314af5b54b69f559e3d.jpg",
-    tag: {
-      en: "Hot",
-      tw: "Agye din",
-      ga: "He gbɛi",
-      ewe: "Nyanyɛ",
-    },
-  },
+
   {
     id: "116",
     name: {
@@ -1118,37 +873,7 @@ const PRODUCTS = [
       ewe: "Yɛye",
     },
   },
-  {
-    id: "117",
-    name: {
-      en: "Men Slip-On Shoe",
-      tw: "Mmarima Slip-On anan ntoma",
-      ga: "Hii Slip-On Shoe",
-      ewe: "ŋutsuwo ƒe Slip-On Shoe",
-    },
-    category: {
-      en: "Men",
-      tw: "Mmarima",
-      ga: "Hii",
-      ewe: "Ŋutsu",
-    },
-    subcategory: {
-      en: "footwear",
-      tw: "Mpaboa",
-      tw: "Naneshi atadei",
-      ewe: "Afɔkpawo",
-    },
-    price: 49.99,
-    rating: 4.5,
-    image:
-      "https://i.pinimg.com/736x/f7/9f/16/f79f16cc44f29010d81a5821dc1f4e43.jpg",
-    tag: {
-      en: "Bestseller",
-      tw: "wɔtɔn sen biara",
-      ga: "ni ahɔ̃ɔ fe fɛɛ",
-      ewe: "nu vɔ̃ feɖeƒe",
-    },
-  },
+
   {
     id: "118",
     name: {
@@ -1180,37 +905,7 @@ const PRODUCTS = [
       ewe: "Nyanyɛ",
     },
   },
-  {
-    id: "119",
-    name: {
-      en: "Men Casual Polo",
-      tw: "Mmarima efie Polo",
-      ga: "Hii efie Polo",
-      ewe: "ŋutsuwo ƒe efie Polo",
-    },
-    category: {
-      en: "Men",
-      tw: "Mmarima",
-      ga: "Hii",
-      ewe: "Ŋutsu",
-    },
-    subcategory: {
-      en: "casual",
-      tw: "efie",
-      ga: "Atadei",
-      ewe: "Awudodo",
-    },
-    price: 32.0,
-    rating: 4.3,
-    image:
-      "https://i.pinimg.com/1200x/25/6e/0c/256e0c33413fa927e7786b7f5b240f96.jpg",
-    tag: {
-      en: "Super",
-      tw: "Soronko",
-      ga: "Waa",
-      ewe: "Nyo ŋutɔ",
-    },
-  },
+
   {
     id: "120",
     name: {
@@ -1242,37 +937,7 @@ const PRODUCTS = [
       ewe: "Yɛye",
     },
   },
-  {
-    id: "121",
-    name: {
-      en: "Men Classic Shirt",
-      tw: "Mmarima tete ataaadeɛ",
-      ga: "Hii Classic atale",
-      ewe: "ŋutsuwo ƒe Classic awu",
-    },
-    category: {
-      en: "Men",
-      tw: "Mmarima",
-      ga: "Hii",
-      ewe: "Ŋutsu",
-    },
-    subcategory: {
-      en: "casual",
-      tw: "efie",
-      ga: "Atadei",
-      ewe: "Awudodo",
-    },
-    price: 29.99,
-    rating: 4.3,
-    image:
-      "https://i.pinimg.com/736x/c5/07/93/c507932349cf8a21ee54e3bbe6bb4887.jpg",
-    tag: {
-      en: "Hot",
-      tw: "Agye din",
-      ga: "He gbɛi",
-      ewe: "Nyanyɛ",
-    },
-  },
+
   {
     id: "122",
     name: {
@@ -1304,37 +969,7 @@ const PRODUCTS = [
       ewe: "Nyo ŋutɔ",
     },
   },
-  {
-    id: "123",
-    name: {
-      en: "Kids Footwear Black",
-      tw: "mmofra anan ntoma tuntum",
-      ga: "Kids footwear Black",
-      ewe: "Kids footwear Black",
-    },
-    category: {
-      en: "Child",
-      tw: "mmofra",
-      ga: "Gbekɛ",
-      ewe: "Ɖevi",
-    },
-    subcategory: {
-      en: "footwear",
-      tw: "Mpaboa",
-      tw: "Naneshi atadei",
-      ewe: "Afɔkpawo",
-    },
-    price: 25.99,
-    rating: 4.3,
-    image:
-      "https://i.pinimg.com/736x/cb/7c/fb/cb7cfb082a619401a4d0785f1de5200b.jpg",
-    tag: {
-      en: "Hot",
-      tw: "Agye din",
-      ga: "He gbɛi",
-      ewe: "Nyanyɛ",
-    },
-  },
+
   {
     id: "124",
     name: {
@@ -1366,37 +1001,7 @@ const PRODUCTS = [
       ewe: "Yɛye",
     },
   },
-  {
-    id: "125",
-    name: {
-      en: "Kids Sneaker White",
-      tw: "mmofra sneaker fitaa",
-      ga: "Kids Sneaker White",
-      ewe: "Kids Sneaker White",
-    },
-    category: {
-      en: "Child",
-      tw: "mmofra",
-      ga: "Gbekɛ",
-      ewe: "Ɖevi",
-    },
-    subcategory: {
-      en: "footwear",
-      tw: "Mpaboa",
-      tw: "Naneshi atadei",
-      ewe: "Afɔkpawo",
-    },
-    price: 29.49,
-    rating: 4.5,
-    image:
-      "https://i.pinimg.com/1200x/78/51/f8/7851f89b5381a0a4a6fde13b7d99f3cf.jpg",
-    tag: {
-      en: "Bestseller",
-      tw: "wɔtɔn sen biara",
-      ga: "ni ahɔ̃ɔ fe fɛɛ",
-      ewe: "nu vɔ̃ feɖeƒe",
-    },
-  },
+
   {
     id: "126",
     name: {
@@ -1428,37 +1033,7 @@ const PRODUCTS = [
       ewe: "Nyanyɛ",
     },
   },
-  {
-    id: "127",
-    name: {
-      en: "Kids Low-cut Shoe",
-      tw: "mmofra ase anan ntoma",
-      ga: "Kids Low-cut Shoe",
-      ewe: "Kids Low-cut Shoe",
-    },
-    category: {
-      en: "Child",
-      tw: "mmofra",
-      ga: "Gbekɛ",
-      ewe: "Ɖevi",
-    },
-    subcategory: {
-      en: "footwear",
-      tw: "Mpaboa",
-      tw: "Naneshi atadei",
-      ewe: "Afɔkpawo",
-    },
-    price: 22.99,
-    rating: 4.3,
-    image:
-      "https://i.pinimg.com/736x/b4/2a/a4/b42aa4a45474dafdc296fca28e25602b.jpg",
-    tag: {
-      en: "New",
-      tw: "Foforɔ",
-      ga: "Ehee",
-      ewe: "Yɛye",
-    },
-  },
+
   {
     id: "128",
     name: {
@@ -1490,37 +1065,7 @@ const PRODUCTS = [
       ewe: "Nyo ŋutɔ",
     },
   },
-  {
-    id: "129",
-    name: {
-      en: "Men Black Sneakers",
-      tw: "Mmarima tuntum sneakers",
-      ga: "Hii Black Sneakers",
-      ewe: "ŋutsuwo ƒe Black Sneakers",
-    },
-    category: {
-      en: "Men",
-      tw: "Mmarima",
-      ga: "Hii",
-      ewe: "Ŋutsu",
-    },
-    subcategory: {
-      en: "footwear",
-      tw: "Mpaboa",
-      tw: "Naneshi atadei",
-      ewe: "Afɔkpawo",
-    },
-    price: 49.99,
-    rating: 4.6,
-    image:
-      "https://i.pinimg.com/736x/55/14/9c/55149caa2206511f63bb04565371e6d4.jpg",
-    tag: {
-      en: "Bestseller",
-      tw: "wɔtɔn sen biara",
-      ga: "ni ahɔ̃ɔ fe fɛɛ",
-      ewe: "nu vɔ̃ feɖeƒe",
-    },
-  },
+
   {
     id: "130",
     name: {
@@ -1552,37 +1097,7 @@ const PRODUCTS = [
       ewe: "Nyanyɛ",
     },
   },
-  {
-    id: "131",
-    name: {
-      en: "Men White Trainers",
-      tw: "Mmarima fitaa trainers",
-      ga: "Hii White Trainers",
-      ewe: "ŋutsuwo ƒe White Trainers",
-    },
-    category: {
-      en: "Men",
-      tw: "Mmarima",
-      ga: "Hii",
-      ewe: "Ŋutsu",
-    },
-    subcategory: {
-      en: "footwear",
-      tw: "Mpaboa",
-      tw: "Naneshi atadei",
-      ewe: "Afɔkpawo",
-    },
-    price: 54.99,
-    rating: 4.7,
-    image:
-      "https://i.pinimg.com/1200x/37/e8/30/37e8306d0ce49cddac14f85c3b1dc57a.jpg",
-    tag: {
-      en: "Super",
-      tw: "Soronko",
-      ga: "Waa",
-      ewe: "Nyo ŋutɔ",
-    },
-  },
+
   {
     id: "132",
     name: {
@@ -1614,37 +1129,7 @@ const PRODUCTS = [
       ewe: "Nyanyɛ",
     },
   },
-  {
-    id: "133",
-    name: {
-      en: "Kids Shirt Casual Small",
-      tw: "mmofra ataaadeɛ efie ketewa",
-      ga: "Kids atale efie Small",
-      ewe: "Kids awu efie Small",
-    },
-    category: {
-      en: "Child",
-      tw: "mmofra",
-      ga: "Gbekɛ",
-      ewe: "Ɖevi",
-    },
-    subcategory: {
-      en: "casual",
-      tw: "efie",
-      ga: "Atadei",
-      ewe: "Awudodo",
-    },
-    price: 19.49,
-    rating: 4.2,
-    image:
-      "https://i.pinimg.com/1200x/ff/98/04/ff98047a4166a8448de93c45988a13cc.jpg",
-    tag: {
-      en: "New",
-      tw: "Foforɔ",
-      ga: "Ehee",
-      ewe: "Yɛye",
-    },
-  },
+
   {
     id: "134",
     name: {
@@ -1676,37 +1161,7 @@ const PRODUCTS = [
       ewe: "Nyo ŋutɔ",
     },
   },
-  {
-    id: "135",
-    name: {
-      en: "Kids Casual Top Small",
-      tw: "mmofra efie soro ketewa",
-      ga: "Kids efie Top Small",
-      ewe: "Kids efie Top Small",
-    },
-    category: {
-      en: "Child",
-      tw: "mmofra",
-      ga: "Gbekɛ",
-      ewe: "Ɖevi",
-    },
-    subcategory: {
-      en: "casual",
-      tw: "efie",
-      ga: "Atadei",
-      ewe: "Awudodo",
-    },
-    price: 21.99,
-    rating: 4.5,
-    image:
-      "https://i.pinimg.com/1200x/13/9d/c5/139dc59b60f9db88ba80e1868ea59379.jpg",
-    tag: {
-      en: "Bestseller",
-      tw: "wɔtɔn sen biara",
-      ga: "ni ahɔ̃ɔ fe fɛɛ",
-      ewe: "nu vɔ̃ feɖeƒe",
-    },
-  },
+
   {
     id: "136",
     name: {
@@ -1738,37 +1193,7 @@ const PRODUCTS = [
       ewe: "Nyanyɛ",
     },
   },
-  {
-    id: "137",
-    name: {
-      en: "Kids Beachwear Yellow",
-      tw: "mmofra mpoano ntoma kɔkɔɔ",
-      ga: "Kids Beachwear Yellow",
-      ewe: "Kids Beachwear Yellow",
-    },
-    category: {
-      en: "Child",
-      tw: "mmofra",
-      ga: "Gbekɛ",
-      ewe: "Ɖevi",
-    },
-    subcategory: {
-      en: "beachware",
-      tw: "mpoano ntoma",
-      ga: "Ŋshɔnaa atadei",
-      ewe: "Ƒutawuwo",
-    },
-    price: 22.49,
-    rating: 4.3,
-    image:
-      "https://i.pinimg.com/1200x/9e/0f/45/9e0f45a8ba132f68c9a431907b0545b7.jpg",
-    tag: {
-      en: "New",
-      tw: "Foforɔ",
-      ga: "Ehee",
-      ewe: "Yɛye",
-    },
-  },
+
   {
     id: "138",
     name: {
@@ -1800,37 +1225,7 @@ const PRODUCTS = [
       ewe: "Nyo ŋutɔ",
     },
   },
-  {
-    id: "139",
-    name: {
-      en: "Kids Beach Shorts",
-      tw: "mmofra mpoano shorts",
-      ga: "Kids Beach Shorts",
-      ewe: "Kids Beach Shorts",
-    },
-    category: {
-      en: "Child",
-      tw: "mmofra",
-      ga: "Gbekɛ",
-      ewe: "Ɖevi",
-    },
-    subcategory: {
-      en: "beachware",
-      tw: "mpoano ntoma",
-      ga: "Ŋshɔnaa atadei",
-      ewe: "Ƒutawuwo",
-    },
-    price: 26.49,
-    rating: 4.4,
-    image:
-      "https://i.pinimg.com/1200x/0d/20/a6/0d20a6d17d0b6f21ce439dcbde751548.jpg",
-    tag: {
-      en: "Bestseller",
-      tw: "wɔtɔn sen biara",
-      ga: "ni ahɔ̃ɔ fe fɛɛ",
-      ewe: "nu vɔ̃ feɖeƒe",
-    },
-  },
+
   {
     id: "140",
     name: {
@@ -1862,13 +1257,750 @@ const PRODUCTS = [
       ewe: "Nyo ŋutɔ",
     },
   },
+
+  {
+    id: "142",
+    name: {
+      en: "Silver Pendant Jewelry",
+      tw: "dwetɛ Pendant nnwinne",
+      ga: "Silver Pendant jewelry",
+      ewe: "Silver Pendant jewelry",
+    },
+    category: {
+      en: "Home",
+      tw: "Efie",
+      ga: "Home",
+      ewe: "Home",
+    },
+    subcategory: {
+      en: "jewelry",
+      tw: "nnwinne",
+      ga: "Jwinei",
+      ewe: "Atsyɔɖonu",
+    },
+    price: 35.49,
+    rating: 4.6,
+    image:
+      "https://i.pinimg.com/1200x/c7/96/a5/c796a52aeac8b441a3be0ba2a3041a0a.jpg",
+    tag: {
+      en: "Bestseller",
+      tw: "wɔtɔn sen biara",
+      ga: "ni ahɔ̃ɔ fe fɛɛ",
+      ewe: "nu vɔ̃ feɖeƒe",
+    },
+  },
+
+  {
+    id: "144",
+    name: {
+      en: "Diamond Ring",
+      tw: "Diamond kawa",
+      ga: "Diamond Ring",
+      ewe: "Diamond Ring",
+    },
+    category: {
+      en: "Home",
+      tw: "Efie",
+      ga: "Home",
+      ewe: "Home",
+    },
+    subcategory: {
+      en: "jewelry",
+      tw: "nnwinne",
+      ga: "Jwinei",
+      ewe: "Atsyɔɖonu",
+    },
+    price: 55.99,
+    rating: 4.8,
+    image:
+      "https://i.pinimg.com/736x/d6/28/84/d628846a7f31106b314f3a30b0bb481c.jpg",
+    tag: {
+      en: "Super",
+      tw: "Soronko",
+      ga: "Waa",
+      ewe: "Nyo ŋutɔ",
+    },
+  },
+
+  {
+    id: "146",
+    name: {
+      en: "Traditional Jewelry Set",
+      tw: "amanne nnwinne set",
+      ga: "Traditional jewelry Set",
+      ewe: "Traditional jewelry Set",
+    },
+    category: {
+      en: "Home",
+      tw: "Efie",
+      ga: "Home",
+      ewe: "Home",
+    },
+    subcategory: {
+      en: "jewelry",
+      tw: "nnwinne",
+      ga: "Jwinei",
+      ewe: "Atsyɔɖonu",
+    },
+    price: 48.99,
+    rating: 4.6,
+    image:
+      "https://i.pinimg.com/1200x/0b/de/9c/0bde9c7ed5dfea194d722a33161cce9d.jpg",
+    tag: {
+      en: "Bestseller",
+      tw: "wɔtɔn sen biara",
+      ga: "ni ahɔ̃ɔ fe fɛɛ",
+      ewe: "nu vɔ̃ feɖeƒe",
+    },
+  },
+
+  {
+    id: "101",
+    name: {
+      en: "Men Casual Shirt L",
+      tw: "Mmarima efie ataaadeɛ L",
+      ga: "Hii efie atale L",
+      ewe: "ŋutsuwo ƒe efie awu L",
+    },
+    category: {
+      en: "Men",
+      tw: "Mmarima",
+      ga: "Hii",
+      ewe: "Ŋutsu",
+    },
+    subcategory: {
+      en: "casual",
+      tw: "efie",
+      ga: "Atadei",
+      ewe: "Awudodo",
+    },
+    price: 32.99,
+    rating: 4.4,
+    image:
+      "https://i.pinimg.com/736x/ce/c8/9c/cec89cf1c0a8aac01bb206a2949475ec.jpg",
+    tag: {
+      en: "Hot",
+      tw: "Agye din",
+      ga: "He gbɛi",
+      ewe: "Nyanyɛ",
+    },
+  },
+
+  {
+    id: "103",
+    name: {
+      en: "Men Bag",
+      tw: "Mmarima kotokuo",
+      ga: "Hii kotokuo",
+      ewe: "ŋutsuwo ƒe kotokuo",
+    },
+    category: {
+      en: "Men",
+      tw: "Mmarima",
+      ga: "Hii",
+      ewe: "Ŋutsu",
+    },
+    subcategory: {
+      en: "bags",
+      tw: "kotokuo",
+      ga: "Kotokui",
+      ewe: "Akplowo",
+    },
+    price: 39.99,
+    rating: 4.7,
+    image:
+      "https://i.pinimg.com/1200x/89/d2/14/89d2142fe738848b5a44ec5e7cb9fadd.jpg",
+    tag: {
+      en: "Super",
+      tw: "Soronko",
+      ga: "Waa",
+      ewe: "Nyo ŋutɔ",
+    },
+  },
+
+  {
+    id: "105",
+    name: {
+      en: "Men Sneaker",
+      tw: "Mmarima sneaker",
+      ga: "Hii sneaker",
+      ewe: "ŋutsuwo ƒe sneaker",
+    },
+    category: {
+      en: "Men",
+      tw: "Mmarima",
+      ga: "Hii",
+      ewe: "Ŋutsu",
+    },
+    subcategory: {
+      en: "footwear",
+      tw: "Mpaboa",
+      tw: "Naneshi atadei",
+      ewe: "Afɔkpawo",
+    },
+    price: 59.99,
+    rating: 4.7,
+    image:
+      "https://i.pinimg.com/736x/16/e5/63/16e563f816f8d1cb405f2d3ab900deca.jpg",
+    tag: {
+      en: "New",
+      tw: "Foforɔ",
+      ga: "Ehee",
+      ewe: "Yɛye",
+    },
+  },
+
+  {
+    id: "107",
+    name: {
+      en: "Men Chain Necklace",
+      tw: "Mmarima nkyene kɔnmuadie",
+      ga: "Hii Chain Necklace",
+      ewe: "ŋutsuwo ƒe Chain Necklace",
+    },
+    category: {
+      en: "Men",
+      tw: "Mmarima",
+      ga: "Hii",
+      ewe: "Ŋutsu",
+    },
+    subcategory: {
+      en: "jewelry",
+      tw: "nnwinne",
+      ga: "Jwinei",
+      ewe: "Atsyɔɖonu",
+    },
+    price: 22.99,
+    rating: 4.4,
+    image:
+      "https://i.pinimg.com/1200x/f8/82/2a/f8822afab2fd7126a0907482963aa034.jpg",
+    tag: {
+      en: "Hot",
+      tw: "Agye din",
+      ga: "He gbɛi",
+      ewe: "Nyanyɛ",
+    },
+  },
+
+  {
+    id: "109",
+    name: {
+      en: "Men Bracelet",
+      tw: "Mmarima nsabɔ",
+      ga: "Hii Bracelet",
+      ewe: "ŋutsuwo ƒe Bracelet",
+    },
+    category: {
+      en: "Men",
+      tw: "Mmarima",
+      ga: "Hii",
+      ewe: "Ŋutsu",
+    },
+    subcategory: {
+      en: "jewelry",
+      tw: "nnwinne",
+      ga: "Jwinei",
+      ewe: "Atsyɔɖonu",
+    },
+    price: 18.99,
+    rating: 4.1,
+    image:
+      "https://i.pinimg.com/1200x/a9/76/e6/a976e6d3b0b91908ec7e54316b5062bc.jpg",
+    tag: {
+      en: "New",
+      tw: "Foforɔ",
+      ga: "Ehee",
+      ewe: "Yɛye",
+    },
+  },
+
+  {
+    id: "111",
+    name: {
+      en: "Men Jewelry Combo",
+      tw: "Mmarima nnwinne Combo",
+      ga: "Hii jewelry Combo",
+      ewe: "ŋutsuwo ƒe jewelry Combo",
+    },
+    category: {
+      en: "Men",
+      tw: "Mmarima",
+      ga: "Hii",
+      ewe: "Ŋutsu",
+    },
+    subcategory: {
+      en: "jewelry",
+      tw: "nnwinne",
+      ga: "Jwinei",
+      ewe: "Atsyɔɖonu",
+    },
+    price: 29.99,
+    rating: 4.6,
+    image:
+      "https://i.pinimg.com/1200x/89/e5/c5/89e5c5648321170aa3e6db2fdfea5d76.jpg",
+    tag: {
+      en: "Super",
+      tw: "Soronko",
+      ga: "Waa",
+      ewe: "Nyo ŋutɔ",
+    },
+  },
+
+  {
+    id: "113",
+    name: {
+      en: "Men Beachwear Set",
+      tw: "Mmarima mpoano ntoma set",
+      ga: "Hii Beachwear Set",
+      ewe: "ŋutsuwo ƒe Beachwear Set",
+    },
+    category: {
+      en: "Men",
+      tw: "Mmarima",
+      ga: "Hii",
+      ewe: "Ŋutsu",
+    },
+    subcategory: {
+      en: "beachware",
+      tw: "mpoano ntoma",
+      ga: "Ŋshɔnaa atadei",
+      ewe: "Ƒutawuwo",
+    },
+    price: 27.99,
+    rating: 4.3,
+    image:
+      "https://i.pinimg.com/1200x/2a/13/94/2a13946fd97964aa2f94e67a43e25f1a.jpg",
+    tag: {
+      en: "Bestseller",
+      tw: "wɔtɔn sen biara",
+      ga: "ni ahɔ̃ɔ fe fɛɛ",
+      ewe: "nu vɔ̃ feɖeƒe",
+    },
+  },
+
+  {
+    id: "115",
+    name: {
+      en: "Men Suit XXL",
+      tw: "Mmarima Suit XXL",
+      ga: "Hii Suit XXL",
+      ewe: "ŋutsuwo ƒe Suit XXL",
+    },
+    category: {
+      en: "Men",
+      tw: "Mmarima",
+      ga: "Hii",
+      ewe: "Ŋutsu",
+    },
+    subcategory: {
+      en: "official",
+      tw: "ɔfese",
+      ga: "ɔfis",
+      ewe: "ɔfis",
+    },
+    price: 72.99,
+    rating: 4.8,
+    image:
+      "https://i.pinimg.com/736x/fb/5c/d4/fb5cd482a95a0314af5b54b69f559e3d.jpg",
+    tag: {
+      en: "Hot",
+      tw: "Agye din",
+      ga: "He gbɛi",
+      ewe: "Nyanyɛ",
+    },
+  },
+
+  {
+    id: "117",
+    name: {
+      en: "Men Slip-On Shoe",
+      tw: "Mmarima Slip-On anan ntoma",
+      ga: "Hii Slip-On Shoe",
+      ewe: "ŋutsuwo ƒe Slip-On Shoe",
+    },
+    category: {
+      en: "Men",
+      tw: "Mmarima",
+      ga: "Hii",
+      ewe: "Ŋutsu",
+    },
+    subcategory: {
+      en: "footwear",
+      tw: "Mpaboa",
+      tw: "Naneshi atadei",
+      ewe: "Afɔkpawo",
+    },
+    price: 49.99,
+    rating: 4.5,
+    image:
+      "https://i.pinimg.com/736x/f7/9f/16/f79f16cc44f29010d81a5821dc1f4e43.jpg",
+    tag: {
+      en: "Bestseller",
+      tw: "wɔtɔn sen biara",
+      ga: "ni ahɔ̃ɔ fe fɛɛ",
+      ewe: "nu vɔ̃ feɖeƒe",
+    },
+  },
+
+  {
+    id: "119",
+    name: {
+      en: "Men Casual Polo",
+      tw: "Mmarima efie Polo",
+      ga: "Hii efie Polo",
+      ewe: "ŋutsuwo ƒe efie Polo",
+    },
+    category: {
+      en: "Men",
+      tw: "Mmarima",
+      ga: "Hii",
+      ewe: "Ŋutsu",
+    },
+    subcategory: {
+      en: "casual",
+      tw: "efie",
+      ga: "Atadei",
+      ewe: "Awudodo",
+    },
+    price: 32.0,
+    rating: 4.3,
+    image:
+      "https://i.pinimg.com/1200x/25/6e/0c/256e0c33413fa927e7786b7f5b240f96.jpg",
+    tag: {
+      en: "Super",
+      tw: "Soronko",
+      ga: "Waa",
+      ewe: "Nyo ŋutɔ",
+    },
+  },
+
+  {
+    id: "121",
+    name: {
+      en: "Men Classic Shirt",
+      tw: "Mmarima tete ataaadeɛ",
+      ga: "Hii Classic atale",
+      ewe: "ŋutsuwo ƒe Classic awu",
+    },
+    category: {
+      en: "Men",
+      tw: "Mmarima",
+      ga: "Hii",
+      ewe: "Ŋutsu",
+    },
+    subcategory: {
+      en: "casual",
+      tw: "efie",
+      ga: "Atadei",
+      ewe: "Awudodo",
+    },
+    price: 29.99,
+    rating: 4.3,
+    image:
+      "https://i.pinimg.com/736x/c5/07/93/c507932349cf8a21ee54e3bbe6bb4887.jpg",
+    tag: {
+      en: "Hot",
+      tw: "Agye din",
+      ga: "He gbɛi",
+      ewe: "Nyanyɛ",
+    },
+  },
+
+  {
+    id: "123",
+    name: {
+      en: "Kids Footwear Black",
+      tw: "mmofra anan ntoma tuntum",
+      ga: "Gbekɛbii footwear Black",
+      ewe: "Ɖeviwo footwear Black",
+    },
+    category: {
+      en: "Child",
+      tw: "mmofra",
+      ga: "Gbekɛ",
+      ewe: "Ɖevi",
+    },
+    subcategory: {
+      en: "footwear",
+      tw: "Mpaboa",
+      tw: "Naneshi atadei",
+      ewe: "Afɔkpawo",
+    },
+    price: 25.99,
+    rating: 4.3,
+    image:
+      "https://i.pinimg.com/736x/cb/7c/fb/cb7cfb082a619401a4d0785f1de5200b.jpg",
+    tag: {
+      en: "Hot",
+      tw: "Agye din",
+      ga: "He gbɛi",
+      ewe: "Nyanyɛ",
+    },
+  },
+
+  {
+    id: "125",
+    name: {
+      en: "Kids Sneaker White",
+      tw: "mmofra sneaker fitaa",
+      ga: "Gbekɛbii Sneaker White",
+      ewe: "Ɖeviwo Sneaker White",
+    },
+    category: {
+      en: "Child",
+      tw: "mmofra",
+      ga: "Gbekɛ",
+      ewe: "Ɖevi",
+    },
+    subcategory: {
+      en: "footwear",
+      tw: "Mpaboa",
+      tw: "Naneshi atadei",
+      ewe: "Afɔkpawo",
+    },
+    price: 29.49,
+    rating: 4.5,
+    image:
+      "https://i.pinimg.com/1200x/78/51/f8/7851f89b5381a0a4a6fde13b7d99f3cf.jpg",
+    tag: {
+      en: "Bestseller",
+      tw: "wɔtɔn sen biara",
+      ga: "ni ahɔ̃ɔ fe fɛɛ",
+      ewe: "nu vɔ̃ feɖeƒe",
+    },
+  },
+
+  {
+    id: "127",
+    name: {
+      en: "Kids Low-cut Shoe",
+      tw: "mmofra ase anan ntoma",
+      ga: "Gbekɛbii Low-cut Shoe",
+      ewe: "Ɖeviwo Low-cut Shoe",
+    },
+    category: {
+      en: "Child",
+      tw: "mmofra",
+      ga: "Gbekɛ",
+      ewe: "Ɖevi",
+    },
+    subcategory: {
+      en: "footwear",
+      tw: "Mpaboa",
+      tw: "Naneshi atadei",
+      ewe: "Afɔkpawo",
+    },
+    price: 22.99,
+    rating: 4.3,
+    image:
+      "https://i.pinimg.com/736x/b4/2a/a4/b42aa4a45474dafdc296fca28e25602b.jpg",
+    tag: {
+      en: "New",
+      tw: "Foforɔ",
+      ga: "Ehee",
+      ewe: "Yɛye",
+    },
+  },
+
+  {
+    id: "129",
+    name: {
+      en: "Men Black Sneakers",
+      tw: "Mmarima tuntum sneakers",
+      ga: "Hii Black Sneakers",
+      ewe: "ŋutsuwo ƒe Black Sneakers",
+    },
+    category: {
+      en: "Men",
+      tw: "Mmarima",
+      ga: "Hii",
+      ewe: "Ŋutsu",
+    },
+    subcategory: {
+      en: "footwear",
+      tw: "Mpaboa",
+      tw: "Naneshi atadei",
+      ewe: "Afɔkpawo",
+    },
+    price: 49.99,
+    rating: 4.6,
+    image:
+      "https://i.pinimg.com/736x/55/14/9c/55149caa2206511f63bb04565371e6d4.jpg",
+    tag: {
+      en: "Bestseller",
+      tw: "wɔtɔn sen biara",
+      ga: "ni ahɔ̃ɔ fe fɛɛ",
+      ewe: "nu vɔ̃ feɖeƒe",
+    },
+  },
+
+  {
+    id: "131",
+    name: {
+      en: "Men White Trainers",
+      tw: "Mmarima fitaa trainers",
+      ga: "Hii White Trainers",
+      ewe: "ŋutsuwo ƒe White Trainers",
+    },
+    category: {
+      en: "Men",
+      tw: "Mmarima",
+      ga: "Hii",
+      ewe: "Ŋutsu",
+    },
+    subcategory: {
+      en: "footwear",
+      tw: "Mpaboa",
+      tw: "Naneshi atadei",
+      ewe: "Afɔkpawo",
+    },
+    price: 54.99,
+    rating: 4.7,
+    image:
+      "https://i.pinimg.com/1200x/37/e8/30/37e8306d0ce49cddac14f85c3b1dc57a.jpg",
+    tag: {
+      en: "Super",
+      tw: "Soronko",
+      ga: "Waa",
+      ewe: "Nyo ŋutɔ",
+    },
+  },
+
+  {
+    id: "133",
+    name: {
+      en: "Kids Shirt Casual Small",
+      tw: "mmofra ataaadeɛ efie ketewa",
+      ga: "Gbekɛbii atale efie Small",
+      ewe: "Ɖeviwo awu efie Small",
+    },
+    category: {
+      en: "Child",
+      tw: "mmofra",
+      ga: "Gbekɛ",
+      ewe: "Ɖevi",
+    },
+    subcategory: {
+      en: "casual",
+      tw: "efie",
+      ga: "Atadei",
+      ewe: "Awudodo",
+    },
+    price: 19.49,
+    rating: 4.2,
+    image:
+      "https://i.pinimg.com/1200x/ff/98/04/ff98047a4166a8448de93c45988a13cc.jpg",
+    tag: {
+      en: "New",
+      tw: "Foforɔ",
+      ga: "Ehee",
+      ewe: "Yɛye",
+    },
+  },
+
+  {
+    id: "135",
+    name: {
+      en: "Kids Casual Top Small",
+      tw: "mmofra efie soro ketewa",
+      ga: "Gbekɛbii efie Top Small",
+      ewe: "Ɖeviwo efie Top Small",
+    },
+    category: {
+      en: "Child",
+      tw: "mmofra",
+      ga: "Gbekɛ",
+      ewe: "Ɖevi",
+    },
+    subcategory: {
+      en: "casual",
+      tw: "efie",
+      ga: "Atadei",
+      ewe: "Awudodo",
+    },
+    price: 21.99,
+    rating: 4.5,
+    image:
+      "https://i.pinimg.com/1200x/13/9d/c5/139dc59b60f9db88ba80e1868ea59379.jpg",
+    tag: {
+      en: "Bestseller",
+      tw: "wɔtɔn sen biara",
+      ga: "ni ahɔ̃ɔ fe fɛɛ",
+      ewe: "nu vɔ̃ feɖeƒe",
+    },
+  },
+
+  {
+    id: "137",
+    name: {
+      en: "Kids Beachwear Yellow",
+      tw: "mmofra mpoano ntoma kɔkɔɔ",
+      ga: "Gbekɛbii Beachwear Yellow",
+      ewe: "Ɖeviwo Beachwear Yellow",
+    },
+    category: {
+      en: "Child",
+      tw: "mmofra",
+      ga: "Gbekɛ",
+      ewe: "Ɖevi",
+    },
+    subcategory: {
+      en: "beachware",
+      tw: "mpoano ntoma",
+      ga: "Ŋshɔnaa atadei",
+      ewe: "Ƒutawuwo",
+    },
+    price: 22.49,
+    rating: 4.3,
+    image:
+      "https://i.pinimg.com/1200x/9e/0f/45/9e0f45a8ba132f68c9a431907b0545b7.jpg",
+    tag: {
+      en: "New",
+      tw: "Foforɔ",
+      ga: "Ehee",
+      ewe: "Yɛye",
+    },
+  },
+
+  {
+    id: "139",
+    name: {
+      en: "Kids Beach Shorts",
+      tw: "mmofra mpoano shorts",
+      ga: "Gbekɛbii Beach Shorts",
+      ewe: "Ɖeviwo Beach Shorts",
+    },
+    category: {
+      en: "Child",
+      tw: "mmofra",
+      ga: "Gbekɛ",
+      ewe: "Ɖevi",
+    },
+    subcategory: {
+      en: "beachware",
+      tw: "mpoano ntoma",
+      ga: "Ŋshɔnaa atadei",
+      ewe: "Ƒutawuwo",
+    },
+    price: 26.49,
+    rating: 4.4,
+    image:
+      "https://i.pinimg.com/1200x/0d/20/a6/0d20a6d17d0b6f21ce439dcbde751548.jpg",
+    tag: {
+      en: "Bestseller",
+      tw: "wɔtɔn sen biara",
+      ga: "ni ahɔ̃ɔ fe fɛɛ",
+      ewe: "nu vɔ̃ feɖeƒe",
+    },
+  },
+
   {
     id: "141",
     name: {
       en: "Kids Casual Tee",
       tw: "mmofra efie tee",
-      ga: "Kids efie Tee",
-      ewe: "Kids efie Tee",
+      ga: "Gbekɛbii efie Tee",
+      ewe: "Ɖeviwo efie Tee",
     },
     category: {
       en: "Child",
@@ -1893,37 +2025,7 @@ const PRODUCTS = [
       ewe: "Yɛye",
     },
   },
-  {
-    id: "142",
-    name: {
-      en: "Silver Pendant Jewelry",
-      tw: "dwetɛ Pendant nnwinne",
-      ga: "Silver Pendant jewelry",
-      ewe: "Silver Pendant jewelry",
-    },
-    category: {
-      en: "Home",
-      tw: "Efie",
-      ewe: "Aƒeme",
-      ga: "Shia",
-    },
-    subcategory: {
-      en: "jewelry",
-      tw: "nnwinne",
-      ga: "Jwinei",
-      ewe: "Atsyɔɖonu",
-    },
-    price: 35.49,
-    rating: 4.6,
-    image:
-      "https://i.pinimg.com/1200x/c7/96/a5/c796a52aeac8b441a3be0ba2a3041a0a.jpg",
-    tag: {
-      en: "Bestseller",
-      tw: "wɔtɔn sen biara",
-      ga: "ni ahɔ̃ɔ fe fɛɛ",
-      ewe: "nu vɔ̃ feɖeƒe",
-    },
-  },
+
   {
     id: "143",
     name: {
@@ -1935,8 +2037,8 @@ const PRODUCTS = [
     category: {
       en: "Home",
       tw: "Efie",
-      ewe: "Aƒeme",
-      ga: "Shia",
+      ga: "Home",
+      ewe: "Home",
     },
     subcategory: {
       en: "jewelry",
@@ -1955,37 +2057,7 @@ const PRODUCTS = [
       ewe: "Nyanyɛ",
     },
   },
-  {
-    id: "144",
-    name: {
-      en: "Diamond Ring",
-      tw: "Diamond kawa",
-      ga: "Diamond Ring",
-      ewe: "Diamond Ring",
-    },
-    category: {
-      en: "Home",
-      tw: "Efie",
-      ewe: "Aƒeme",
-      ga: "Shia",
-    },
-    subcategory: {
-      en: "jewelry",
-      tw: "nnwinne",
-      ga: "Jwinei",
-      ewe: "Atsyɔɖonu",
-    },
-    price: 55.99,
-    rating: 4.8,
-    image:
-      "https://i.pinimg.com/736x/d6/28/84/d628846a7f31106b314f3a30b0bb481c.jpg",
-    tag: {
-      en: "Super",
-      tw: "Soronko",
-      ga: "Waa",
-      ewe: "Nyo ŋutɔ",
-    },
-  },
+
   {
     id: "145",
     name: {
@@ -1997,8 +2069,8 @@ const PRODUCTS = [
     category: {
       en: "Home",
       tw: "Efie",
-      ewe: "Aƒeme",
-      ga: "Shia",
+      ga: "Home",
+      ewe: "Home",
     },
     subcategory: {
       en: "jewelry",
@@ -2017,6 +2089,7 @@ const PRODUCTS = [
       ewe: "Yɛye",
     },
   },
+
   {
     id: "146",
     name: {
@@ -3327,7 +3400,18 @@ const PRODUCTS = [
       tw: "Asafo ntoma",
       ga: "Atadei",
       ewe: "Gomekpa",
-      subcategory: "kitchenware",
+    },
+    category: {
+      en: "Home",
+      tw: "Efie",
+      ga: "Shia",
+      ewe: "Aƒeme",
+    },
+    subcategory: {
+      en: "kitchenware",
+      tw: "efie",
+      ga: "Shia",
+      ewe: "Aƒeme",
     },
     price: 32.99,
     rating: 4.6,
@@ -3347,7 +3431,18 @@ const PRODUCTS = [
       tw: "Asafo ntoma",
       ga: "Atadei",
       ewe: "Gomekpa",
-      subcategory: "kitchenware",
+    },
+    category: {
+      en: "Home",
+      tw: "Efie",
+      ga: "Shia",
+      ewe: "Aƒeme",
+    },
+    subcategory: {
+      en: "kitchenware",
+      tw: "efie",
+      ga: "Shia",
+      ewe: "Aƒeme",
     },
     price: 28.49,
     rating: 4.4,
@@ -3460,26 +3555,6 @@ const PRODUCTS = [
       tw: "Kyɛn",
       ga: "Kɔmpaa",
       ewe: "Akɔnta",
-      subcategory: "kitchenware",
-    },
-    price: 39.99,
-    rating: 4.8,
-    image:
-      "https://i.pinimg.com/736x/4a/54/2f/4a542fb320ae9cf00a4bd0adf6cc7a65.jpg",
-    tag: {
-      en: "Super",
-      tw: "Kɛseɛ",
-      ga: "Kpeteŋkpele",
-      ewe: "Tsitsitɔ",
-    },
-  },
-  {
-    id: "247",
-    name: {
-      en: "Baking Tray Steel",
-      tw: "Akaaba ntoma",
-      ga: "Baking Tray",
-      ewe: "Baking Tray",
     },
     category: {
       en: "Home",
@@ -3493,15 +3568,15 @@ const PRODUCTS = [
       ga: "Shia",
       ewe: "Aƒeme",
     },
-    price: 24.49,
-    rating: 4.4,
+    price: 39.99,
+    rating: 4.8,
     image:
-      "https://i.pinimg.com/736x/69/5f/0f/695f0fc0ea82ae6a3354d4c897169ee3.jpg",
+      "https://i.pinimg.com/736x/4a/54/2f/4a542fb320ae9cf00a4bd0adf6cc7a65.jpg",
     tag: {
-      en: "Bestseller",
-      tw: "wɔtɔn sen biara",
-      ga: "Bestseller",
-      ewe: "nu vɔ̃ feɖeƒe",
+      en: "Super",
+      tw: "Kɛseɛ",
+      ga: "Kpeteŋkpele",
+      ewe: "Tsitsitɔ",
     },
   },
   {

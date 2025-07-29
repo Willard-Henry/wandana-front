@@ -14,7 +14,7 @@ import {
 } from "react-native";
 import { useNavigation, useRoute } from "@react-navigation/native";
 import Icon from "react-native-vector-icons/Ionicons";
-import productsData from "../src/data/products";
+import productsData from "../src/data/product1";
 import { ThemeContext } from "../ThemeContext";
 
 export default function SearchScreen() {
@@ -40,6 +40,17 @@ export default function SearchScreen() {
   const borderColor = darkTheme ? "#444444" : "#e8e8e8";
   const subTextColor = darkTheme ? "#cccccc" : "#666666";
 
+  // Helper function to get text value (handles both string and object)
+  const getTextValue = (value, defaultLang = "en") => {
+    if (typeof value === "string") {
+      return value;
+    }
+    if (typeof value === "object" && value !== null) {
+      return value[defaultLang] || value.en || Object.values(value)[0] || "";
+    }
+    return "";
+  };
+
   // Search Logic
   useEffect(() => {
     const timer = setTimeout(() => {
@@ -53,31 +64,36 @@ export default function SearchScreen() {
       const lowerCaseQuery = searchQuery.toLowerCase();
 
       const results = productsData.filter((product) => {
-        // Search by name
+        // Search by name (handle both string and object)
+        const productName = getTextValue(product.name);
+        if (productName && productName.toLowerCase().includes(lowerCaseQuery)) {
+          return true;
+        }
+
+        // Search by category (handle both string and object)
+        const productCategory = getTextValue(product.category);
         if (
-          product.name &&
-          product.name.toLowerCase().includes(lowerCaseQuery)
+          productCategory &&
+          productCategory.toLowerCase().includes(lowerCaseQuery)
         ) {
           return true;
         }
-        // Search by category
+
+        // Search by subcategory (handle both string and object)
+        const productSubcategory = getTextValue(product.subcategory);
         if (
-          product.category &&
-          product.category.toLowerCase().includes(lowerCaseQuery)
+          productSubcategory &&
+          productSubcategory.toLowerCase().includes(lowerCaseQuery)
         ) {
           return true;
         }
-        // Search by subcategory
-        if (
-          product.subcategory &&
-          product.subcategory.toLowerCase().includes(lowerCaseQuery)
-        ) {
+
+        // Search by tags (handle both string and object)
+        const productTag = getTextValue(product.tag);
+        if (productTag && productTag.toLowerCase().includes(lowerCaseQuery)) {
           return true;
         }
-        // Search by tags
-        if (product.tag && product.tag.toLowerCase().includes(lowerCaseQuery)) {
-          return true;
-        }
+
         return false;
       });
 
@@ -88,7 +104,7 @@ export default function SearchScreen() {
     return () => clearTimeout(timer);
   }, [searchQuery]);
 
-  // Fixed: Pass the entire product object instead of just productId
+  // Fixed: Pass the entire product object and handle language objects
   const renderProductItem = ({ item }) => (
     <TouchableOpacity
       style={[
@@ -102,16 +118,16 @@ export default function SearchScreen() {
       <Image source={{ uri: item.image }} style={styles.productImage} />
       <View style={styles.productDetails}>
         <Text style={[styles.productName, { color: textColor }]}>
-          {item.name}
+          {getTextValue(item.name)}
         </Text>
         <Text style={[styles.productPrice, { color: primaryColor }]}>
-          GHS {item.price.toFixed(2)}
+          GHS {item.price?.toFixed(2) || "0.00"}
         </Text>
         <Text style={[styles.productCategory, { color: subTextColor }]}>
-          {item.category} ({item.subcategory})
+          {getTextValue(item.category)} ({getTextValue(item.subcategory)})
         </Text>
         <Text style={[styles.productRating, { color: subTextColor }]}>
-          Rating: {item.rating} ★
+          Rating: {item.rating || "N/A"} ★
         </Text>
       </View>
     </TouchableOpacity>
@@ -164,7 +180,9 @@ export default function SearchScreen() {
       ) : filteredProducts.length > 0 ? (
         <FlatList
           data={filteredProducts}
-          keyExtractor={(item) => item.id}
+          keyExtractor={(item) =>
+            item.id?.toString() || Math.random().toString()
+          }
           renderItem={renderProductItem}
           contentContainerStyle={styles.resultsList}
         />

@@ -1,4 +1,6 @@
 import React, { useState, useMemo } from "react";
+import { ImagePicker } from "expo-image-picker";
+import { Alert } from "react-native";
 import { View, Text, TouchableOpacity, ScrollView } from "react-native";
 import TopNav from "../components/TopNav";
 import ProductListComponent from "../components/ProductListComponent";
@@ -77,7 +79,11 @@ export default function CategoryScreen({ navigation }) {
                 quality: 1,
               });
 
-              if (!result.canceled) {
+              if (
+                !result.canceled &&
+                result.assets &&
+                result.assets.length > 0
+              ) {
                 handleImageResult(result.assets[0].uri);
                 if (
                   !result.canceled &&
@@ -107,7 +113,11 @@ export default function CategoryScreen({ navigation }) {
                 quality: 1,
               });
 
-              if (!result.canceled) {
+              if (
+                !result.canceled &&
+                result.assets &&
+                result.assets.length > 0
+              ) {
                 handleImageResult(result.assets[0].uri);
               }
             },

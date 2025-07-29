@@ -1,197 +1,4 @@
-// // screens/LoginScreen.js
-// import React, { useState, useContext } from "react";
-// import {
-//   View,
-//   Text,
-//   TextInput,
-//   Button,
-//   TouchableOpacity,
-//   StyleSheet,
-//   Alert,
-//   ActivityIndicator, // Added for loading state
-// } from "react-native";
-// import { Ionicons } from "@expo/vector-icons";
-// import { useAuth } from "../context/AuthContext"; // Import useAuth hook
-// import { CustomAlertContext } from "../context/CustomAlertContext";
-
-// export default function LoginScreen({ navigation }) {
-//   const { showAlert } = useContext(CustomAlertContext);
-//   const { login } = useAuth(); // Get the login function from AuthContext
-//   const [form, setForm] = useState({
-//     email: "",
-//     password: "",
-//   });
-//   const [showPassword, setShowPassword] = useState(false);
-//   const [isLoading, setIsLoading] = useState(false); // Added loading state
-
-//   const handleChange = (field, value) => {
-//     setForm({ ...form, [field]: value });
-//   };
-
-//   const handleLogin = async () => {
-//     if (!form.email || !form.password) {
-//       showAlert("Validation Error", "Please enter both email and password.");
-//       return;
-//     }
-
-//     setIsLoading(true); // Set loading to true
-//     try {
-//       const result = await login(form); // Call the login function from useAuth
-
-//       // --- FIX: Change result.status to result.success ---
-//       if (result.success) {
-//         showAlert("Success", result.message || "Login Successful!");
-//         // The AuthContext will automatically update isAuthenticated,
-//         // and App.js will handle navigation to AppStack.
-//         // No explicit navigation.navigate('MainTabs') or onLogin() needed here.
-//       } else {
-//         showAlert(
-//           "Error",
-//           result.message || "Login failed. Please check your credentials."
-//         );
-//       }
-//     } catch (error) {
-//       console.error("Login process failed:", error);
-//       showAlert(
-//         "Error",
-//         "Network error or unable to connect. Please try again later."
-//       );
-//     } finally {
-//       setIsLoading(false); // Set loading to false
-//     }
-//   };
-
-//   return (
-//     <View style={styles.container}>
-//       <Text style={styles.title}>Welcome Back!</Text>
-//       <Text style={styles.subtitle}>Login to your Wandana account</Text>
-//       <Text style={styles.inputLabel}>Email</Text>
-//       <TextInput
-//         style={styles.input}
-//         value={form.email}
-//         onChangeText={(value) => handleChange("email", value)}
-//         autoCapitalize="none"
-//         placeholder="Enter your email"
-//         keyboardType="email-address"
-//         editable={!isLoading} // Disable input when loading
-//       />
-//       <Text style={styles.inputLabel}>Password</Text>
-//       <View style={styles.passwordInputContainer}>
-//         <TextInput
-//           style={styles.passwordInput}
-//           value={form.password}
-//           onChangeText={(value) => handleChange("password", value)}
-//           autoCapitalize="none"
-//           placeholder="Enter your password"
-//           secureTextEntry={!showPassword}
-//           editable={!isLoading} // Disable input when loading
-//         />
-//         <TouchableOpacity
-//           onPress={() => setShowPassword(!showPassword)}
-//           style={styles.eyeIcon}
-//           disabled={isLoading} // Disable button when loading
-//         >
-//           <Ionicons
-//             name={showPassword ? "eye" : "eye-off"}
-//             size={20}
-//             color="#888"
-//           />
-//         </TouchableOpacity>
-//       </View>
-//       <View style={styles.buttonWrapper}>
-//         <Button
-//           title={isLoading ? "Logging in..." : "Login"}
-//           color="#7f00ff"
-//           onPress={handleLogin}
-//           disabled={isLoading}
-//         />
-//       </View>
-//       <Text style={styles.signupPrompt}>Don't have an account?</Text>
-//       <View style={styles.signupButtonWrapper}>
-//         <Button
-//           title="Create Account"
-//           onPress={() => navigation.navigate("Signup")}
-//           color="#7f00ff"
-//           disabled={isLoading} // Disable button when loading
-//         />
-//       </View>
-//       {/* write Google login code over here ~rycoe */}
-//     </View>
-//   );
-// }
-
-// const styles = StyleSheet.create({
-//   container: {
-//     flex: 1,
-//     alignItems: "center",
-//     justifyContent: "center",
-//     padding: 24,
-//     backgroundColor: "#fff",
-//   },
-//   title: {
-//     fontSize: 24,
-//     fontWeight: "bold",
-//     color: "#7f00ff",
-//     marginBottom: 10,
-//   },
-//   subtitle: {
-//     fontSize: 16,
-//     color: "#333",
-//     marginBottom: 24,
-//     textAlign: "center",
-//   },
-//   inputLabel: {
-//     alignSelf: "flex-start",
-//     marginLeft: 10,
-//     marginBottom: 4,
-//     width: "100%",
-//     maxWidth: 300,
-//   },
-//   input: {
-//     borderWidth: 1,
-//     borderColor: "#ccc",
-//     width: "100%",
-//     maxWidth: 300,
-//     marginBottom: 16,
-//     padding: 10,
-//     borderRadius: 8,
-//   },
-//   passwordInputContainer: {
-//     width: "100%",
-//     maxWidth: 300,
-//     marginBottom: 16, // Adjusted margin for consistency
-//     flexDirection: "row",
-//     alignItems: "center",
-//   },
-//   passwordInput: {
-//     flex: 1,
-//     borderWidth: 1,
-//     borderColor: "#ccc",
-//     padding: 10,
-//     borderRadius: 8,
-//   },
-//   eyeIcon: {
-//     marginLeft: -35,
-//     padding: 8,
-//   },
-//   buttonWrapper: {
-//     width: "100%",
-//     maxWidth: 300,
-//     marginBottom: 16,
-//   },
-//   signupPrompt: {
-//     marginTop: 10,
-//   },
-//   signupButtonWrapper: {
-//     width: 200, // Adjust as needed
-//     marginTop: 10,
-//   },
-// });
-
-//////////////////////////////////////////
-///////////LOGIN TRANSLATION///////////////////
-
-
+// screens/LoginScreen.js
 import React, { useState, useContext } from "react";
 import {
   View,
@@ -199,17 +6,17 @@ import {
   TextInput,
   Button,
   TouchableOpacity,
-  StyleSheet,
+  StyleSheet, // Ensure StyleSheet is imported
   Alert,
   ActivityIndicator,
 } from "react-native";
 import { Ionicons } from "@expo/vector-icons";
 import { useAuth } from "../context/AuthContext";
 import { CustomAlertContext } from "../context/CustomAlertContext";
-import { useTranslation } from "react-i18next"; // ✅ Import i18n hook
+import { useTranslation } from "react-i18next";
 
 export default function LoginScreen({ navigation }) {
-  const { t } = useTranslation(); // ✅ Use i18n
+  const { t } = useTranslation();
   const { showAlert } = useContext(CustomAlertContext);
   const { login } = useAuth();
   const [form, setForm] = useState({
@@ -233,9 +40,15 @@ export default function LoginScreen({ navigation }) {
     try {
       const result = await login(form);
       if (result.success) {
-        showAlert(t("Login.successTitle"), result.message || t("Login.successMessage"));
+        showAlert(
+          t("Login.successTitle"),
+          result.message || t("Login.successMessage")
+        );
       } else {
-        showAlert(t("Login.errorTitle"), result.message || t("Login.failureMessage"));
+        showAlert(
+          t("Login.errorTitle"),
+          result.message || t("Login.failureMessage")
+        );
       }
     } catch (error) {
       console.error("Login process failed:", error);
@@ -306,3 +119,80 @@ export default function LoginScreen({ navigation }) {
     </View>
   );
 }
+
+// ---
+// StyleSheet Definition
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    justifyContent: "center",
+    padding: 20,
+    backgroundColor: "#f5f5f5",
+  },
+  title: {
+    fontSize: 28,
+    fontWeight: "bold",
+    marginBottom: 10,
+    textAlign: "center",
+    color: "#333",
+  },
+  subtitle: {
+    fontSize: 16,
+    color: "#666",
+    textAlign: "center",
+    marginBottom: 30,
+  },
+  inputLabel: {
+    fontSize: 16,
+    marginBottom: 5,
+    color: "#333",
+    fontWeight: "600",
+  },
+  input: {
+    height: 50,
+    borderColor: "#ddd",
+    borderWidth: 1,
+    borderRadius: 8,
+    paddingHorizontal: 15,
+    marginBottom: 20,
+    backgroundColor: "#fff",
+    fontSize: 16,
+    color: "#333",
+  },
+  passwordInputContainer: {
+    flexDirection: "row",
+    alignItems: "center",
+    borderColor: "#ddd",
+    borderWidth: 1,
+    borderRadius: 8,
+    marginBottom: 20,
+    backgroundColor: "#fff",
+  },
+  passwordInput: {
+    flex: 1,
+    height: 50,
+    paddingHorizontal: 15,
+    fontSize: 16,
+    color: "#333",
+  },
+  eyeIcon: {
+    padding: 10,
+  },
+  buttonWrapper: {
+    marginTop: 10,
+    marginBottom: 20,
+    borderRadius: 8,
+    overflow: "hidden", // Ensures the button's background color respects border radius
+  },
+  signupPrompt: {
+    textAlign: "center",
+    marginTop: 20,
+    fontSize: 15,
+    color: "#555",
+  },
+  signupButtonWrapper: {
+    marginTop: 10,
+    borderRadius: 8,
+    overflow: "hidden",
+  },
+});
