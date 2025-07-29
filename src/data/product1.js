@@ -27,7 +27,7 @@ const PRODUCTS = [
     tag: {
       en: "Bestseller",
       twi: "wɔtɔn sen biara",
-      ga: "ni ahɔ̃ɔ fe fɛɛ",
+      ga: "Bestseller",
       ewe: "nu vɔ̃ feɖeƒe",
     },
   },
@@ -58,7 +58,7 @@ const PRODUCTS = [
     tag: {
       en: "Bestseller",
       twi: "wɔtɔn sen biara",
-      ga: "ni ahɔ̃ɔ fe fɛɛ",
+      ga: "Bestseller",
       ewe: "nu vɔ̃ feɖeƒe",
     },
   },
@@ -89,7 +89,7 @@ const PRODUCTS = [
     tag: {
       en: "Bestseller",
       twi: "wɔtɔn sen biara",
-      ga: "ni ahɔ̃ɔ fe fɛɛ",
+      ga: "Bestseller",
       ewe: "nu vɔ̃ feɖeƒe",
     },
   },
@@ -120,7 +120,7 @@ const PRODUCTS = [
     tag: {
       en: "Bestseller",
       twi: "wɔtɔn sen biara",
-      ga: "ni ahɔ̃ɔ fe fɛɛ",
+      ga: "Bestseller",
       ewe: "nu vɔ̃ feɖeƒe",
     },
   },
@@ -151,7 +151,7 @@ const PRODUCTS = [
     tag: {
       en: "Bestseller",
       twi: "wɔtɔn sen biara",
-      ga: "ni ahɔ̃ɔ fe fɛɛ",
+      ga: "Bestseller",
       ewe: "nu vɔ̃ feɖeƒe",
     },
   },
@@ -182,7 +182,7 @@ const PRODUCTS = [
     tag: {
       en: "Bestseller",
       twi: "wɔtɔn sen biara",
-      ga: "ni ahɔ̃ɔ fe fɛɛ",
+      ga: "Bestseller",
       ewe: "nu vɔ̃ feɖeƒe",
     },
   },
@@ -219,7 +219,7 @@ const PRODUCTS = [
     tag: {
       en: "Bestseller",
       twi: "wɔtɔn sen biara",
-      ga: "ni ahɔ̃ɔ fe fɛɛ",
+      ga: "Bestseller",
       ewe: "nu vɔ̃ feɖeƒe",
     },
   },
@@ -252,7 +252,7 @@ const PRODUCTS = [
     tag: {
       en: "Bestseller",
       tw: "wɔtɔn sen biara",
-      ga: "ni ahɔ̃ɔ fe fɛɛ",
+      ga: "Bestseller",
       ewe: "nu vɔ̃ feɖeƒe",
     },
   },
@@ -284,7 +284,7 @@ const PRODUCTS = [
     tag: {
       en: "Bestseller",
       tw: "wɔtɔn sen biara",
-      ga: "ni ahɔ̃ɔ fe fɛɛ",
+      ga: "Bestseller",
       ewe: "nu vɔ̃ feɖeƒe",
     },
   },
@@ -305,7 +305,7 @@ const PRODUCTS = [
     tag: {
       en: "Bestseller",
       tw: "Wɔtɔn sen biara",
-      ga: "ni ahɔ̃ɔ fe fɛɛ",
+      ga: "Bestseller",
       ewe: "nu vɔ̃ feɖeƒe",
     },
   },
