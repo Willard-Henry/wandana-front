@@ -10,6 +10,7 @@ import { Ionicons } from "@expo/vector-icons";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import { I18nextProvider } from 'react-i18next';
 import i18n from './src/config/i18n';
+import { useTranslation } from "react-i18next";
 
 // Import all your screens
 import HomeScreen from "./screens/HomeScreen";
@@ -57,8 +58,9 @@ import { CustomAlertProvider } from "./context/CustomAlertContext";
 const Tab = createBottomTabNavigator();
 const Stack = createNativeStackNavigator();
 
-// MainTabs component (remains largely the same)
 function MainTabs() {
+  const { t } = useTranslation();
+
   return (
     <Tab.Navigator
       initialRouteName="Home"
@@ -91,14 +93,50 @@ function MainTabs() {
         tabBarInactiveTintColor: "#000",
       })}
     >
-      <Tab.Screen name="Home" component={HomeScreen} />
-      <Tab.Screen name="Category" component={CategoryScreen} />
-      <Tab.Screen name="Trends" component={TrendsScreen} />
-      <Tab.Screen name="Cart" component={CartScreen} />
-      <Tab.Screen name="Me" component={MeScreen} />
+      <Tab.Screen
+        name="Home"
+        component={HomeScreen}
+        options={{
+          title: t("bottomNav.Home"),
+          tabBarLabel: t("bottomNav.Home"),
+        }}
+      />
+      <Tab.Screen
+        name="Category"
+        component={CategoryScreen}
+        options={{
+          title: t("bottomNav.category"),
+          tabBarLabel: t("bottomNav.Category"),
+        }}
+      />
+      <Tab.Screen
+        name="Trends"
+        component={TrendsScreen}
+        options={{
+          title: t("bottomNav.Trends"),
+          tabBarLabel: t("bottomNav.Trends"),
+        }}
+      />
+      <Tab.Screen
+        name="Cart"
+        component={CartScreen}
+        options={{
+          title: t("bottomNav.Cart"),
+          tabBarLabel: t("bottomNav.Cart"),
+        }}
+      />
+      <Tab.Screen
+        name="Me"
+        component={MeScreen}
+        options={{
+          title: t("bottomNav.Me"),
+          tabBarLabel: t("bottomNav.Me"),
+        }}
+      />
     </Tab.Navigator>
   );
 }
+
 
 // Authentication Stack
 function AuthStack() {
