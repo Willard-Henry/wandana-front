@@ -218,7 +218,7 @@ export default function TopNavBar({ activeTab, onTabChange }) {
   const [localSearchQuery, setLocalSearchQuery] = useState("");
 
   const getIconColor = (screen) =>
-    route.name === screen ? "#7F55B1" : "#7F55B1";
+    route.name === screen ? "#7F55B1" : "#000";
 
   const handleSearchSubmit = () => {
     if (localSearchQuery.trim()) {
@@ -253,7 +253,7 @@ export default function TopNavBar({ activeTab, onTabChange }) {
             <Icon
               name="search-outline"
               size={20}
-              color="#7F55B1"
+              color="#000"
               style={styles.icon}
             />
           </TouchableOpacity>
@@ -273,7 +273,7 @@ export default function TopNavBar({ activeTab, onTabChange }) {
           <Icon
             name="globe-outline"
             size={24}
-            color="#7F55B1"
+            color="#000"
             style={styles.icon}
           />
         </TouchableOpacity>
