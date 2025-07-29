@@ -29,15 +29,20 @@ import Icon from "react-native-vector-icons/MaterialIcons";
 import PRODUCTS from "../src/data/products";
 import ShimmerPlaceholder from "react-native-shimmer-placeholder";
 import { LinearGradient } from "expo-linear-gradient";
+import { useTranslation } from 'react-i18next';
 
 const SIZES = ["XS", "S", "M", "L", "XL", "XXL"];
 
 export default function ProductDetailsScreen() {
   const navigation = useNavigation();
   const route = useRoute();
+  const { t, i18n } = useTranslation();
+  const lang = i18n.language;
 
   // Get the product from route params - it should be passed as 'item'
   const { item: productFromRoute } = route.params || {};
+
+
 
   const { addToCart } = useContext(CartContext);
   const { addToWishlist } = useContext(WishlistContext);
@@ -196,20 +201,20 @@ export default function ProductDetailsScreen() {
           {/* Product Image */}
           <View style={styles.imageContainer}>
             <Image source={{ uri: product.image }} style={styles.image} />
-            {product.tag && <Text style={styles.tag}>{product.tag}</Text>}
+            {product.tag[lang] && <Text style={styles.tag}>{product.tag[lang]}</Text>}
           </View>
 
           <View style={styles.content}>
             {/* Product Name & Price */}
             <View style={styles.headerRow}>
-              <Text style={styles.productName}>{product.name}</Text>
+              <Text style={styles.productName}>{product.name[lang]}</Text>
               <Text style={styles.productPrice}>
                 GHS {product.price.toFixed(2)}
               </Text>
             </View>
 
             {/* Size Selector */}
-            <Text style={styles.sectionLabel}>Select Size</Text>
+            <Text style={styles.sectionLabel}>{t("productDetails.select_size")}</Text>
             <View style={styles.sizeCircleList}>
               {SIZES.map((size) => (
                 <TouchableOpacity
@@ -233,7 +238,7 @@ export default function ProductDetailsScreen() {
             </View>
 
             {/* Quantity Selector */}
-            <Text style={styles.sectionLabel}>Quantity</Text>
+            <Text style={styles.sectionLabel}>{t("productDetails.quantity")}</Text>
             <View style={styles.qtyRow}>
               <TouchableOpacity
                 onPress={() => setQuantity((q) => Math.max(1, q - 1))}
@@ -253,7 +258,7 @@ export default function ProductDetailsScreen() {
             {/* Related Products */}
             {relatedProducts.length > 0 && (
               <View style={{ marginBottom: 32 }}>
-                <Text style={styles.sectionLabel}>Similar Products</Text>
+                <Text style={styles.sectionLabel}>{t("productDetails.similar_products")}</Text>
                 <FlatList
                   data={relatedProducts}
                   keyExtractor={(item) => item.id}
@@ -285,7 +290,7 @@ export default function ProductDetailsScreen() {
             )}
 
             {/* Customer Reviews */}
-            <Text style={styles.sectionLabel}>Customer Reviews</Text>
+            <Text style={styles.sectionLabel}>{t("productDetails.customer_reviews")}</Text>
             <FlatList
               data={visibleReviews}
               keyExtractor={(item) => item.id}
@@ -304,7 +309,7 @@ export default function ProductDetailsScreen() {
                 }}
                 style={styles.showMoreButton}
               >
-                <Text style={styles.showMoreText}>Show More Reviews</Text>
+                <Text style={styles.showMoreText}>{t("productDetails.show_more_reviews")}</Text>
               </TouchableOpacity>
             )}
           </View>
@@ -321,7 +326,7 @@ export default function ProductDetailsScreen() {
         </TouchableOpacity>
 
         <TouchableOpacity style={styles.cartButton} onPress={handleAddToCart}>
-          <Text style={styles.cartButtonText}>Add to Cart</Text>
+          <Text style={styles.cartButtonText}>{t("productDetails.add_to_cart")}</Text>
         </TouchableOpacity>
 
         <TouchableOpacity
@@ -334,7 +339,7 @@ export default function ProductDetailsScreen() {
             });
           }}
         >
-          <Text style={styles.buyNowText}>Buy Now</Text>
+          <Text style={styles.buyNowText}>{t("productDetails.buy_now")}</Text>
         </TouchableOpacity>
       </View>
     </SafeAreaView>

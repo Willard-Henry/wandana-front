@@ -8,6 +8,8 @@ import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import { Ionicons } from "@expo/vector-icons";
 import AsyncStorage from "@react-native-async-storage/async-storage";
+import { I18nextProvider } from 'react-i18next';
+import i18n from './src/config/i18n';
 
 // Import all your screens
 import HomeScreen from "./screens/HomeScreen";
@@ -266,21 +268,23 @@ function MainAppContent() {
 // Main App Component
 export default function App() {
   return (
-    <AuthProvider>
-      <CartProvider>
-        <AddressProvider>
-          <NotificationProvider>
-            <WishlistProvider>
-              <ThemeProvider>
-                <CustomAlertProvider>
-                  {/* Render the new nested component here */}
-                  <MainAppContent />
-                </CustomAlertProvider>
-              </ThemeProvider>
-            </WishlistProvider>
-          </NotificationProvider>
-        </AddressProvider>
-      </CartProvider>
-    </AuthProvider>
+    <I18nextProvider i18n={i18n}>
+      <AuthProvider>
+        <CartProvider>
+          <AddressProvider>
+            <NotificationProvider>
+              <WishlistProvider>
+                <ThemeProvider>
+                  <CustomAlertProvider>
+                    {/* Render the new nested component here */}
+                    <MainAppContent />
+                  </CustomAlertProvider>
+                </ThemeProvider>
+              </WishlistProvider>
+            </NotificationProvider>
+          </AddressProvider>
+        </CartProvider>
+      </AuthProvider>
+    </I18nextProvider>
   );
 }
