@@ -15,7 +15,7 @@ import * as ImagePicker from "expo-image-picker";
 import { useNavigation } from "@react-navigation/native";
 import { CustomAlertContext } from "../context/CustomAlertContext";
 import { useAuth } from "../context/AuthContext";
-import { updateUserProfile } from "../api";
+import { updateUserProfile } from "../api"; // Assuming updateUserProfile is imported
 import Icon from "react-native-vector-icons/Ionicons";
 
 export default function EditProfileScreen() {
@@ -42,12 +42,16 @@ export default function EditProfileScreen() {
 
   // Load initial user data when component mounts or authState.user changes
   useEffect(() => {
+    // Check if authState.user exists and has the expected properties
     if (authState.user) {
-      setFirstName(authState.user.firstName || "");
-      setLastName(authState.user.lastName || "");
-      setEmail(authState.user.email || "");
-      setPhoneNumber(authState.user.phoneNumber || "");
-      setProfileImage(authState.user.profileImageUrl || null);
+      // Check for the nested 'data' if the user object itself is nested
+      const user = authState.user.data ? authState.user.data : authState.user;
+
+      setFirstName(user.firstName || "");
+      setLastName(user.lastName || "");
+      setEmail(user.email || "");
+      setPhoneNumber(user.phoneNumber || "");
+      setProfileImage(user.profileImageUrl || null);
     }
   }, [authState.user]);
 
@@ -67,48 +71,75 @@ export default function EditProfileScreen() {
 
   const handleSave = async () => {
     if (!authState.user || !authState.user.id) {
-      showAlert("Error", "User not logged in or ID missing.");
-      return;
+      // Small adjustment: If authState.user itself is nested, get the actual ID
+      const userId = authState.user?.data?.id || authState.user?.id;
+      if (!userId) {
+        showAlert("Error", "User not logged in or ID missing.");
+        return;
+      }
     }
 
     // Basic validation
     if (!firstName.trim() || !email.trim()) {
-      showAlert("Error", "First name and Email are required.");
+      showAlert("Validation Error", "First name and Email are required.");
+      return;
+    }
+
+    // Phone number validation
+    if (!phoneNumber.trim()) {
+      showAlert("Validation Error", "Phone number is required.");
       return;
     }
 
     setIsLoading(true);
 
     try {
+      // Ensure we get the correct user ID, even if authState.user is nested
+      const userIdToUpdate = authState.user.data?.id || authState.user.id;
+      const userUsernameToUpdate =
+        authState.user.data?.username || authState.user.username;
+
       // Create user data object matching backend's UserDTO structure
       const userUpdateData = {
-        id: authState.user.id, // REQUIRED: Must match the ID in the URL path
-        username: authState.user.username, // REQUIRED by @NotBlank validation
-        email: email.trim(), // REQUIRED by @NotBlank validation
+        id: userIdToUpdate, // Use the correct ID
+        username: userUsernameToUpdate, // REQUIRED by @NotBlank validation
+        email: email.trim(), // Email is read-only, but still included for backend consistency
         firstName: firstName.trim(),
         lastName: lastName.trim(),
         phoneNumber: phoneNumber.trim(),
         profileImageUrl: profileImage,
         // Include other fields that exist in the current user but might not be in the form
-        emailVerified: authState.user.emailVerified || false,
-        enabled: authState.user.enabled || true,
-        dob: authState.user.dob || null,
-        sex: authState.user.sex || null,
-        authorities: authState.user.authorities || [],
+        emailVerified:
+          authState.user.data?.emailVerified ||
+          authState.user.emailVerified ||
+          false,
+        enabled: authState.user.data?.enabled || authState.user.enabled || true,
+        dob: authState.user.data?.dob || authState.user.dob || null,
+        sex: authState.user.data?.sex || authState.user.sex || null,
+        authorities:
+          authState.user.data?.authorities || authState.user.authorities || [],
       };
 
-      // Don't filter out fields - send the complete UserDTO
-      const cleanedData = userUpdateData;
-
-      const result = await updateUserProfile(authState.user.id, cleanedData);
+      const result = await updateUserProfile(userIdToUpdate, userUpdateData); // Pass correct ID
 
       console.log("API response:", result); // Debug log to see the actual response
 
       // Handle different response formats from backend
       if (result.success || result.status === "success") {
-        // Update the user in AuthContext with the returned data
-        if (result.data && updateUserInContext) {
-          await updateUserInContext(result.data);
+        // *** THE CRITICAL CHANGE IS HERE ***
+        // Extract the actual UserDTO from the nested 'data.data'
+        const actualUpdatedUser = result.data?.data; // Use optional chaining for safety
+
+        if (actualUpdatedUser && updateUserInContext) {
+          await updateUserInContext(actualUpdatedUser); // Pass the correct, flat UserDTO
+        } else {
+          console.error(
+            "No actual user data found in update profile response:",
+            result
+          );
+          showAlert("Update Failed", "Could not retrieve updated user data.");
+          setIsLoading(false);
+          return; // Stop here if no actual user data
         }
 
         showAlert(
@@ -226,15 +257,17 @@ export default function EditProfileScreen() {
                 backgroundColor: inputBg,
                 borderColor: borderColor,
                 color: textColor,
+                opacity: 0.6, // Visually indicate it's read-only
               },
             ]}
             value={email}
-            onChangeText={setEmail}
+            // onChangeText={setEmail} // Removed onChangeText to make it truly read-only
             placeholder="Email"
             placeholderTextColor={placeholderColor}
             keyboardType="email-address"
             autoCapitalize="none"
-            editable={!isLoading}
+            editable={false} // Make email field read-only
+            selectTextOnFocus={false} // Prevent text selection on focus
           />
         </View>
 

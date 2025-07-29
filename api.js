@@ -91,6 +91,9 @@ export const login = async (credentials) => {
     // When logging in, ensure you store the user ID received from the backend
     // along with the JWT token.
     if (response.data.success && response.data.data.user) {
+      // This is where the user data is saved to AsyncStorage on login.
+      // This ensures persistence of user details (including phone number, email, names)
+      // across app sessions if they are part of the 'response.data.data.user' object.
       await AsyncStorage.setItem(
         "user",
         JSON.stringify(response.data.data.user)
@@ -216,7 +219,7 @@ export const updateUserProfile = async (userId, userUpdateData) => {
       email: userUpdateData.email, // Required by @NotBlank
       firstName: userUpdateData.firstName || "",
       lastName: userUpdateData.lastName || "",
-      phoneNumber: userUpdateData.phoneNumber || "",
+      phoneNumber: userUpdateData.phoneNumber || "", // Ensure phoneNumber is included
       profileImageUrl: userUpdateData.profileImageUrl || null,
       emailVerified: userUpdateData.emailVerified || false,
       enabled:

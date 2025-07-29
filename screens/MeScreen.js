@@ -1,4 +1,3 @@
-// screens/MeScreen.js
 import React, { useState, useEffect, useRef, useContext } from "react";
 import {
   View,
@@ -11,8 +10,7 @@ import {
   Platform,
   Animated,
 } from "react-native";
-import * as ImagePicker from "expo-image-picker";
-import AsyncStorage from "@react-native-async-storage/async-storage";
+// Removed unused AsyncStorage import as AuthContext now handles persistence
 import { deleteUserAccount } from "../api";
 import { useAuth } from "../context/AuthContext";
 import { CustomAlertContext } from "../context/CustomAlertContext";
@@ -20,7 +18,7 @@ import Icon from "react-native-vector-icons/Ionicons";
 
 export default function MeScreen({ navigation }) {
   const { showAlert } = useContext(CustomAlertContext);
-  const { logout, authState } = useAuth();
+  const { logout, authState, loading: authLoading } = useAuth(); // Destructure loading state from useAuth
 
   const [profileImage, setProfileImage] = useState(null);
   const [displayName, setDisplayName] = useState("Hello Guest!");
@@ -53,17 +51,20 @@ export default function MeScreen({ navigation }) {
         ? user.firstName.charAt(0).toUpperCase() + user.firstName.slice(1)
         : user.username
         ? user.username.charAt(0).toUpperCase() + user.username.slice(1)
-        : "Guest";
+        : "Guest"; // Fallback to "Guest" if neither is available
       setDisplayName(`Hello ${name}!`);
 
       if (user.profileImageUrl) {
         setProfileImage(user.profileImageUrl);
+      } else {
+        setProfileImage(null); // Clear image if user doesn't have one
       }
-    } else {
+    } else if (!authLoading) {
+      // Only set to "Guest" if not currently loading auth state
       setDisplayName("Hello Guest!");
       setProfileImage(null);
     }
-  }, [authState.user, authState.isAuthenticated]);
+  }, [authState.user, authState.isAuthenticated, authLoading]); // Added authLoading to dependencies
 
   const pickImage = async () => {
     let result = await ImagePicker.launchImageLibraryAsync({
@@ -75,8 +76,10 @@ export default function MeScreen({ navigation }) {
     if (!result.canceled) {
       const newImageUri = result.assets[0].uri;
       setProfileImage(newImageUri);
-      // Note: In a real app, you would upload this image to your backend,
+      // NOTE: In a real app, you would upload this image to your backend,
       // get the new URL, and then update the user profile
+      // For now, it updates locally but doesn't persist beyond app session.
+      // To persist, you'd integrate with updateUserProfile from api.js here.
     }
   };
 
@@ -219,57 +222,12 @@ export default function MeScreen({ navigation }) {
               </Text>
             </TouchableOpacity>
             <TouchableOpacity
-              style={styles.row}
+              style={styles.rowNoBorder}
               onPress={() => navigation.navigate("ManageAddresses")}
             >
               <Text style={[styles.rowText, { color: textColor }]}>
                 Manage Addresses
               </Text>
-            </TouchableOpacity>
-            <TouchableOpacity
-              style={styles.rowNoBorder}
-              onPress={() => navigation.navigate("PaymentMethods")}
-            >
-              <Text style={[styles.rowText, { color: textColor }]}>
-                Payment Methods
-              </Text>
-            </TouchableOpacity>
-          </View>
-        </View>
-
-        {/* PREFERENCES Section */}
-        <View style={styles.sectionGroup}>
-          <Text style={[styles.sectionHeader, { color: sectionHeaderColor }]}>
-            PREFERENCES
-          </Text>
-          <View
-            style={[
-              styles.sectionCard,
-              { backgroundColor: cardBg, borderColor: borderColor },
-            ]}
-          >
-            <TouchableOpacity
-              style={styles.row}
-              onPress={() => navigation.navigate("LocationAndCurrency")}
-            >
-              <Text style={[styles.rowText, { color: textColor }]}>
-                Location & Currency
-              </Text>
-            </TouchableOpacity>
-            <TouchableOpacity
-              style={styles.rowNoBorder}
-              onPress={() => setNotifications(!notifications)}
-            >
-              <Text style={[styles.rowText, { color: textColor }]}>
-                Notifications
-              </Text>
-              <Switch
-                value={notifications}
-                onValueChange={setNotifications}
-                trackColor={{ false: lightGrey, true: primaryColor }}
-                thumbColor="#fff"
-                ios_backgroundColor={lightGrey}
-              />
             </TouchableOpacity>
           </View>
         </View>
