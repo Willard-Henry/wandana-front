@@ -103,7 +103,6 @@ export default function ChangePasswordScreen() {
       style={[styles.fullScreenContainer, { backgroundColor: containerBg }]}
       behavior={Platform.OS === "ios" ? "padding" : "height"}
     >
-      {/* Header */}
       <View style={[styles.header, { backgroundColor: cardBg }]}>
         <TouchableOpacity
           onPress={() => navigation.goBack()}

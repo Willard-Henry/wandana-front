@@ -1,4 +1,10 @@
-import React, { useState, useContext, useEffect } from "react";
+import React, {
+  useState,
+  useContext,
+  useEffect,
+  useCallback,
+  useMemo,
+} from "react";
 import {
   View,
   Text,
@@ -74,18 +80,19 @@ export default function ProductDetailsScreen() {
     }, [])
   );
 
-  // Calculate related products based on the current product
-  const relatedProducts = product
-    ? [...PRODUCTS]
-        .filter(
-          (p) =>
-            p.category === product.category &&
-            Math.abs(p.price - product.price) <= 50 &&
-            p.id !== product.id
-        )
-        .sort(() => 0.5 - Math.random())
-        .slice(0, 6)
-    : [];
+  // Memoize related products to avoid unnecessary re-renders
+  const relatedProducts = useMemo(() => {
+    if (!product) return [];
+    return [...PRODUCTS]
+      .filter(
+        (p) =>
+          p.category === product.category &&
+          Math.abs(p.price - product.price) <= 50 &&
+          p.id !== product.id
+      )
+      .sort(() => 0.5 - Math.random())
+      .slice(0, 6);
+  }, [product, PRODUCTS]);
 
   const handleAddToCart = () => {
     if (!product) return;
@@ -99,32 +106,35 @@ export default function ProductDetailsScreen() {
     navigation.navigate("Wishlist");
   };
 
-  const renderReview = ({ item }) => (
-    <View style={styles.reviewCard}>
-      <View style={styles.reviewHeader}>
-        {item.avatar ? (
-          <Image source={{ uri: item.avatar }} style={styles.avatarImage} />
-        ) : (
-          <View style={styles.avatarCircle}>
-            <Text style={styles.avatarText}>{item.name[0]}</Text>
-          </View>
-        )}
-        <View>
-          <Text style={styles.reviewName}>{item.name}</Text>
-          <View style={styles.starRow}>
-            {Array.from({ length: 5 }).map((_, i) => (
-              <Icon
-                key={i}
-                name={i < item.rating ? "star" : "star-border"}
-                size={16}
-                color={i < item.rating ? "#FFD700" : "#ccc"}
-              />
-            ))}
+  const renderReview = useCallback(
+    ({ item }) => (
+      <View style={styles.reviewCard}>
+        <View style={styles.reviewHeader}>
+          {item.avatar ? (
+            <Image source={{ uri: item.avatar }} style={styles.avatarImage} />
+          ) : (
+            <View style={styles.avatarCircle}>
+              <Text style={styles.avatarText}>{item.name[0]}</Text>
+            </View>
+          )}
+          <View>
+            <Text style={styles.reviewName}>{item.name}</Text>
+            <View style={styles.starRow}>
+              {Array.from({ length: 5 }).map((_, i) => (
+                <Icon
+                  key={i}
+                  name={i < item.rating ? "star" : "star-border"}
+                  size={16}
+                  color={i < item.rating ? "#FFD700" : "#ccc"}
+                />
+              ))}
+            </View>
           </View>
         </View>
+        <Text style={styles.reviewComment}>{item.comment}</Text>
       </View>
-      <Text style={styles.reviewComment}>{item.comment}</Text>
-    </View>
+    ),
+    []
   );
 
   const visibleReviews = expandedReviews

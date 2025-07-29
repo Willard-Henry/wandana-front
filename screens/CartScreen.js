@@ -9,9 +9,11 @@ import {
 } from "react-native";
 import { CartContext } from "../context/CartContext";
 import { SwipeListView } from "react-native-swipe-list-view";
+import { ThemeContext } from "../ThemeContext";
 
 const CartScreen = ({ navigation }) => {
   const { cartItems, removeFromCart } = useContext(CartContext);
+  const { darkTheme } = useContext(ThemeContext);
 
   const renderItem = (data) => {
     const item = data.item;
@@ -65,7 +67,8 @@ const CartScreen = ({ navigation }) => {
       <View style={styles.checkoutWrapper}>
         <TouchableOpacity
           onPress={() => navigation.navigate("Checkout")}
-          style={styles.checkoutButton}>
+          style={styles.checkoutButton}
+        >
           <Text style={styles.checkoutText}>Proceed to Checkout</Text>
         </TouchableOpacity>
       </View>
@@ -130,7 +133,7 @@ const styles = StyleSheet.create({
     borderRadius: 12,
     marginBottom: 16,
     paddingRight: 20,
-    height: 100
+    height: 100,
   },
   deleteButton: {
     width: 75,
@@ -148,7 +151,7 @@ const styles = StyleSheet.create({
     // left: 16,
     // right: 16,
     // marginBottom: 20,
-    marginHorizontal: 16
+    marginHorizontal: 16,
   },
   checkoutButton: {
     backgroundColor: "#7f00ff",

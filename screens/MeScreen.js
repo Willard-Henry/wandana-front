@@ -1,5 +1,5 @@
 // screens/MeScreen.js
-import React, { useState, useContext, useEffect, useRef } from "react";
+import React, { useState, useEffect, useRef, useContext } from "react";
 import {
   View,
   Text,
@@ -9,104 +9,61 @@ import {
   StyleSheet,
   ScrollView,
   Platform,
-  Animated, // Import Animated for fade transition
+  Animated,
 } from "react-native";
 import * as ImagePicker from "expo-image-picker";
-import { ThemeContext } from "../ThemeContext"; // Assuming ThemeContext is in the root as 'ThemeContext.js'
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import { deleteUserAccount } from "../api";
-import { useAuth } from "../context/AuthContext"; // Import useAuth hook
+import { useAuth } from "../context/AuthContext";
 import { CustomAlertContext } from "../context/CustomAlertContext";
-import Icon from "react-native-vector-icons/Ionicons"; // Ensure Ionicons are imported for sun/moon icons
+import Icon from "react-native-vector-icons/Ionicons";
 
 export default function MeScreen({ navigation }) {
-  const { darkTheme, toggleTheme } = useContext(ThemeContext);
   const { showAlert } = useContext(CustomAlertContext);
-  const { logout, user: authUser } = useAuth();
+  const { logout, authState } = useAuth();
 
   const [profileImage, setProfileImage] = useState(null);
+  const [displayName, setDisplayName] = useState("Hello Guest!");
   const [notifications, setNotifications] = useState(true);
-  const [username, setUsername] = useState(authUser?.username || "Guest");
-  const [userEmail, setUserEmail] = useState(
-    authUser?.email || "guest@example.com"
-  );
 
-  // Animated value for fade transition
-  const fadeAnim = useRef(new Animated.Value(1)).current; // Initial opacity 1 (fully visible)
+  const fadeAnim = useRef(new Animated.Value(1)).current;
 
-  // Define primary theme color for easier use
+  // Define theme colors (light mode only)
   const primaryColor = "#7f00ff";
   const lightPurple = "#f0e6ff";
   const darkerPurple = "#5f00cc";
   const lightGrey = "#e0e0e0";
   const darkGrey = "#333333";
-  const dangerColor = "crimson"; // For delete account
+  const dangerColor = "crimson";
 
-  // Styles based on theme
-  const containerBg = darkTheme ? "#1a1a1a" : "#f5f5f5";
-  const cardBg = darkTheme ? "#2a2a2a" : "#ffffff";
-  const textColor = darkTheme ? "#ffffff" : darkGrey;
-  const subTextColor = darkTheme ? "#cccccc" : "#666666";
-  const sectionHeaderColor = darkTheme ? "#bbbbbb" : "#888888";
-  const borderColor = darkTheme ? "#444444" : "#e8e8e8";
+  // Light theme styles
+  const containerBg = "#f5f5f5";
+  const cardBg = "#ffffff";
+  const textColor = darkGrey;
+  const subTextColor = "#666666";
+  const sectionHeaderColor = "#888888";
+  const borderColor = "#e8e8e8";
 
-  // Effect to update user data when authUser changes (preferred method)
+  // Effect to update user data when authState changes
   useEffect(() => {
-    if (authUser) {
-      setUsername(authUser.username || "User");
-      setUserEmail(authUser.email || "No email");
-      if (authUser.profileImageUrl) {
-        setProfileImage(authUser.profileImageUrl);
+    if (authState.isAuthenticated && authState.user) {
+      const user = authState.user;
+      // Prioritize firstName, then username, capitalize first letter
+      const name = user.firstName
+        ? user.firstName.charAt(0).toUpperCase() + user.firstName.slice(1)
+        : user.username
+        ? user.username.charAt(0).toUpperCase() + user.username.slice(1)
+        : "Guest";
+      setDisplayName(`Hello ${name}!`);
+
+      if (user.profileImageUrl) {
+        setProfileImage(user.profileImageUrl);
       }
     } else {
-      setUsername("Guest");
-      setUserEmail("guest@example.com");
+      setDisplayName("Hello Guest!");
       setProfileImage(null);
     }
-  }, [authUser]);
-
-  // Optional: Fallback to load user data from AsyncStorage if AuthContext hasn't provided it yet
-  useEffect(() => {
-    const loadInitialUserDataFromStorage = async () => {
-      try {
-        const userString = await AsyncStorage.getItem("user");
-        if (userString) {
-          const user = JSON.parse(userString);
-          if (!authUser || !authUser.username) {
-            setUsername(user.username || "User");
-            setUserEmail(user.email || "No email");
-            if (user.profileImageUrl) {
-              setProfileImage(user.profileImageUrl);
-            }
-          }
-        }
-      } catch (error) {
-        console.error("Failed to load user data from AsyncStorage:", error);
-      }
-    };
-
-    if (!authUser) {
-      loadInitialUserDataFromStorage();
-    }
-  }, [authUser]);
-
-  // Effect for fade transition when theme changes
-  useEffect(() => {
-    // Animate opacity to 0, then toggle theme, then animate back to 1
-    Animated.timing(fadeAnim, {
-      toValue: 0,
-      duration: 150, // Fast fade out
-      useNativeDriver: true, // Use native driver for performance
-    }).start(() => {
-      // After fading out, the theme has already changed from ThemeContext.js
-      // Now, fade back in
-      Animated.timing(fadeAnim, {
-        toValue: 1,
-        duration: 150, // Fast fade in
-        useNativeDriver: true,
-      }).start();
-    });
-  }, [darkTheme, fadeAnim]); // Re-run animation when darkTheme changes
+  }, [authState.user, authState.isAuthenticated]);
 
   const pickImage = async () => {
     let result = await ImagePicker.launchImageLibraryAsync({
@@ -116,7 +73,10 @@ export default function MeScreen({ navigation }) {
       quality: 1,
     });
     if (!result.canceled) {
-      setProfileImage(result.assets[0].uri);
+      const newImageUri = result.assets[0].uri;
+      setProfileImage(newImageUri);
+      // Note: In a real app, you would upload this image to your backend,
+      // get the new URL, and then update the user profile
     }
   };
 
@@ -226,11 +186,8 @@ export default function MeScreen({ navigation }) {
               Change Photo
             </Text>
           </TouchableOpacity>
-          <Text style={[styles.nameText, { color: "#ffffff" }]}>
-            {username}
-          </Text>
-          <Text style={[styles.emailText, { color: lightPurple }]}>
-            {userEmail}
+          <Text style={[styles.greetingText, { color: "#ffffff" }]}>
+            {displayName}
           </Text>
         </View>
 
@@ -299,7 +256,10 @@ export default function MeScreen({ navigation }) {
                 Location & Currency
               </Text>
             </TouchableOpacity>
-            <View style={styles.row}>
+            <TouchableOpacity
+              style={styles.rowNoBorder}
+              onPress={() => setNotifications(!notifications)}
+            >
               <Text style={[styles.rowText, { color: textColor }]}>
                 Notifications
               </Text>
@@ -307,20 +267,8 @@ export default function MeScreen({ navigation }) {
                 value={notifications}
                 onValueChange={setNotifications}
                 trackColor={{ false: lightGrey, true: primaryColor }}
-                thumbColor={darkTheme ? lightGrey : "#fff"}
+                thumbColor="#fff"
                 ios_backgroundColor={lightGrey}
-              />
-            </View>
-
-            {/* NEW THEME TOGGLE ROW */}
-            <TouchableOpacity style={styles.rowNoBorder} onPress={toggleTheme}>
-              <Text style={[styles.rowText, { color: textColor }]}>
-                {darkTheme ? "Light Mode" : "Dark Mode"}
-              </Text>
-              <Icon
-                name={darkTheme ? "sunny" : "moon"}
-                size={24}
-                color={darkTheme ? "gold" : primaryColor}
               />
             </TouchableOpacity>
           </View>
@@ -482,13 +430,11 @@ const styles = StyleSheet.create({
     fontSize: 14,
     fontWeight: "bold",
   },
-  nameText: {
-    fontSize: 24,
+  greetingText: {
+    fontSize: 26,
     fontWeight: "bold",
-    marginBottom: 2,
-  },
-  emailText: {
-    fontSize: 16,
+    marginBottom: 5,
+    textAlign: "center",
   },
   sectionGroup: {
     width: "90%",

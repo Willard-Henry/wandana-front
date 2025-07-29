@@ -7,10 +7,8 @@ import React, {
   useCallback,
 } from "react";
 import AsyncStorage from "@react-native-async-storage/async-storage";
-// Import your API functions. We'll update `api.js` to export a default instance later.
 import { login as apiLogin, signup as apiSignup } from "../api";
-// Also import the api instance itself if you want to set the logout handler on it
-import api from "../api"; // Assuming api.js now exports default 'api' instance
+import api from "../api";
 
 // Create the AuthContext
 export const AuthContext = createContext(null);
@@ -53,6 +51,24 @@ export const AuthProvider = ({ children }) => {
       });
     } finally {
       setLoading(false);
+    }
+  }, []);
+
+  // Function to update user in context and AsyncStorage
+  const updateUserInContext = useCallback(async (updatedUser) => {
+    try {
+      // Update AsyncStorage
+      await AsyncStorage.setItem("user", JSON.stringify(updatedUser));
+
+      // Update context state
+      setAuthState((prevState) => ({
+        ...prevState,
+        user: updatedUser,
+      }));
+
+      console.log("User updated in context and AsyncStorage:", updatedUser);
+    } catch (error) {
+      console.error("Failed to update user in context:", error);
     }
   }, []);
 
@@ -108,7 +124,6 @@ export const AuthProvider = ({ children }) => {
       isAuthenticated: false,
       user: null,
     });
-    // NO NEED to directly navigate here. App.js will re-render based on authState.isAuthenticated
   }, []);
 
   // Signup function
@@ -146,14 +161,12 @@ export const AuthProvider = ({ children }) => {
   }, []);
 
   // Set the logout function on the imported 'api' instance
-  // This allows the axios interceptor in api.js to call AuthContext's logout
   useEffect(() => {
     api.setLogoutHandler(logout);
-    // Cleanup if component unmounts (though for AuthProvider, it rarely does)
     return () => {
       api.setLogoutHandler(null);
     };
-  }, [logout]); // Depend on 'logout' to re-set if it changes (though useCallback should prevent this)
+  }, [logout]);
 
   // Run checkAuthStatus on component mount
   useEffect(() => {
@@ -162,7 +175,15 @@ export const AuthProvider = ({ children }) => {
 
   return (
     <AuthContext.Provider
-      value={{ authState, login, logout, signup, checkAuthStatus, loading }}
+      value={{
+        authState,
+        login,
+        logout,
+        signup,
+        checkAuthStatus,
+        updateUserInContext,
+        loading,
+      }}
     >
       {children}
     </AuthContext.Provider>
