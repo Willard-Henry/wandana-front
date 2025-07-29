@@ -1308,8 +1308,8 @@ const PRODUCTS = [
     name: {
       en: "Kids Sneakers Blue",
       tw: "mmofra sneakers blue",
-      ga: "Gbekɛbii Sneakers Blue",
-      ewe: "Ɖeviwo Sneakers Blue",
+      ga: "Kids Sneakers Blue",
+      ewe: "Kids Sneakers Blue",
     },
     category: {
       en: "Child",
@@ -1339,8 +1339,8 @@ const PRODUCTS = [
     name: {
       en: "Kids Footwear Black",
       tw: "mmofra anan ntoma tuntum",
-      ga: "Gbekɛbii footwear Black",
-      ewe: "Ɖeviwo footwear Black",
+      ga: "Kids footwear Black",
+      ewe: "Kids footwear Black",
     },
     category: {
       en: "Child",
@@ -1370,8 +1370,8 @@ const PRODUCTS = [
     name: {
       en: "Kids Casual Shoes",
       tw: "mmofra efie anan ntoma",
-      ga: "Gbekɛbii efie Shoes",
-      ewe: "Ɖeviwo efie Shoes",
+      ga: "Kids efie Shoes",
+      ewe: "Kids efie Shoes",
     },
     category: {
       en: "Child",
@@ -1401,8 +1401,8 @@ const PRODUCTS = [
     name: {
       en: "Kids Sneaker White",
       tw: "mmofra sneaker fitaa",
-      ga: "Gbekɛbii Sneaker White",
-      ewe: "Ɖeviwo Sneaker White",
+      ga: "Kids Sneaker White",
+      ewe: "Kids Sneaker White",
     },
     category: {
       en: "Child",
@@ -1432,8 +1432,8 @@ const PRODUCTS = [
     name: {
       en: "Kids Bright Sneakers",
       tw: "mmofra hyeren sneakers",
-      ga: "Gbekɛbii Bright Sneakers",
-      ewe: "Ɖeviwo Bright Sneakers",
+      ga: "Kids Bright Sneakers",
+      ewe: "Kids Bright Sneakers",
     },
     category: {
       en: "Child",
@@ -1463,8 +1463,8 @@ const PRODUCTS = [
     name: {
       en: "Kids Low-cut Shoe",
       tw: "mmofra ase anan ntoma",
-      ga: "Gbekɛbii Low-cut Shoe",
-      ewe: "Ɖeviwo Low-cut Shoe",
+      ga: "Kids Low-cut Shoe",
+      ewe: "Kids Low-cut Shoe",
     },
     category: {
       en: "Child",
@@ -1494,8 +1494,8 @@ const PRODUCTS = [
     name: {
       en: "Kids Slip-On Footwear",
       tw: "mmofra Slip-On anan ntoma",
-      ga: "Gbekɛbii Slip-On footwear",
-      ewe: "Ɖeviwo Slip-On footwear",
+      ga: "Kids Slip-On footwear",
+      ewe: "Kids Slip-On footwear",
     },
     category: {
       en: "Child",
@@ -1618,8 +1618,8 @@ const PRODUCTS = [
     name: {
       en: "Kids Tee Casual Small",
       tw: "mmofra tee efie ketewa",
-      ga: "Gbekɛbii Tee efie Small",
-      ewe: "Ɖeviwo Tee efie Small",
+      ga: "Kids Tee efie Small",
+      ewe: "Kids Tee efie Small",
     },
     category: {
       en: "Child",
@@ -1649,8 +1649,8 @@ const PRODUCTS = [
     name: {
       en: "Kids Shirt Casual Small",
       tw: "mmofra ataaadeɛ efie ketewa",
-      ga: "Gbekɛbii atale efie Small",
-      ewe: "Ɖeviwo awu efie Small",
+      ga: "Kids atale efie Small",
+      ewe: "Kids awu efie Small",
     },
     category: {
       en: "Child",
@@ -1680,8 +1680,8 @@ const PRODUCTS = [
     name: {
       en: "Kids Polo Casual Small",
       tw: "mmofra Polo efie ketewa",
-      ga: "Gbekɛbii Polo efie Small",
-      ewe: "Ɖeviwo Polo efie Small",
+      ga: "Kids Polo efie Small",
+      ewe: "Kids Polo efie Small",
     },
     category: {
       en: "Child",
@@ -1711,8 +1711,8 @@ const PRODUCTS = [
     name: {
       en: "Kids Casual Top Small",
       tw: "mmofra efie soro ketewa",
-      ga: "Gbekɛbii efie Top Small",
-      ewe: "Ɖeviwo efie Top Small",
+      ga: "Kids efie Top Small",
+      ewe: "Kids efie Top Small",
     },
     category: {
       en: "Child",
@@ -1742,8 +1742,8 @@ const PRODUCTS = [
     name: {
       en: "Kids Bright Tee Small",
       tw: "mmofra hyeren tee ketewa",
-      ga: "Gbekɛbii Bright Tee Small",
-      ewe: "Ɖeviwo Bright Tee Small",
+      ga: "Kids Bright Tee Small",
+      ewe: "Kids Bright Tee Small",
     },
     category: {
       en: "Child",
@@ -1773,8 +1773,8 @@ const PRODUCTS = [
     name: {
       en: "Kids Beachwear Yellow",
       tw: "mmofra mpoano ntoma kɔkɔɔ",
-      ga: "Gbekɛbii Beachwear Yellow",
-      ewe: "Ɖeviwo Beachwear Yellow",
+      ga: "Kids Beachwear Yellow",
+      ewe: "Kids Beachwear Yellow",
     },
     category: {
       en: "Child",
@@ -1804,8 +1804,8 @@ const PRODUCTS = [
     name: {
       en: "Kids Swimwear Blue",
       tw: "mmofra nsu mu ntoma bruu",
-      ga: "Gbekɛbii Swimwear Blue",
-      ewe: "Ɖeviwo Swimwear Blue",
+      ga: "Kids Swimwear Blue",
+      ewe: "Kids Swimwear Blue",
     },
     category: {
       en: "Child",
@@ -1835,8 +1835,8 @@ const PRODUCTS = [
     name: {
       en: "Kids Beach Shorts",
       tw: "mmofra mpoano shorts",
-      ga: "Gbekɛbii Beach Shorts",
-      ewe: "Ɖeviwo Beach Shorts",
+      ga: "Kids Beach Shorts",
+      ewe: "Kids Beach Shorts",
     },
     category: {
       en: "Child",
@@ -1866,8 +1866,8 @@ const PRODUCTS = [
     name: {
       en: "Kids Beachwear Set",
       tw: "mmofra mpoano ntoma set",
-      ga: "Gbekɛbii Beachwear Set",
-      ewe: "Ɖeviwo Beachwear Set",
+      ga: "Kids Beachwear Set",
+      ewe: "Kids Beachwear Set",
     },
     category: {
       en: "Child",
@@ -1897,8 +1897,8 @@ const PRODUCTS = [
     name: {
       en: "Kids Casual Tee",
       tw: "mmofra efie tee",
-      ga: "Gbekɛbii efie Tee",
-      ewe: "Ɖeviwo efie Tee",
+      ga: "Kids efie Tee",
+      ewe: "Kids efie Tee",
     },
     category: {
       en: "Child",
