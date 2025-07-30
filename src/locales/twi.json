@@ -53,7 +53,6 @@
     "networkErrorTitle": "Ntontoɔ",
     "networkErrorMessage": "Wɔn nya nkɔmɔ. Sɔ bio akyire."
   },
-
   "common": {
     "hello": "Agoo",
     "welcome": "Akwaaba",
@@ -101,15 +100,14 @@
     "close": "To mu",
     "cancel": "Ko ekyir"
   },
-
   "meScreen": {
     "helloGuest": "Akwaaba Hɔho!",
     "guest": "Hɔho",
     "helloGreeting": "Akwaaba {{name}}!",
-    "changePhoto": "Sesa Mfonini",
+    "changePhoto": "Sesa Mfoni",
     "accountSection": "AKAWNTI",
-    "editProfile": "Boa Wo Krataa",
-    "changePassword": "Sesa Sɛsofo",
+    "editProfile": "Sesaa Wo Ho Asɛm",
+    "changePassword": "Sesaa Wo Ahyɛnsodeɛ",
     "manageAddresses": "Hwɛ Adrɛs",
     "languageSection": "KASA",
     "securityAndPrivacySection": "AHOBAMMƆ NE WO AHINTASƐM",

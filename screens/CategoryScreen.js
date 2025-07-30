@@ -19,7 +19,7 @@ const subcategories = {
     "Furniture",
   ],
   Men: [
-    "Men Casual",
+    "Casual",
     "Men Official",
     "Trousers",
     "Beachware",
@@ -36,8 +36,8 @@ const subcategories = {
     "Jewelry",
     "Footwear",
   ],
-  Kids: ["Casual dress", "Tops", "Footwear", "Bags", "Jewelry", "Beachwear"],
-  Curve: ["Casual dress", "Tops", "Footwear", "Bags", "Jewelry", "Beachwear"],
+  Kids: ["Casual", "Tops", "Footwear", "Bags", "Jewelry", "Beachware"],
+  // Curve: ["Casual dress", "Tops", "Footwear", "bags", "Jewelry", "Beachwear"],
   Home: ["Furniture", "Decor", "Kitchenware", "Bedding", "Lighting"],
 };
 
