@@ -15,13 +15,18 @@ import { deleteUserAccount } from "../api";
 import { useAuth } from "../context/AuthContext";
 import { CustomAlertContext } from "../context/CustomAlertContext";
 import Icon from "react-native-vector-icons/Ionicons";
+import { useTranslation } from "react-i18next";
+
 
 export default function MeScreen({ navigation }) {
   const { showAlert } = useContext(CustomAlertContext);
-  const { logout, authState, loading: authLoading } = useAuth(); // Destructure loading state from useAuth
+  const { logout, authState, loading: authLoading } = useAuth();
+
+  const { t } = useTranslation();
+  // Destructure loading state from useAuth
 
   const [profileImage, setProfileImage] = useState(null);
-  const [displayName, setDisplayName] = useState("Hello Guest!");
+  const [displayName, setDisplayName] = useState(t("me.helloGuest"));
   const [notifications, setNotifications] = useState(true);
 
   const fadeAnim = useRef(new Animated.Value(1)).current;
@@ -50,8 +55,8 @@ export default function MeScreen({ navigation }) {
       const name = user.firstName
         ? user.firstName.charAt(0).toUpperCase() + user.firstName.slice(1)
         : user.username
-        ? user.username.charAt(0).toUpperCase() + user.username.slice(1)
-        : "Guest"; // Fallback to "Guest" if neither is available
+          ? user.username.charAt(0).toUpperCase() + user.username.slice(1)
+          : "Guest"; // Fallback to "Guest" if neither is available
       setDisplayName(`Hello ${name}!`);
 
       if (user.profileImageUrl) {
@@ -61,7 +66,7 @@ export default function MeScreen({ navigation }) {
       }
     } else if (!authLoading) {
       // Only set to "Guest" if not currently loading auth state
-      setDisplayName("Hello Guest!");
+      setDisplayName(t("me.helloGuest"));
       setProfileImage(null);
     }
   }, [authState.user, authState.isAuthenticated, authLoading]); // Added authLoading to dependencies
@@ -84,8 +89,8 @@ export default function MeScreen({ navigation }) {
   };
 
   const handleLogout = async () => {
-    showAlert("Logout", "Are you sure you want to logout?", [
-      { text: "Cancel", style: "cancel" },
+    showAlert(t("me.logoutAlertTitle"), t("me.logoutAlertMessage"), [
+      { text: t("common.cancel"), style: t("common.cancel") },
       {
         text: "Logout",
         style: "destructive",
@@ -93,9 +98,9 @@ export default function MeScreen({ navigation }) {
           try {
             await logout();
           } catch (error) {
-            console.error("Logout error:", error);
-            showAlert("Logout Error", "Failed to log out. Please try again.", [
-              { text: "OK", style: "primary" },
+            console.error(t("me.logoutErrorTitle"), error);
+            showAlert(t("me.logoutErrorTitle"), t("me.logErrorMessage"), [
+              { text: t("common.ok"), style: "primary" },
             ]);
           }
         },
@@ -105,23 +110,23 @@ export default function MeScreen({ navigation }) {
 
   const handleDeleteAccount = async () => {
     showAlert(
-      "Delete Account",
-      "Are you sure you want to delete your account? This action cannot be undone.",
+      t('me.deleteAccount'),
+      t("me.deleteAccountAlertMessage"),
       [
-        { text: "Cancel", style: "cancel" },
+        { text: t("common.ok"), style: "cancel" },
         {
-          text: "Delete",
+          text: t("me.deleteButton"),
           style: "destructive",
           onPress: async () => {
             try {
               const result = await deleteUserAccount();
               if (result.success) {
                 showAlert(
-                  "Account Deleted",
-                  "Your account has been successfully deleted.",
+                  t('me.accountDeletedTitle'),
+                  t("me.accountDeletedMessage"),
                   [
                     {
-                      text: "OK",
+                      text: t("common.ok"),
                       style: "primary",
                       onPress: async () => {
                         await logout();
@@ -131,15 +136,15 @@ export default function MeScreen({ navigation }) {
                 );
               } else {
                 showAlert(
-                  "Deletion Failed",
-                  result.message || "Could not delete account at this time.",
+                  t("me.deletionFailedTitle"),
+                  result.message || t("me.deletionFailedMessage"),
                   [{ text: "OK", style: "primary" }]
                 );
               }
             } catch (error) {
               console.error("Delete account error:", error);
               showAlert(
-                "Deletion Error",
+                t("me.deletionErrorTitle"),
                 "Failed to delete account. Please try again.",
                 [{ text: "OK", style: "primary" }]
               );
@@ -186,7 +191,7 @@ export default function MeScreen({ navigation }) {
               </View>
             )}
             <Text style={[styles.changePhoto, { color: lightPurple }]}>
-              Change Photo
+              {t("meScreen.changePhoto")}
             </Text>
           </TouchableOpacity>
           <Text style={[styles.greetingText, { color: "#ffffff" }]}>
@@ -197,7 +202,7 @@ export default function MeScreen({ navigation }) {
         {/* ACCOUNT Section */}
         <View style={styles.sectionGroup}>
           <Text style={[styles.sectionHeader, { color: sectionHeaderColor }]}>
-            ACCOUNT
+            {t("meScreen.accountSection")}
           </Text>
           <View
             style={[
@@ -210,7 +215,7 @@ export default function MeScreen({ navigation }) {
               onPress={() => navigation.navigate("EditProfile")}
             >
               <Text style={[styles.rowText, { color: textColor }]}>
-                Edit Profile
+                {t("meScreen.editProfile")}
               </Text>
             </TouchableOpacity>
             <TouchableOpacity
@@ -218,7 +223,7 @@ export default function MeScreen({ navigation }) {
               onPress={() => navigation.navigate("ChangePassword")}
             >
               <Text style={[styles.rowText, { color: textColor }]}>
-                Change Password
+                {t("meScreen.changePassword")}
               </Text>
             </TouchableOpacity>
             <TouchableOpacity
@@ -226,7 +231,7 @@ export default function MeScreen({ navigation }) {
               onPress={() => navigation.navigate("ManageAddresses")}
             >
               <Text style={[styles.rowText, { color: textColor }]}>
-                Manage Addresses
+                {t("meScreen.manageAddresses")}
               </Text>
             </TouchableOpacity>
           </View>
@@ -235,7 +240,7 @@ export default function MeScreen({ navigation }) {
         {/* SECURITY & PRIVACY Section */}
         <View style={styles.sectionGroup}>
           <Text style={[styles.sectionHeader, { color: sectionHeaderColor }]}>
-            SECURITY & PRIVACY
+            {t("meScreen.securityAndPrivacySection")}
           </Text>
           <View
             style={[
@@ -248,11 +253,11 @@ export default function MeScreen({ navigation }) {
               onPress={() => navigation.navigate("PrivacySettings")}
             >
               <Text style={[styles.rowText, { color: textColor }]}>
-                Privacy Settings
+                {t("meScreen.privacySettings")}
               </Text>
             </TouchableOpacity>
             <TouchableOpacity style={styles.rowNoBorder} onPress={handleLogout}>
-              <Text style={[styles.rowText, { color: textColor }]}>Logout</Text>
+              <Text style={[styles.rowText, { color: textColor }]}>{t("meScreen.logoutAlertTitle")}</Text>
             </TouchableOpacity>
           </View>
         </View>
@@ -260,7 +265,7 @@ export default function MeScreen({ navigation }) {
         {/* SUPPORT Section */}
         <View style={styles.sectionGroup}>
           <Text style={[styles.sectionHeader, { color: sectionHeaderColor }]}>
-            SUPPORT
+            {t("meScreen.supportSection")}
           </Text>
           <View
             style={[
@@ -273,7 +278,7 @@ export default function MeScreen({ navigation }) {
               onPress={() => navigation.navigate("HelpCenter")}
             >
               <Text style={[styles.rowText, { color: textColor }]}>
-                Help Center
+                {t("meScreen.helpCenter")}
               </Text>
             </TouchableOpacity>
             <TouchableOpacity
@@ -281,7 +286,7 @@ export default function MeScreen({ navigation }) {
               onPress={() => navigation.navigate("ContactSupport")}
             >
               <Text style={[styles.rowText, { color: textColor }]}>
-                Contact Support
+                {t("meScreen.contactSupport")}
               </Text>
             </TouchableOpacity>
           </View>
@@ -290,7 +295,7 @@ export default function MeScreen({ navigation }) {
         {/* LEGAL Section */}
         <View style={styles.sectionGroup}>
           <Text style={[styles.sectionHeader, { color: sectionHeaderColor }]}>
-            LEGAL
+            {t("meScreen.legalSection")}
           </Text>
           <View
             style={[
@@ -303,14 +308,14 @@ export default function MeScreen({ navigation }) {
               onPress={() => navigation.navigate("TermsAndConditions")}
             >
               <Text style={[styles.rowText, { color: textColor }]}>
-                Terms & Conditions
+                {t("meScreen.termsAndConditions")}
               </Text>
             </TouchableOpacity>
             <TouchableOpacity
               style={styles.rowNoBorder}
               onPress={() => navigation.navigate("About")}
             >
-              <Text style={[styles.rowText, { color: textColor }]}>About</Text>
+              <Text style={[styles.rowText, { color: textColor }]}>{t("meScreen.about")}</Text>
             </TouchableOpacity>
           </View>
         </View>
@@ -318,7 +323,7 @@ export default function MeScreen({ navigation }) {
         {/* MORE Section */}
         <View style={styles.sectionGroup}>
           <Text style={[styles.sectionHeader, { color: sectionHeaderColor }]}>
-            MORE
+            {t("meScreen.moreSection")}
           </Text>
           <View
             style={[
@@ -328,7 +333,7 @@ export default function MeScreen({ navigation }) {
           >
             <TouchableOpacity style={styles.row} onPress={handleDeleteAccount}>
               <Text style={[styles.rowText, { color: dangerColor }]}>
-                Delete Account
+                {t("meScreen.deleteAccount")}
               </Text>
             </TouchableOpacity>
             <TouchableOpacity
@@ -336,7 +341,7 @@ export default function MeScreen({ navigation }) {
               onPress={() => navigation.navigate("InviteFriends")}
             >
               <Text style={[styles.rowText, { color: textColor }]}>
-                Invite Friends
+                {t("meScreen.inviteFriends")}
               </Text>
             </TouchableOpacity>
           </View>
