@@ -15,6 +15,8 @@ import { deleteUserAccount } from "../api";
 import { useAuth } from "../context/AuthContext";
 import { CustomAlertContext } from "../context/CustomAlertContext";
 import Icon from "react-native-vector-icons/Ionicons";
+import * as ImagePicker from "expo-image-picker";
+import AsyncStorage from "@react-native-async-storage/async-storage";
 
 export default function MeScreen({ navigation }) {
   const { showAlert } = useContext(CustomAlertContext);
@@ -42,6 +44,32 @@ export default function MeScreen({ navigation }) {
   const sectionHeaderColor = "#888888";
   const borderColor = "#e8e8e8";
 
+  // Load saved profile image on component mount
+  useEffect(() => {
+    loadSavedProfileImage();
+  }, []);
+
+  // Load saved profile image from AsyncStorage
+  const loadSavedProfileImage = async () => {
+    try {
+      const savedImage = await AsyncStorage.getItem("profileImage");
+      if (savedImage) {
+        setProfileImage(savedImage);
+      }
+    } catch (error) {
+      console.error("Error loading saved profile image:", error);
+    }
+  };
+
+  // Save profile image to AsyncStorage
+  const saveProfileImage = async (imageUri) => {
+    try {
+      await AsyncStorage.setItem("profileImage", imageUri);
+    } catch (error) {
+      console.error("Error saving profile image:", error);
+    }
+  };
+
   // Effect to update user data when authState changes
   useEffect(() => {
     if (authState.isAuthenticated && authState.user) {
@@ -67,20 +95,73 @@ export default function MeScreen({ navigation }) {
   }, [authState.user, authState.isAuthenticated, authLoading]); // Added authLoading to dependencies
 
   const pickImage = async () => {
-    let result = await ImagePicker.launchImageLibraryAsync({
-      mediaTypes: ImagePicker.MediaTypeOptions.Images,
-      allowsEditing: true,
-      aspect: [1, 1],
-      quality: 1,
-    });
-    if (!result.canceled) {
-      const newImageUri = result.assets[0].uri;
-      setProfileImage(newImageUri);
-      // NOTE: In a real app, you would upload this image to your backend,
-      // get the new URL, and then update the user profile
-      // For now, it updates locally but doesn't persist beyond app session.
-      // To persist, you'd integrate with updateUserProfile from api.js here.
+    try {
+      // Request permissions
+      const permissionResult =
+        await ImagePicker.requestMediaLibraryPermissionsAsync();
+
+      if (permissionResult.granted === false) {
+        Alert.alert(
+          "Permission Required",
+          "Permission to access camera roll is required to change profile picture.",
+          [{ text: "OK" }]
+        );
+        return;
+      }
+
+      // Launch image picker
+      const result = await ImagePicker.launchImageLibraryAsync({
+        mediaTypes: ImagePicker.MediaTypeOptions.Images,
+        allowsEditing: true,
+        aspect: [1, 1],
+        quality: 0.8, // Compress image to reduce size
+        base64: false, // Don't need base64 for file URI
+      });
+
+      if (!result.canceled && result.assets && result.assets.length > 0) {
+        const newImageUri = result.assets[0].uri;
+        setProfileImage(newImageUri);
+
+        // Save to AsyncStorage for persistence
+        await saveProfileImage(newImageUri);
+
+        // Optional: Upload to server if you have an upload endpoint
+        // await uploadProfileImage(newImageUri);
+
+        showAlert("Success", "Profile picture updated successfully!", [
+          { text: "OK", style: "primary" },
+        ]);
+      }
+    } catch (error) {
+      console.error("Error picking image:", error);
+      showAlert(
+        "Error",
+        "Failed to update profile picture. Please try again.",
+        [{ text: "OK", style: "primary" }]
+      );
     }
+  };
+
+  const clearProfileImage = async () => {
+    showAlert(
+      "Remove Photo",
+      "Are you sure you want to remove your profile picture?",
+      [
+        { text: "Cancel", style: "cancel" },
+        {
+          text: "Remove",
+          style: "destructive",
+          onPress: async () => {
+            setProfileImage(null);
+            try {
+              await AsyncStorage.removeItem("profileImage");
+            } catch (error) {
+              console.error("Error removing profile image:", error);
+            }
+          },
+        },
+      ]
+    );
   };
 
   const handleLogout = async () => {
@@ -164,6 +245,7 @@ export default function MeScreen({ navigation }) {
         >
           <TouchableOpacity
             onPress={pickImage}
+            onLongPress={profileImage ? clearProfileImage : undefined}
             style={styles.profileImageContainer}
           >
             {profileImage ? (
@@ -182,12 +264,22 @@ export default function MeScreen({ navigation }) {
                   },
                 ]}
               >
-                <Text style={{ fontSize: 40, color: primaryColor }}>+</Text>
+                <Icon name="camera" size={40} color={primaryColor} />
               </View>
             )}
             <Text style={[styles.changePhoto, { color: lightPurple }]}>
-              Change Photo
+              {profileImage ? "Change Photo" : "Add Photo"}
             </Text>
+            {profileImage && (
+              <Text
+                style={[
+                  styles.removePhoto,
+                  { color: lightPurple, fontSize: 12 },
+                ]}
+              >
+                Long press to remove
+              </Text>
+            )}
           </TouchableOpacity>
           <Text style={[styles.greetingText, { color: "#ffffff" }]}>
             {displayName}

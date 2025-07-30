@@ -1,4 +1,4 @@
-import React, { useState, useMemo } from "react";
+import React, { useState, useMemo, useContext } from "react";
 import { ImagePicker } from "expo-image-picker";
 import { Alert } from "react-native";
 import { View, Text, TouchableOpacity, ScrollView } from "react-native";

@@ -1,7 +1,7 @@
 // @Adam-Amingo @ndonkoh I am changing the SignupScreen to use the signup function from the API module.
 // This new format would help me implement my module better :) ~rycoe
 
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import {
   View,
   Text,
