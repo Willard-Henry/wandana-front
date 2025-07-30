@@ -18,7 +18,6 @@ const primaryColor = "#7f00ff"; // Vibrant Purple
 const lightPurple = "#f0e6ff"; // Very light purple for backgrounds
 const dangerColor = "#e74c3c"; // Red for destructive actions
 const successColor = "#2ecc71"; // Green for success messages
-const neutralColor = "#95a5a6"; // Grey for neutral actions
 
 export default function CustomAlert({
   isVisible,
@@ -51,7 +50,7 @@ export default function CustomAlert({
       case "default": // A standard, less prominent action
       default:
         return {
-          button: { backgroundColor: neutralColor },
+          button: { backgroundColor: primaryColor },
           text: { color: "#ffffff" }, // Or '#333333' for light background
         };
       case "cancel": // Usually a secondary, clear button

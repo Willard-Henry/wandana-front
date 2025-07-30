@@ -173,7 +173,7 @@ export default function MobileMoneyPaymentScreen() {
             handleSuccessfulPayment(response, response); // Pass response for consistency
             break;
           case "send_otp":
-          case "pay_offline": // Include pay_offline as it also needs OTP handling
+            // Include pay_offline as it also needs OTP handling
             handleOTPRequired(response, response); // Pass response for consistency
             break;
           case "failed":
@@ -183,6 +183,7 @@ export default function MobileMoneyPaymentScreen() {
             handleAbandonedPayment(response, response); // Pass response for consistency
             break;
           case "pending":
+          case "pay_offline":
             handlePendingPayment(response, response); // Pass response for consistency
             break;
           default:
@@ -290,15 +291,11 @@ export default function MobileMoneyPaymentScreen() {
       [
         {
           text: "OK",
-          onPress: () =>
-            navigation.navigate("SuccessScreen", {
-              orderId: orderId,
-              message:
-                "Payment is being processed. You will be notified once complete.",
-              amount: amount,
-              paymentMethod: "Mobile Money",
-              isPending: true,
-            }),
+          onPress: () => {
+            console.log(
+              "OK clicked on pending payment alert. Staying on current screen."
+            );
+          },
         },
       ]
     );

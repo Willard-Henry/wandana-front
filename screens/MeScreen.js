@@ -9,6 +9,7 @@ import {
   ScrollView,
   Platform,
   Animated,
+  Alert,
 } from "react-native";
 // Removed unused AsyncStorage import as AuthContext now handles persistence
 import { deleteUserAccount } from "../api";
